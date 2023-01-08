@@ -13,7 +13,7 @@ class Tree(object):
 class AstNodeClass(NodeMixin):  # Add Node feature
     def __init__(self, type, value=None, parent=None, children=None):
         self.type = type
-        if value:
+        if value != None:
             self.value = value
         self.parent = parent
         if children:
@@ -90,9 +90,12 @@ def p_EXP_logical_op(p):
     '''EXP : LOGICAL_OP'''
     # print("exp: ", p[1], p.lexpos(1))
     p[0] = p[1]
-def p_EXP_fun(p):                                                   # TODO: this
-    '''EXP : FUN_EXP
-           | FUN_CALL'''
+def p_EXP_fun_exp(p):
+    '''EXP : FUN_EXP'''
+    # print("exp: ", p[1], p.lexpos(1))
+    p[0] = p[1]
+def p_EXP_fun_call(p):
+    '''EXP : FUN_CALL'''
     # print("exp: ", p[1], p.lexpos(1))
     p[0] = p[1]
 def p_EXP_if(p):
@@ -261,33 +264,79 @@ def p_VARIABLE(p):
 def p_FUN_EXP(p):
     '''FUN_EXP : lpr fun_ FUN_IDs FUN_BODY rpr'''
     # print("FUN_EXP: ", p[1])
-def p_FUN_IDs(p):
-    '''FUN_IDs  : lpr rpr
-                | lpr ID_PLUS rpr'''
+    p[0] = AstNodeClass("fun")
+    p[3].parent = p[0]
+    p[4].parent = p[0]
+
+def p_FUN_IDs_no_id(p):
+    '''FUN_IDs  : lpr rpr'''
     # print("FUN_IDs: ", p[1])
-def p_ID_PLUS(p):
-    '''ID_PLUS  : id
-                | id ID_PLUS'''
+    p[0] = AstNodeClass("no_id")
+def p_FUN_IDs_ids(p):
+    '''FUN_IDs  : lpr ID_PLUS rpr'''
+    # print("FUN_IDs: ", p[1])
+    p[0] = AstNodeClass("ids", value=p[2])
+
+def p_ID_PLUS_one(p):
+    '''ID_PLUS  : id'''
     # print("ID_PLUS: ", p[1])
+    p[0] = [p[1]]
+def p_ID_PLUS_more(p):
+    '''ID_PLUS  : id ID_PLUS'''
+    # print("ID_PLUS: ", p[1])
+    p[0] = p[2] + [p[1]]
+
 def p_FUN_BODY(p):
     '''FUN_BODY  : EXP'''
     # print("FUN_BODY: ", p[1])
-def p_FUN_CALL(p):
-    '''FUN_CALL : lpr FUN_EXP rpr
-                | lpr FUN_EXP PARAM_PLUS rpr
-                | lpr FUN_NAME rpr
-                | lpr FUN_NAME PARAM_PLUS rpr'''
+    p[0] = p[1]
+
+def p_FUN_CALL_exp_no_param(p):
+    '''FUN_CALL : lpr FUN_EXP rpr'''
     # print("p_FUN_CALL: ", p[1])
+    p[0] = AstNodeClass("call_exp_no_param")
+    p[2].parent = p[0]
+def p_FUN_CALL_exp_params(p):
+    '''FUN_CALL : lpr FUN_EXP PARAM_PLUS rpr'''
+    # print("p_FUN_CALL: ", p[1])
+    p[0] = AstNodeClass("call_exp_params")
+    p[2].parent = p[0]
+    params = AstNodeClass("params")
+    for param in p[3]:
+        param.parent = params
+    params.parent = p[0]
+def p_FUN_CALL_name_no_param(p):
+    '''FUN_CALL : lpr FUN_NAME rpr'''
+    # print("p_FUN_CALL: ", p[1])
+    p[0] = AstNodeClass("call_name_no_param")
+    p[2].parent = p[0]
+def p_FUN_CALL_name_params(p):
+    '''FUN_CALL : lpr FUN_NAME PARAM_PLUS rpr'''
+    # print("p_FUN_CALL: ", p[1])
+    p[0] = AstNodeClass("call_name_params")
+    p[2].parent = p[0]
+    params = AstNodeClass("params")
+    for param in p[3]:
+        param.parent = params
+    params.parent = p[0]
+
 def p_PARAM(p):
     '''PARAM : EXP'''
     # print("p_PARAM: ", p[1])
-def p_PARAM_PLUS(p):
-    '''PARAM_PLUS   : PARAM
-                    | PARAM PARAM_PLUS'''
+    p[0] = p[1]
+def p_PARAM_PLUS_one(p):
+    '''PARAM_PLUS   : PARAM'''
     # print("p_PARAM_PLUS: ", p[1])
+    p[0] = [p[1]]
+def p_PARAM_PLUS_more(p):
+    '''PARAM_PLUS   : PARAM PARAM_PLUS'''
+    # print("p_PARAM_PLUS: ", p[1])
+    p[0] = p[2] + [p[1]]
+
 def p_FUN_NAME(p):
     '''FUN_NAME  : id'''
     # print("FUN_NAME: ", p[1])
+    p[0] = AstNodeClass("fun_name", value=p[1])
 
 def p_IF_EXP(p):
     '''IF_EXP : lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr'''
@@ -327,7 +376,7 @@ with open(sys.argv[1]) as f:
     s = f.read()
 # lexer = lex.lexer
 # lexer.input(s)
-result = parser.parse(s)
+parser.parse(s)
 print_tree(main_tree.root)
 
 
