@@ -11,134 +11,131 @@ Rule 5     STMT -> DEF_STMT
 Rule 6     STMT -> PRINT_STMT
 Rule 7     PRINT_STMT -> lpr print_num EXP rpr
 Rule 8     PRINT_STMT -> lpr print_bool EXP rpr
-Rule 9     EXP_PLUS -> EXP
-Rule 10    EXP_PLUS -> EXP EXP_PLUS
-Rule 11    EXP -> bool_
-Rule 12    EXP -> number
-Rule 13    EXP -> VARIABLE
-Rule 14    EXP -> NUM_OP
-Rule 15    EXP -> LOGICAL_OP
-Rule 16    EXP -> FUN_EXP
-Rule 17    EXP -> FUN_CALL
-Rule 18    EXP -> IF_EXP
-Rule 19    NUM_OP -> PLUS
-Rule 20    NUM_OP -> MINUS
-Rule 21    NUM_OP -> MULTIPLY
-Rule 22    NUM_OP -> DIVIDE
-Rule 23    NUM_OP -> MODULUS
-Rule 24    NUM_OP -> GREATER
-Rule 25    NUM_OP -> SMALLER
-Rule 26    NUM_OP -> EQUAL
-Rule 27    PLUS -> lpr plus EXP PLUS_EXP_PLUS rpr
-Rule 28    PLUS_EXP_PLUS -> EXP
-Rule 29    PLUS_EXP_PLUS -> EXP PLUS_EXP_PLUS
-Rule 30    MINUS -> lpr minus EXP EXP rpr
-Rule 31    MULTIPLY -> lpr mul EXP MUL_EXP_PLUS rpr
-Rule 32    MUL_EXP_PLUS -> EXP
-Rule 33    MUL_EXP_PLUS -> EXP MUL_EXP_PLUS
-Rule 34    DIVIDE -> lpr div EXP EXP rpr
-Rule 35    MODULUS -> lpr mod EXP EXP rpr
-Rule 36    GREATER -> lpr greater EXP EXP rpr
-Rule 37    SMALLER -> lpr smaller EXP EXP rpr
-Rule 38    EQUAL -> lpr equal EXP EQUAL_EXP_PLUS rpr
-Rule 39    EQUAL_EXP_PLUS -> EXP
-Rule 40    EQUAL_EXP_PLUS -> EXP EQUAL_EXP_PLUS
-Rule 41    LOGICAL_OP -> AND_OP
-Rule 42    LOGICAL_OP -> OR_OP
-Rule 43    LOGICAL_OP -> NOT_OP
-Rule 44    AND_OP -> lpr and EXP AND_EXP_PLUS rpr
-Rule 45    AND_EXP_PLUS -> EXP
-Rule 46    AND_EXP_PLUS -> EXP AND_EXP_PLUS
-Rule 47    OR_OP -> lpr or EXP OR_EXP_PLUS rpr
-Rule 48    OR_EXP_PLUS -> EXP
-Rule 49    OR_EXP_PLUS -> EXP OR_EXP_PLUS
-Rule 50    NOT_OP -> lpr not EXP rpr
-Rule 51    DEF_STMT -> lpr define VARIABLE EXP rpr
-Rule 52    VARIABLE -> id
-Rule 53    FUN_EXP -> lpr fun_ FUN_IDs FUN_BODY rpr
-Rule 54    FUN_IDs -> lpr rpr
-Rule 55    FUN_IDs -> lpr ID_PLUS rpr
-Rule 56    ID_PLUS -> id
-Rule 57    ID_PLUS -> id ID_PLUS
-Rule 58    FUN_BODY -> EXP
-Rule 59    FUN_CALL -> lpr FUN_EXP rpr
-Rule 60    FUN_CALL -> lpr FUN_EXP PARAM_PLUS rpr
-Rule 61    FUN_CALL -> lpr FUN_NAME rpr
-Rule 62    FUN_CALL -> lpr FUN_NAME PARAM_PLUS rpr
-Rule 63    PARAM -> EXP
-Rule 64    PARAM_PLUS -> PARAM
-Rule 65    PARAM_PLUS -> PARAM PARAM_PLUS
-Rule 66    FUN_NAME -> id
-Rule 67    IF_EXP -> lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
-Rule 68    TEST_EXP -> EXP
-Rule 69    THEN_EXP -> EXP
-Rule 70    ELSE_EXP -> EXP
+Rule 9     EXP -> bool_
+Rule 10    EXP -> number
+Rule 11    EXP -> VARIABLE
+Rule 12    EXP -> NUM_OP
+Rule 13    EXP -> LOGICAL_OP
+Rule 14    EXP -> FUN_EXP
+Rule 15    EXP -> FUN_CALL
+Rule 16    EXP -> IF_EXP
+Rule 17    NUM_OP -> PLUS
+Rule 18    NUM_OP -> MINUS
+Rule 19    NUM_OP -> MULTIPLY
+Rule 20    NUM_OP -> DIVIDE
+Rule 21    NUM_OP -> MODULUS
+Rule 22    NUM_OP -> GREATER
+Rule 23    NUM_OP -> SMALLER
+Rule 24    NUM_OP -> EQUAL
+Rule 25    PLUS -> lpr plus EXP PLUS_EXP_PLUS rpr
+Rule 26    PLUS_EXP_PLUS -> EXP
+Rule 27    PLUS_EXP_PLUS -> EXP PLUS_EXP_PLUS
+Rule 28    MINUS -> lpr minus EXP EXP rpr
+Rule 29    MULTIPLY -> lpr mul EXP MUL_EXP_PLUS rpr
+Rule 30    MUL_EXP_PLUS -> EXP
+Rule 31    MUL_EXP_PLUS -> EXP MUL_EXP_PLUS
+Rule 32    DIVIDE -> lpr div EXP EXP rpr
+Rule 33    MODULUS -> lpr mod EXP EXP rpr
+Rule 34    GREATER -> lpr greater EXP EXP rpr
+Rule 35    SMALLER -> lpr smaller EXP EXP rpr
+Rule 36    EQUAL -> lpr equal EXP EQUAL_EXP_PLUS rpr
+Rule 37    EQUAL_EXP_PLUS -> EXP
+Rule 38    EQUAL_EXP_PLUS -> EXP EQUAL_EXP_PLUS
+Rule 39    LOGICAL_OP -> AND_OP
+Rule 40    LOGICAL_OP -> OR_OP
+Rule 41    LOGICAL_OP -> NOT_OP
+Rule 42    AND_OP -> lpr and EXP AND_EXP_PLUS rpr
+Rule 43    AND_EXP_PLUS -> EXP
+Rule 44    AND_EXP_PLUS -> EXP AND_EXP_PLUS
+Rule 45    OR_OP -> lpr or EXP OR_EXP_PLUS rpr
+Rule 46    OR_EXP_PLUS -> EXP
+Rule 47    OR_EXP_PLUS -> EXP OR_EXP_PLUS
+Rule 48    NOT_OP -> lpr not EXP rpr
+Rule 49    DEF_STMT -> lpr define VARIABLE EXP rpr
+Rule 50    VARIABLE -> id
+Rule 51    FUN_EXP -> lpr fun_ FUN_IDs FUN_BODY rpr
+Rule 52    FUN_IDs -> lpr rpr
+Rule 53    FUN_IDs -> lpr ID_PLUS rpr
+Rule 54    ID_PLUS -> id
+Rule 55    ID_PLUS -> id ID_PLUS
+Rule 56    FUN_BODY -> EXP
+Rule 57    FUN_CALL -> lpr FUN_EXP rpr
+Rule 58    FUN_CALL -> lpr FUN_EXP PARAM_PLUS rpr
+Rule 59    FUN_CALL -> lpr FUN_NAME rpr
+Rule 60    FUN_CALL -> lpr FUN_NAME PARAM_PLUS rpr
+Rule 61    PARAM -> EXP
+Rule 62    PARAM_PLUS -> PARAM
+Rule 63    PARAM_PLUS -> PARAM PARAM_PLUS
+Rule 64    FUN_NAME -> id
+Rule 65    IF_EXP -> lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
+Rule 66    TEST_EXP -> EXP
+Rule 67    THEN_EXP -> EXP
+Rule 68    ELSE_EXP -> EXP
 
 Terminals, with rules where they appear
 
-and                  : 44
-bool_                : 11
-define               : 51
-div                  : 34
-equal                : 38
+and                  : 42
+bool_                : 9
+define               : 49
+div                  : 32
+equal                : 36
 error                : 
-fun_                 : 53
-greater              : 36
-id                   : 52 56 57 66
-if_                  : 67
-lpr                  : 7 8 27 30 31 34 35 36 37 38 44 47 50 51 53 54 55 59 60 61 62 67
-minus                : 30
-mod                  : 35
-mul                  : 31
-not                  : 50
-number               : 12
-or                   : 47
-plus                 : 27
+fun_                 : 51
+greater              : 34
+id                   : 50 54 55 64
+if_                  : 65
+lpr                  : 7 8 25 28 29 32 33 34 35 36 42 45 48 49 51 52 53 57 58 59 60 65
+minus                : 28
+mod                  : 33
+mul                  : 29
+not                  : 48
+number               : 10
+or                   : 45
+plus                 : 25
 print_bool           : 8
 print_num            : 7
-rpr                  : 7 8 27 30 31 34 35 36 37 38 44 47 50 51 53 54 55 59 60 61 62 67
-smaller              : 37
+rpr                  : 7 8 25 28 29 32 33 34 35 36 42 45 48 49 51 52 53 57 58 59 60 65
+smaller              : 35
 
 Nonterminals, with rules where they appear
 
-AND_EXP_PLUS         : 44 46
-AND_OP               : 41
+AND_EXP_PLUS         : 42 44
+AND_OP               : 39
 DEF_STMT             : 5
-DIVIDE               : 22
-ELSE_EXP             : 67
-EQUAL                : 26
-EQUAL_EXP_PLUS       : 38 40
-EXP                  : 4 7 8 9 10 27 28 29 30 30 31 32 33 34 34 35 35 36 36 37 37 38 39 40 44 45 46 47 48 49 50 51 58 63 68 69 70
-EXP_PLUS             : 10
-FUN_BODY             : 53
-FUN_CALL             : 17
-FUN_EXP              : 16 59 60
-FUN_IDs              : 53
-FUN_NAME             : 61 62
-GREATER              : 24
-ID_PLUS              : 55 57
-IF_EXP               : 18
-LOGICAL_OP           : 15
-MINUS                : 20
-MODULUS              : 23
-MULTIPLY             : 21
-MUL_EXP_PLUS         : 31 33
-NOT_OP               : 43
-NUM_OP               : 14
-OR_EXP_PLUS          : 47 49
-OR_OP                : 42
-PARAM                : 64 65
-PARAM_PLUS           : 60 62 65
-PLUS                 : 19
-PLUS_EXP_PLUS        : 27 29
+DIVIDE               : 20
+ELSE_EXP             : 65
+EQUAL                : 24
+EQUAL_EXP_PLUS       : 36 38
+EXP                  : 4 7 8 25 26 27 28 28 29 30 31 32 32 33 33 34 34 35 35 36 37 38 42 43 44 45 46 47 48 49 56 61 66 67 68
+FUN_BODY             : 51
+FUN_CALL             : 15
+FUN_EXP              : 14 57 58
+FUN_IDs              : 51
+FUN_NAME             : 59 60
+GREATER              : 22
+ID_PLUS              : 53 55
+IF_EXP               : 16
+LOGICAL_OP           : 13
+MINUS                : 18
+MODULUS              : 21
+MULTIPLY             : 19
+MUL_EXP_PLUS         : 29 31
+NOT_OP               : 41
+NUM_OP               : 12
+OR_EXP_PLUS          : 45 47
+OR_OP                : 40
+PARAM                : 62 63
+PARAM_PLUS           : 58 60 63
+PLUS                 : 17
+PLUS_EXP_PLUS        : 25 27
 PRINT_STMT           : 6
 PROGRAM              : 0
-SMALLER              : 25
+SMALLER              : 23
 STMT                 : 2 3
 STMT_PLUS            : 1 3
-TEST_EXP             : 67
-THEN_EXP             : 67
-VARIABLE             : 13 51
+TEST_EXP             : 65
+THEN_EXP             : 65
+VARIABLE             : 11 49
 
 Parsing method: LALR
 
@@ -151,46 +148,46 @@ state 0
     (4) STMT -> . EXP
     (5) STMT -> . DEF_STMT
     (6) STMT -> . PRINT_STMT
-    (11) EXP -> . bool_
-    (12) EXP -> . number
-    (13) EXP -> . VARIABLE
-    (14) EXP -> . NUM_OP
-    (15) EXP -> . LOGICAL_OP
-    (16) EXP -> . FUN_EXP
-    (17) EXP -> . FUN_CALL
-    (18) EXP -> . IF_EXP
-    (51) DEF_STMT -> . lpr define VARIABLE EXP rpr
+    (9) EXP -> . bool_
+    (10) EXP -> . number
+    (11) EXP -> . VARIABLE
+    (12) EXP -> . NUM_OP
+    (13) EXP -> . LOGICAL_OP
+    (14) EXP -> . FUN_EXP
+    (15) EXP -> . FUN_CALL
+    (16) EXP -> . IF_EXP
+    (49) DEF_STMT -> . lpr define VARIABLE EXP rpr
     (7) PRINT_STMT -> . lpr print_num EXP rpr
     (8) PRINT_STMT -> . lpr print_bool EXP rpr
-    (52) VARIABLE -> . id
-    (19) NUM_OP -> . PLUS
-    (20) NUM_OP -> . MINUS
-    (21) NUM_OP -> . MULTIPLY
-    (22) NUM_OP -> . DIVIDE
-    (23) NUM_OP -> . MODULUS
-    (24) NUM_OP -> . GREATER
-    (25) NUM_OP -> . SMALLER
-    (26) NUM_OP -> . EQUAL
-    (41) LOGICAL_OP -> . AND_OP
-    (42) LOGICAL_OP -> . OR_OP
-    (43) LOGICAL_OP -> . NOT_OP
-    (53) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
-    (59) FUN_CALL -> . lpr FUN_EXP rpr
-    (60) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
-    (61) FUN_CALL -> . lpr FUN_NAME rpr
-    (62) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
-    (67) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
-    (27) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
-    (30) MINUS -> . lpr minus EXP EXP rpr
-    (31) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
-    (34) DIVIDE -> . lpr div EXP EXP rpr
-    (35) MODULUS -> . lpr mod EXP EXP rpr
-    (36) GREATER -> . lpr greater EXP EXP rpr
-    (37) SMALLER -> . lpr smaller EXP EXP rpr
-    (38) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
-    (44) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
-    (47) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
-    (50) NOT_OP -> . lpr not EXP rpr
+    (50) VARIABLE -> . id
+    (17) NUM_OP -> . PLUS
+    (18) NUM_OP -> . MINUS
+    (19) NUM_OP -> . MULTIPLY
+    (20) NUM_OP -> . DIVIDE
+    (21) NUM_OP -> . MODULUS
+    (22) NUM_OP -> . GREATER
+    (23) NUM_OP -> . SMALLER
+    (24) NUM_OP -> . EQUAL
+    (39) LOGICAL_OP -> . AND_OP
+    (40) LOGICAL_OP -> . OR_OP
+    (41) LOGICAL_OP -> . NOT_OP
+    (51) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
+    (57) FUN_CALL -> . lpr FUN_EXP rpr
+    (58) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
+    (59) FUN_CALL -> . lpr FUN_NAME rpr
+    (60) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
+    (65) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
+    (25) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
+    (28) MINUS -> . lpr minus EXP EXP rpr
+    (29) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
+    (32) DIVIDE -> . lpr div EXP EXP rpr
+    (33) MODULUS -> . lpr mod EXP EXP rpr
+    (34) GREATER -> . lpr greater EXP EXP rpr
+    (35) SMALLER -> . lpr smaller EXP EXP rpr
+    (36) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
+    (42) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
+    (45) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
+    (48) NOT_OP -> . lpr not EXP rpr
 
     bool_           shift and go to state 7
     number          shift and go to state 8
@@ -243,46 +240,46 @@ state 3
     (4) STMT -> . EXP
     (5) STMT -> . DEF_STMT
     (6) STMT -> . PRINT_STMT
-    (11) EXP -> . bool_
-    (12) EXP -> . number
-    (13) EXP -> . VARIABLE
-    (14) EXP -> . NUM_OP
-    (15) EXP -> . LOGICAL_OP
-    (16) EXP -> . FUN_EXP
-    (17) EXP -> . FUN_CALL
-    (18) EXP -> . IF_EXP
-    (51) DEF_STMT -> . lpr define VARIABLE EXP rpr
+    (9) EXP -> . bool_
+    (10) EXP -> . number
+    (11) EXP -> . VARIABLE
+    (12) EXP -> . NUM_OP
+    (13) EXP -> . LOGICAL_OP
+    (14) EXP -> . FUN_EXP
+    (15) EXP -> . FUN_CALL
+    (16) EXP -> . IF_EXP
+    (49) DEF_STMT -> . lpr define VARIABLE EXP rpr
     (7) PRINT_STMT -> . lpr print_num EXP rpr
     (8) PRINT_STMT -> . lpr print_bool EXP rpr
-    (52) VARIABLE -> . id
-    (19) NUM_OP -> . PLUS
-    (20) NUM_OP -> . MINUS
-    (21) NUM_OP -> . MULTIPLY
-    (22) NUM_OP -> . DIVIDE
-    (23) NUM_OP -> . MODULUS
-    (24) NUM_OP -> . GREATER
-    (25) NUM_OP -> . SMALLER
-    (26) NUM_OP -> . EQUAL
-    (41) LOGICAL_OP -> . AND_OP
-    (42) LOGICAL_OP -> . OR_OP
-    (43) LOGICAL_OP -> . NOT_OP
-    (53) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
-    (59) FUN_CALL -> . lpr FUN_EXP rpr
-    (60) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
-    (61) FUN_CALL -> . lpr FUN_NAME rpr
-    (62) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
-    (67) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
-    (27) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
-    (30) MINUS -> . lpr minus EXP EXP rpr
-    (31) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
-    (34) DIVIDE -> . lpr div EXP EXP rpr
-    (35) MODULUS -> . lpr mod EXP EXP rpr
-    (36) GREATER -> . lpr greater EXP EXP rpr
-    (37) SMALLER -> . lpr smaller EXP EXP rpr
-    (38) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
-    (44) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
-    (47) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
-    (50) NOT_OP -> . lpr not EXP rpr
+    (50) VARIABLE -> . id
+    (17) NUM_OP -> . PLUS
+    (18) NUM_OP -> . MINUS
+    (19) NUM_OP -> . MULTIPLY
+    (20) NUM_OP -> . DIVIDE
+    (21) NUM_OP -> . MODULUS
+    (22) NUM_OP -> . GREATER
+    (23) NUM_OP -> . SMALLER
+    (24) NUM_OP -> . EQUAL
+    (39) LOGICAL_OP -> . AND_OP
+    (40) LOGICAL_OP -> . OR_OP
+    (41) LOGICAL_OP -> . NOT_OP
+    (51) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
+    (57) FUN_CALL -> . lpr FUN_EXP rpr
+    (58) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
+    (59) FUN_CALL -> . lpr FUN_NAME rpr
+    (60) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
+    (65) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
+    (25) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
+    (28) MINUS -> . lpr minus EXP EXP rpr
+    (29) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
+    (32) DIVIDE -> . lpr div EXP EXP rpr
+    (33) MODULUS -> . lpr mod EXP EXP rpr
+    (34) GREATER -> . lpr greater EXP EXP rpr
+    (35) SMALLER -> . lpr smaller EXP EXP rpr
+    (36) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
+    (42) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
+    (45) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
+    (48) NOT_OP -> . lpr not EXP rpr
 
     $end            reduce using rule 2 (STMT_PLUS -> STMT .)
     bool_           shift and go to state 7
@@ -348,124 +345,124 @@ state 6
 
 state 7
 
-    (11) EXP -> bool_ .
+    (9) EXP -> bool_ .
 
-    bool_           reduce using rule 11 (EXP -> bool_ .)
-    number          reduce using rule 11 (EXP -> bool_ .)
-    lpr             reduce using rule 11 (EXP -> bool_ .)
-    id              reduce using rule 11 (EXP -> bool_ .)
-    $end            reduce using rule 11 (EXP -> bool_ .)
-    rpr             reduce using rule 11 (EXP -> bool_ .)
+    bool_           reduce using rule 9 (EXP -> bool_ .)
+    number          reduce using rule 9 (EXP -> bool_ .)
+    lpr             reduce using rule 9 (EXP -> bool_ .)
+    id              reduce using rule 9 (EXP -> bool_ .)
+    $end            reduce using rule 9 (EXP -> bool_ .)
+    rpr             reduce using rule 9 (EXP -> bool_ .)
 
 
 state 8
 
-    (12) EXP -> number .
+    (10) EXP -> number .
 
-    bool_           reduce using rule 12 (EXP -> number .)
-    number          reduce using rule 12 (EXP -> number .)
-    lpr             reduce using rule 12 (EXP -> number .)
-    id              reduce using rule 12 (EXP -> number .)
-    $end            reduce using rule 12 (EXP -> number .)
-    rpr             reduce using rule 12 (EXP -> number .)
+    bool_           reduce using rule 10 (EXP -> number .)
+    number          reduce using rule 10 (EXP -> number .)
+    lpr             reduce using rule 10 (EXP -> number .)
+    id              reduce using rule 10 (EXP -> number .)
+    $end            reduce using rule 10 (EXP -> number .)
+    rpr             reduce using rule 10 (EXP -> number .)
 
 
 state 9
 
-    (13) EXP -> VARIABLE .
+    (11) EXP -> VARIABLE .
 
-    bool_           reduce using rule 13 (EXP -> VARIABLE .)
-    number          reduce using rule 13 (EXP -> VARIABLE .)
-    lpr             reduce using rule 13 (EXP -> VARIABLE .)
-    id              reduce using rule 13 (EXP -> VARIABLE .)
-    $end            reduce using rule 13 (EXP -> VARIABLE .)
-    rpr             reduce using rule 13 (EXP -> VARIABLE .)
+    bool_           reduce using rule 11 (EXP -> VARIABLE .)
+    number          reduce using rule 11 (EXP -> VARIABLE .)
+    lpr             reduce using rule 11 (EXP -> VARIABLE .)
+    id              reduce using rule 11 (EXP -> VARIABLE .)
+    $end            reduce using rule 11 (EXP -> VARIABLE .)
+    rpr             reduce using rule 11 (EXP -> VARIABLE .)
 
 
 state 10
 
-    (14) EXP -> NUM_OP .
+    (12) EXP -> NUM_OP .
 
-    bool_           reduce using rule 14 (EXP -> NUM_OP .)
-    number          reduce using rule 14 (EXP -> NUM_OP .)
-    lpr             reduce using rule 14 (EXP -> NUM_OP .)
-    id              reduce using rule 14 (EXP -> NUM_OP .)
-    $end            reduce using rule 14 (EXP -> NUM_OP .)
-    rpr             reduce using rule 14 (EXP -> NUM_OP .)
+    bool_           reduce using rule 12 (EXP -> NUM_OP .)
+    number          reduce using rule 12 (EXP -> NUM_OP .)
+    lpr             reduce using rule 12 (EXP -> NUM_OP .)
+    id              reduce using rule 12 (EXP -> NUM_OP .)
+    $end            reduce using rule 12 (EXP -> NUM_OP .)
+    rpr             reduce using rule 12 (EXP -> NUM_OP .)
 
 
 state 11
 
-    (15) EXP -> LOGICAL_OP .
+    (13) EXP -> LOGICAL_OP .
 
-    bool_           reduce using rule 15 (EXP -> LOGICAL_OP .)
-    number          reduce using rule 15 (EXP -> LOGICAL_OP .)
-    lpr             reduce using rule 15 (EXP -> LOGICAL_OP .)
-    id              reduce using rule 15 (EXP -> LOGICAL_OP .)
-    $end            reduce using rule 15 (EXP -> LOGICAL_OP .)
-    rpr             reduce using rule 15 (EXP -> LOGICAL_OP .)
+    bool_           reduce using rule 13 (EXP -> LOGICAL_OP .)
+    number          reduce using rule 13 (EXP -> LOGICAL_OP .)
+    lpr             reduce using rule 13 (EXP -> LOGICAL_OP .)
+    id              reduce using rule 13 (EXP -> LOGICAL_OP .)
+    $end            reduce using rule 13 (EXP -> LOGICAL_OP .)
+    rpr             reduce using rule 13 (EXP -> LOGICAL_OP .)
 
 
 state 12
 
-    (16) EXP -> FUN_EXP .
+    (14) EXP -> FUN_EXP .
 
-    bool_           reduce using rule 16 (EXP -> FUN_EXP .)
-    number          reduce using rule 16 (EXP -> FUN_EXP .)
-    lpr             reduce using rule 16 (EXP -> FUN_EXP .)
-    id              reduce using rule 16 (EXP -> FUN_EXP .)
-    $end            reduce using rule 16 (EXP -> FUN_EXP .)
-    rpr             reduce using rule 16 (EXP -> FUN_EXP .)
+    bool_           reduce using rule 14 (EXP -> FUN_EXP .)
+    number          reduce using rule 14 (EXP -> FUN_EXP .)
+    lpr             reduce using rule 14 (EXP -> FUN_EXP .)
+    id              reduce using rule 14 (EXP -> FUN_EXP .)
+    $end            reduce using rule 14 (EXP -> FUN_EXP .)
+    rpr             reduce using rule 14 (EXP -> FUN_EXP .)
 
 
 state 13
 
-    (17) EXP -> FUN_CALL .
+    (15) EXP -> FUN_CALL .
 
-    bool_           reduce using rule 17 (EXP -> FUN_CALL .)
-    number          reduce using rule 17 (EXP -> FUN_CALL .)
-    lpr             reduce using rule 17 (EXP -> FUN_CALL .)
-    id              reduce using rule 17 (EXP -> FUN_CALL .)
-    $end            reduce using rule 17 (EXP -> FUN_CALL .)
-    rpr             reduce using rule 17 (EXP -> FUN_CALL .)
+    bool_           reduce using rule 15 (EXP -> FUN_CALL .)
+    number          reduce using rule 15 (EXP -> FUN_CALL .)
+    lpr             reduce using rule 15 (EXP -> FUN_CALL .)
+    id              reduce using rule 15 (EXP -> FUN_CALL .)
+    $end            reduce using rule 15 (EXP -> FUN_CALL .)
+    rpr             reduce using rule 15 (EXP -> FUN_CALL .)
 
 
 state 14
 
-    (18) EXP -> IF_EXP .
+    (16) EXP -> IF_EXP .
 
-    bool_           reduce using rule 18 (EXP -> IF_EXP .)
-    number          reduce using rule 18 (EXP -> IF_EXP .)
-    lpr             reduce using rule 18 (EXP -> IF_EXP .)
-    id              reduce using rule 18 (EXP -> IF_EXP .)
-    $end            reduce using rule 18 (EXP -> IF_EXP .)
-    rpr             reduce using rule 18 (EXP -> IF_EXP .)
+    bool_           reduce using rule 16 (EXP -> IF_EXP .)
+    number          reduce using rule 16 (EXP -> IF_EXP .)
+    lpr             reduce using rule 16 (EXP -> IF_EXP .)
+    id              reduce using rule 16 (EXP -> IF_EXP .)
+    $end            reduce using rule 16 (EXP -> IF_EXP .)
+    rpr             reduce using rule 16 (EXP -> IF_EXP .)
 
 
 state 15
 
-    (51) DEF_STMT -> lpr . define VARIABLE EXP rpr
+    (49) DEF_STMT -> lpr . define VARIABLE EXP rpr
     (7) PRINT_STMT -> lpr . print_num EXP rpr
     (8) PRINT_STMT -> lpr . print_bool EXP rpr
-    (53) FUN_EXP -> lpr . fun_ FUN_IDs FUN_BODY rpr
-    (59) FUN_CALL -> lpr . FUN_EXP rpr
-    (60) FUN_CALL -> lpr . FUN_EXP PARAM_PLUS rpr
-    (61) FUN_CALL -> lpr . FUN_NAME rpr
-    (62) FUN_CALL -> lpr . FUN_NAME PARAM_PLUS rpr
-    (67) IF_EXP -> lpr . if_ TEST_EXP THEN_EXP ELSE_EXP rpr
-    (27) PLUS -> lpr . plus EXP PLUS_EXP_PLUS rpr
-    (30) MINUS -> lpr . minus EXP EXP rpr
-    (31) MULTIPLY -> lpr . mul EXP MUL_EXP_PLUS rpr
-    (34) DIVIDE -> lpr . div EXP EXP rpr
-    (35) MODULUS -> lpr . mod EXP EXP rpr
-    (36) GREATER -> lpr . greater EXP EXP rpr
-    (37) SMALLER -> lpr . smaller EXP EXP rpr
-    (38) EQUAL -> lpr . equal EXP EQUAL_EXP_PLUS rpr
-    (44) AND_OP -> lpr . and EXP AND_EXP_PLUS rpr
-    (47) OR_OP -> lpr . or EXP OR_EXP_PLUS rpr
-    (50) NOT_OP -> lpr . not EXP rpr
-    (53) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
-    (66) FUN_NAME -> . id
+    (51) FUN_EXP -> lpr . fun_ FUN_IDs FUN_BODY rpr
+    (57) FUN_CALL -> lpr . FUN_EXP rpr
+    (58) FUN_CALL -> lpr . FUN_EXP PARAM_PLUS rpr
+    (59) FUN_CALL -> lpr . FUN_NAME rpr
+    (60) FUN_CALL -> lpr . FUN_NAME PARAM_PLUS rpr
+    (65) IF_EXP -> lpr . if_ TEST_EXP THEN_EXP ELSE_EXP rpr
+    (25) PLUS -> lpr . plus EXP PLUS_EXP_PLUS rpr
+    (28) MINUS -> lpr . minus EXP EXP rpr
+    (29) MULTIPLY -> lpr . mul EXP MUL_EXP_PLUS rpr
+    (32) DIVIDE -> lpr . div EXP EXP rpr
+    (33) MODULUS -> lpr . mod EXP EXP rpr
+    (34) GREATER -> lpr . greater EXP EXP rpr
+    (35) SMALLER -> lpr . smaller EXP EXP rpr
+    (36) EQUAL -> lpr . equal EXP EQUAL_EXP_PLUS rpr
+    (42) AND_OP -> lpr . and EXP AND_EXP_PLUS rpr
+    (45) OR_OP -> lpr . or EXP OR_EXP_PLUS rpr
+    (48) NOT_OP -> lpr . not EXP rpr
+    (51) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
+    (64) FUN_NAME -> . id
 
     define          shift and go to state 30
     print_num       shift and go to state 31
@@ -491,146 +488,146 @@ state 15
 
 state 16
 
-    (52) VARIABLE -> id .
+    (50) VARIABLE -> id .
 
-    bool_           reduce using rule 52 (VARIABLE -> id .)
-    number          reduce using rule 52 (VARIABLE -> id .)
-    lpr             reduce using rule 52 (VARIABLE -> id .)
-    id              reduce using rule 52 (VARIABLE -> id .)
-    $end            reduce using rule 52 (VARIABLE -> id .)
-    rpr             reduce using rule 52 (VARIABLE -> id .)
+    bool_           reduce using rule 50 (VARIABLE -> id .)
+    number          reduce using rule 50 (VARIABLE -> id .)
+    lpr             reduce using rule 50 (VARIABLE -> id .)
+    id              reduce using rule 50 (VARIABLE -> id .)
+    $end            reduce using rule 50 (VARIABLE -> id .)
+    rpr             reduce using rule 50 (VARIABLE -> id .)
 
 
 state 17
 
-    (19) NUM_OP -> PLUS .
+    (17) NUM_OP -> PLUS .
 
-    bool_           reduce using rule 19 (NUM_OP -> PLUS .)
-    number          reduce using rule 19 (NUM_OP -> PLUS .)
-    lpr             reduce using rule 19 (NUM_OP -> PLUS .)
-    id              reduce using rule 19 (NUM_OP -> PLUS .)
-    $end            reduce using rule 19 (NUM_OP -> PLUS .)
-    rpr             reduce using rule 19 (NUM_OP -> PLUS .)
+    bool_           reduce using rule 17 (NUM_OP -> PLUS .)
+    number          reduce using rule 17 (NUM_OP -> PLUS .)
+    lpr             reduce using rule 17 (NUM_OP -> PLUS .)
+    id              reduce using rule 17 (NUM_OP -> PLUS .)
+    $end            reduce using rule 17 (NUM_OP -> PLUS .)
+    rpr             reduce using rule 17 (NUM_OP -> PLUS .)
 
 
 state 18
 
-    (20) NUM_OP -> MINUS .
+    (18) NUM_OP -> MINUS .
 
-    bool_           reduce using rule 20 (NUM_OP -> MINUS .)
-    number          reduce using rule 20 (NUM_OP -> MINUS .)
-    lpr             reduce using rule 20 (NUM_OP -> MINUS .)
-    id              reduce using rule 20 (NUM_OP -> MINUS .)
-    $end            reduce using rule 20 (NUM_OP -> MINUS .)
-    rpr             reduce using rule 20 (NUM_OP -> MINUS .)
+    bool_           reduce using rule 18 (NUM_OP -> MINUS .)
+    number          reduce using rule 18 (NUM_OP -> MINUS .)
+    lpr             reduce using rule 18 (NUM_OP -> MINUS .)
+    id              reduce using rule 18 (NUM_OP -> MINUS .)
+    $end            reduce using rule 18 (NUM_OP -> MINUS .)
+    rpr             reduce using rule 18 (NUM_OP -> MINUS .)
 
 
 state 19
 
-    (21) NUM_OP -> MULTIPLY .
+    (19) NUM_OP -> MULTIPLY .
 
-    bool_           reduce using rule 21 (NUM_OP -> MULTIPLY .)
-    number          reduce using rule 21 (NUM_OP -> MULTIPLY .)
-    lpr             reduce using rule 21 (NUM_OP -> MULTIPLY .)
-    id              reduce using rule 21 (NUM_OP -> MULTIPLY .)
-    $end            reduce using rule 21 (NUM_OP -> MULTIPLY .)
-    rpr             reduce using rule 21 (NUM_OP -> MULTIPLY .)
+    bool_           reduce using rule 19 (NUM_OP -> MULTIPLY .)
+    number          reduce using rule 19 (NUM_OP -> MULTIPLY .)
+    lpr             reduce using rule 19 (NUM_OP -> MULTIPLY .)
+    id              reduce using rule 19 (NUM_OP -> MULTIPLY .)
+    $end            reduce using rule 19 (NUM_OP -> MULTIPLY .)
+    rpr             reduce using rule 19 (NUM_OP -> MULTIPLY .)
 
 
 state 20
 
-    (22) NUM_OP -> DIVIDE .
+    (20) NUM_OP -> DIVIDE .
 
-    bool_           reduce using rule 22 (NUM_OP -> DIVIDE .)
-    number          reduce using rule 22 (NUM_OP -> DIVIDE .)
-    lpr             reduce using rule 22 (NUM_OP -> DIVIDE .)
-    id              reduce using rule 22 (NUM_OP -> DIVIDE .)
-    $end            reduce using rule 22 (NUM_OP -> DIVIDE .)
-    rpr             reduce using rule 22 (NUM_OP -> DIVIDE .)
+    bool_           reduce using rule 20 (NUM_OP -> DIVIDE .)
+    number          reduce using rule 20 (NUM_OP -> DIVIDE .)
+    lpr             reduce using rule 20 (NUM_OP -> DIVIDE .)
+    id              reduce using rule 20 (NUM_OP -> DIVIDE .)
+    $end            reduce using rule 20 (NUM_OP -> DIVIDE .)
+    rpr             reduce using rule 20 (NUM_OP -> DIVIDE .)
 
 
 state 21
 
-    (23) NUM_OP -> MODULUS .
+    (21) NUM_OP -> MODULUS .
 
-    bool_           reduce using rule 23 (NUM_OP -> MODULUS .)
-    number          reduce using rule 23 (NUM_OP -> MODULUS .)
-    lpr             reduce using rule 23 (NUM_OP -> MODULUS .)
-    id              reduce using rule 23 (NUM_OP -> MODULUS .)
-    $end            reduce using rule 23 (NUM_OP -> MODULUS .)
-    rpr             reduce using rule 23 (NUM_OP -> MODULUS .)
+    bool_           reduce using rule 21 (NUM_OP -> MODULUS .)
+    number          reduce using rule 21 (NUM_OP -> MODULUS .)
+    lpr             reduce using rule 21 (NUM_OP -> MODULUS .)
+    id              reduce using rule 21 (NUM_OP -> MODULUS .)
+    $end            reduce using rule 21 (NUM_OP -> MODULUS .)
+    rpr             reduce using rule 21 (NUM_OP -> MODULUS .)
 
 
 state 22
 
-    (24) NUM_OP -> GREATER .
+    (22) NUM_OP -> GREATER .
 
-    bool_           reduce using rule 24 (NUM_OP -> GREATER .)
-    number          reduce using rule 24 (NUM_OP -> GREATER .)
-    lpr             reduce using rule 24 (NUM_OP -> GREATER .)
-    id              reduce using rule 24 (NUM_OP -> GREATER .)
-    $end            reduce using rule 24 (NUM_OP -> GREATER .)
-    rpr             reduce using rule 24 (NUM_OP -> GREATER .)
+    bool_           reduce using rule 22 (NUM_OP -> GREATER .)
+    number          reduce using rule 22 (NUM_OP -> GREATER .)
+    lpr             reduce using rule 22 (NUM_OP -> GREATER .)
+    id              reduce using rule 22 (NUM_OP -> GREATER .)
+    $end            reduce using rule 22 (NUM_OP -> GREATER .)
+    rpr             reduce using rule 22 (NUM_OP -> GREATER .)
 
 
 state 23
 
-    (25) NUM_OP -> SMALLER .
+    (23) NUM_OP -> SMALLER .
 
-    bool_           reduce using rule 25 (NUM_OP -> SMALLER .)
-    number          reduce using rule 25 (NUM_OP -> SMALLER .)
-    lpr             reduce using rule 25 (NUM_OP -> SMALLER .)
-    id              reduce using rule 25 (NUM_OP -> SMALLER .)
-    $end            reduce using rule 25 (NUM_OP -> SMALLER .)
-    rpr             reduce using rule 25 (NUM_OP -> SMALLER .)
+    bool_           reduce using rule 23 (NUM_OP -> SMALLER .)
+    number          reduce using rule 23 (NUM_OP -> SMALLER .)
+    lpr             reduce using rule 23 (NUM_OP -> SMALLER .)
+    id              reduce using rule 23 (NUM_OP -> SMALLER .)
+    $end            reduce using rule 23 (NUM_OP -> SMALLER .)
+    rpr             reduce using rule 23 (NUM_OP -> SMALLER .)
 
 
 state 24
 
-    (26) NUM_OP -> EQUAL .
+    (24) NUM_OP -> EQUAL .
 
-    bool_           reduce using rule 26 (NUM_OP -> EQUAL .)
-    number          reduce using rule 26 (NUM_OP -> EQUAL .)
-    lpr             reduce using rule 26 (NUM_OP -> EQUAL .)
-    id              reduce using rule 26 (NUM_OP -> EQUAL .)
-    $end            reduce using rule 26 (NUM_OP -> EQUAL .)
-    rpr             reduce using rule 26 (NUM_OP -> EQUAL .)
+    bool_           reduce using rule 24 (NUM_OP -> EQUAL .)
+    number          reduce using rule 24 (NUM_OP -> EQUAL .)
+    lpr             reduce using rule 24 (NUM_OP -> EQUAL .)
+    id              reduce using rule 24 (NUM_OP -> EQUAL .)
+    $end            reduce using rule 24 (NUM_OP -> EQUAL .)
+    rpr             reduce using rule 24 (NUM_OP -> EQUAL .)
 
 
 state 25
 
-    (41) LOGICAL_OP -> AND_OP .
+    (39) LOGICAL_OP -> AND_OP .
 
-    bool_           reduce using rule 41 (LOGICAL_OP -> AND_OP .)
-    number          reduce using rule 41 (LOGICAL_OP -> AND_OP .)
-    lpr             reduce using rule 41 (LOGICAL_OP -> AND_OP .)
-    id              reduce using rule 41 (LOGICAL_OP -> AND_OP .)
-    $end            reduce using rule 41 (LOGICAL_OP -> AND_OP .)
-    rpr             reduce using rule 41 (LOGICAL_OP -> AND_OP .)
+    bool_           reduce using rule 39 (LOGICAL_OP -> AND_OP .)
+    number          reduce using rule 39 (LOGICAL_OP -> AND_OP .)
+    lpr             reduce using rule 39 (LOGICAL_OP -> AND_OP .)
+    id              reduce using rule 39 (LOGICAL_OP -> AND_OP .)
+    $end            reduce using rule 39 (LOGICAL_OP -> AND_OP .)
+    rpr             reduce using rule 39 (LOGICAL_OP -> AND_OP .)
 
 
 state 26
 
-    (42) LOGICAL_OP -> OR_OP .
+    (40) LOGICAL_OP -> OR_OP .
 
-    bool_           reduce using rule 42 (LOGICAL_OP -> OR_OP .)
-    number          reduce using rule 42 (LOGICAL_OP -> OR_OP .)
-    lpr             reduce using rule 42 (LOGICAL_OP -> OR_OP .)
-    id              reduce using rule 42 (LOGICAL_OP -> OR_OP .)
-    $end            reduce using rule 42 (LOGICAL_OP -> OR_OP .)
-    rpr             reduce using rule 42 (LOGICAL_OP -> OR_OP .)
+    bool_           reduce using rule 40 (LOGICAL_OP -> OR_OP .)
+    number          reduce using rule 40 (LOGICAL_OP -> OR_OP .)
+    lpr             reduce using rule 40 (LOGICAL_OP -> OR_OP .)
+    id              reduce using rule 40 (LOGICAL_OP -> OR_OP .)
+    $end            reduce using rule 40 (LOGICAL_OP -> OR_OP .)
+    rpr             reduce using rule 40 (LOGICAL_OP -> OR_OP .)
 
 
 state 27
 
-    (43) LOGICAL_OP -> NOT_OP .
+    (41) LOGICAL_OP -> NOT_OP .
 
-    bool_           reduce using rule 43 (LOGICAL_OP -> NOT_OP .)
-    number          reduce using rule 43 (LOGICAL_OP -> NOT_OP .)
-    lpr             reduce using rule 43 (LOGICAL_OP -> NOT_OP .)
-    id              reduce using rule 43 (LOGICAL_OP -> NOT_OP .)
-    $end            reduce using rule 43 (LOGICAL_OP -> NOT_OP .)
-    rpr             reduce using rule 43 (LOGICAL_OP -> NOT_OP .)
+    bool_           reduce using rule 41 (LOGICAL_OP -> NOT_OP .)
+    number          reduce using rule 41 (LOGICAL_OP -> NOT_OP .)
+    lpr             reduce using rule 41 (LOGICAL_OP -> NOT_OP .)
+    id              reduce using rule 41 (LOGICAL_OP -> NOT_OP .)
+    $end            reduce using rule 41 (LOGICAL_OP -> NOT_OP .)
+    rpr             reduce using rule 41 (LOGICAL_OP -> NOT_OP .)
 
 
 state 28
@@ -642,15 +639,15 @@ state 28
 
 state 29
 
-    (53) FUN_EXP -> lpr . fun_ FUN_IDs FUN_BODY rpr
+    (51) FUN_EXP -> lpr . fun_ FUN_IDs FUN_BODY rpr
 
     fun_            shift and go to state 33
 
 
 state 30
 
-    (51) DEF_STMT -> lpr define . VARIABLE EXP rpr
-    (52) VARIABLE -> . id
+    (49) DEF_STMT -> lpr define . VARIABLE EXP rpr
+    (50) VARIABLE -> . id
 
     id              shift and go to state 16
 
@@ -659,43 +656,43 @@ state 30
 state 31
 
     (7) PRINT_STMT -> lpr print_num . EXP rpr
-    (11) EXP -> . bool_
-    (12) EXP -> . number
-    (13) EXP -> . VARIABLE
-    (14) EXP -> . NUM_OP
-    (15) EXP -> . LOGICAL_OP
-    (16) EXP -> . FUN_EXP
-    (17) EXP -> . FUN_CALL
-    (18) EXP -> . IF_EXP
-    (52) VARIABLE -> . id
-    (19) NUM_OP -> . PLUS
-    (20) NUM_OP -> . MINUS
-    (21) NUM_OP -> . MULTIPLY
-    (22) NUM_OP -> . DIVIDE
-    (23) NUM_OP -> . MODULUS
-    (24) NUM_OP -> . GREATER
-    (25) NUM_OP -> . SMALLER
-    (26) NUM_OP -> . EQUAL
-    (41) LOGICAL_OP -> . AND_OP
-    (42) LOGICAL_OP -> . OR_OP
-    (43) LOGICAL_OP -> . NOT_OP
-    (53) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
-    (59) FUN_CALL -> . lpr FUN_EXP rpr
-    (60) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
-    (61) FUN_CALL -> . lpr FUN_NAME rpr
-    (62) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
-    (67) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
-    (27) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
-    (30) MINUS -> . lpr minus EXP EXP rpr
-    (31) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
-    (34) DIVIDE -> . lpr div EXP EXP rpr
-    (35) MODULUS -> . lpr mod EXP EXP rpr
-    (36) GREATER -> . lpr greater EXP EXP rpr
-    (37) SMALLER -> . lpr smaller EXP EXP rpr
-    (38) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
-    (44) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
-    (47) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
-    (50) NOT_OP -> . lpr not EXP rpr
+    (9) EXP -> . bool_
+    (10) EXP -> . number
+    (11) EXP -> . VARIABLE
+    (12) EXP -> . NUM_OP
+    (13) EXP -> . LOGICAL_OP
+    (14) EXP -> . FUN_EXP
+    (15) EXP -> . FUN_CALL
+    (16) EXP -> . IF_EXP
+    (50) VARIABLE -> . id
+    (17) NUM_OP -> . PLUS
+    (18) NUM_OP -> . MINUS
+    (19) NUM_OP -> . MULTIPLY
+    (20) NUM_OP -> . DIVIDE
+    (21) NUM_OP -> . MODULUS
+    (22) NUM_OP -> . GREATER
+    (23) NUM_OP -> . SMALLER
+    (24) NUM_OP -> . EQUAL
+    (39) LOGICAL_OP -> . AND_OP
+    (40) LOGICAL_OP -> . OR_OP
+    (41) LOGICAL_OP -> . NOT_OP
+    (51) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
+    (57) FUN_CALL -> . lpr FUN_EXP rpr
+    (58) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
+    (59) FUN_CALL -> . lpr FUN_NAME rpr
+    (60) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
+    (65) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
+    (25) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
+    (28) MINUS -> . lpr minus EXP EXP rpr
+    (29) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
+    (32) DIVIDE -> . lpr div EXP EXP rpr
+    (33) MODULUS -> . lpr mod EXP EXP rpr
+    (34) GREATER -> . lpr greater EXP EXP rpr
+    (35) SMALLER -> . lpr smaller EXP EXP rpr
+    (36) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
+    (42) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
+    (45) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
+    (48) NOT_OP -> . lpr not EXP rpr
 
     bool_           shift and go to state 7
     number          shift and go to state 8
@@ -724,43 +721,43 @@ state 31
 state 32
 
     (8) PRINT_STMT -> lpr print_bool . EXP rpr
-    (11) EXP -> . bool_
-    (12) EXP -> . number
-    (13) EXP -> . VARIABLE
-    (14) EXP -> . NUM_OP
-    (15) EXP -> . LOGICAL_OP
-    (16) EXP -> . FUN_EXP
-    (17) EXP -> . FUN_CALL
-    (18) EXP -> . IF_EXP
-    (52) VARIABLE -> . id
-    (19) NUM_OP -> . PLUS
-    (20) NUM_OP -> . MINUS
-    (21) NUM_OP -> . MULTIPLY
-    (22) NUM_OP -> . DIVIDE
-    (23) NUM_OP -> . MODULUS
-    (24) NUM_OP -> . GREATER
-    (25) NUM_OP -> . SMALLER
-    (26) NUM_OP -> . EQUAL
-    (41) LOGICAL_OP -> . AND_OP
-    (42) LOGICAL_OP -> . OR_OP
-    (43) LOGICAL_OP -> . NOT_OP
-    (53) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
-    (59) FUN_CALL -> . lpr FUN_EXP rpr
-    (60) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
-    (61) FUN_CALL -> . lpr FUN_NAME rpr
-    (62) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
-    (67) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
-    (27) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
-    (30) MINUS -> . lpr minus EXP EXP rpr
-    (31) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
-    (34) DIVIDE -> . lpr div EXP EXP rpr
-    (35) MODULUS -> . lpr mod EXP EXP rpr
-    (36) GREATER -> . lpr greater EXP EXP rpr
-    (37) SMALLER -> . lpr smaller EXP EXP rpr
-    (38) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
-    (44) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
-    (47) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
-    (50) NOT_OP -> . lpr not EXP rpr
+    (9) EXP -> . bool_
+    (10) EXP -> . number
+    (11) EXP -> . VARIABLE
+    (12) EXP -> . NUM_OP
+    (13) EXP -> . LOGICAL_OP
+    (14) EXP -> . FUN_EXP
+    (15) EXP -> . FUN_CALL
+    (16) EXP -> . IF_EXP
+    (50) VARIABLE -> . id
+    (17) NUM_OP -> . PLUS
+    (18) NUM_OP -> . MINUS
+    (19) NUM_OP -> . MULTIPLY
+    (20) NUM_OP -> . DIVIDE
+    (21) NUM_OP -> . MODULUS
+    (22) NUM_OP -> . GREATER
+    (23) NUM_OP -> . SMALLER
+    (24) NUM_OP -> . EQUAL
+    (39) LOGICAL_OP -> . AND_OP
+    (40) LOGICAL_OP -> . OR_OP
+    (41) LOGICAL_OP -> . NOT_OP
+    (51) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
+    (57) FUN_CALL -> . lpr FUN_EXP rpr
+    (58) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
+    (59) FUN_CALL -> . lpr FUN_NAME rpr
+    (60) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
+    (65) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
+    (25) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
+    (28) MINUS -> . lpr minus EXP EXP rpr
+    (29) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
+    (32) DIVIDE -> . lpr div EXP EXP rpr
+    (33) MODULUS -> . lpr mod EXP EXP rpr
+    (34) GREATER -> . lpr greater EXP EXP rpr
+    (35) SMALLER -> . lpr smaller EXP EXP rpr
+    (36) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
+    (42) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
+    (45) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
+    (48) NOT_OP -> . lpr not EXP rpr
 
     bool_           shift and go to state 7
     number          shift and go to state 8
@@ -788,9 +785,9 @@ state 32
 
 state 33
 
-    (53) FUN_EXP -> lpr fun_ . FUN_IDs FUN_BODY rpr
-    (54) FUN_IDs -> . lpr rpr
-    (55) FUN_IDs -> . lpr ID_PLUS rpr
+    (51) FUN_EXP -> lpr fun_ . FUN_IDs FUN_BODY rpr
+    (52) FUN_IDs -> . lpr rpr
+    (53) FUN_IDs -> . lpr ID_PLUS rpr
 
     lpr             shift and go to state 53
 
@@ -798,48 +795,48 @@ state 33
 
 state 34
 
-    (59) FUN_CALL -> lpr FUN_EXP . rpr
-    (60) FUN_CALL -> lpr FUN_EXP . PARAM_PLUS rpr
-    (64) PARAM_PLUS -> . PARAM
-    (65) PARAM_PLUS -> . PARAM PARAM_PLUS
-    (63) PARAM -> . EXP
-    (11) EXP -> . bool_
-    (12) EXP -> . number
-    (13) EXP -> . VARIABLE
-    (14) EXP -> . NUM_OP
-    (15) EXP -> . LOGICAL_OP
-    (16) EXP -> . FUN_EXP
-    (17) EXP -> . FUN_CALL
-    (18) EXP -> . IF_EXP
-    (52) VARIABLE -> . id
-    (19) NUM_OP -> . PLUS
-    (20) NUM_OP -> . MINUS
-    (21) NUM_OP -> . MULTIPLY
-    (22) NUM_OP -> . DIVIDE
-    (23) NUM_OP -> . MODULUS
-    (24) NUM_OP -> . GREATER
-    (25) NUM_OP -> . SMALLER
-    (26) NUM_OP -> . EQUAL
-    (41) LOGICAL_OP -> . AND_OP
-    (42) LOGICAL_OP -> . OR_OP
-    (43) LOGICAL_OP -> . NOT_OP
-    (53) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
-    (59) FUN_CALL -> . lpr FUN_EXP rpr
-    (60) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
-    (61) FUN_CALL -> . lpr FUN_NAME rpr
-    (62) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
-    (67) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
-    (27) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
-    (30) MINUS -> . lpr minus EXP EXP rpr
-    (31) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
-    (34) DIVIDE -> . lpr div EXP EXP rpr
-    (35) MODULUS -> . lpr mod EXP EXP rpr
-    (36) GREATER -> . lpr greater EXP EXP rpr
-    (37) SMALLER -> . lpr smaller EXP EXP rpr
-    (38) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
-    (44) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
-    (47) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
-    (50) NOT_OP -> . lpr not EXP rpr
+    (57) FUN_CALL -> lpr FUN_EXP . rpr
+    (58) FUN_CALL -> lpr FUN_EXP . PARAM_PLUS rpr
+    (62) PARAM_PLUS -> . PARAM
+    (63) PARAM_PLUS -> . PARAM PARAM_PLUS
+    (61) PARAM -> . EXP
+    (9) EXP -> . bool_
+    (10) EXP -> . number
+    (11) EXP -> . VARIABLE
+    (12) EXP -> . NUM_OP
+    (13) EXP -> . LOGICAL_OP
+    (14) EXP -> . FUN_EXP
+    (15) EXP -> . FUN_CALL
+    (16) EXP -> . IF_EXP
+    (50) VARIABLE -> . id
+    (17) NUM_OP -> . PLUS
+    (18) NUM_OP -> . MINUS
+    (19) NUM_OP -> . MULTIPLY
+    (20) NUM_OP -> . DIVIDE
+    (21) NUM_OP -> . MODULUS
+    (22) NUM_OP -> . GREATER
+    (23) NUM_OP -> . SMALLER
+    (24) NUM_OP -> . EQUAL
+    (39) LOGICAL_OP -> . AND_OP
+    (40) LOGICAL_OP -> . OR_OP
+    (41) LOGICAL_OP -> . NOT_OP
+    (51) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
+    (57) FUN_CALL -> . lpr FUN_EXP rpr
+    (58) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
+    (59) FUN_CALL -> . lpr FUN_NAME rpr
+    (60) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
+    (65) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
+    (25) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
+    (28) MINUS -> . lpr minus EXP EXP rpr
+    (29) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
+    (32) DIVIDE -> . lpr div EXP EXP rpr
+    (33) MODULUS -> . lpr mod EXP EXP rpr
+    (34) GREATER -> . lpr greater EXP EXP rpr
+    (35) SMALLER -> . lpr smaller EXP EXP rpr
+    (36) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
+    (42) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
+    (45) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
+    (48) NOT_OP -> . lpr not EXP rpr
 
     rpr             shift and go to state 55
     bool_           shift and go to state 7
@@ -870,48 +867,48 @@ state 34
 
 state 35
 
-    (61) FUN_CALL -> lpr FUN_NAME . rpr
-    (62) FUN_CALL -> lpr FUN_NAME . PARAM_PLUS rpr
-    (64) PARAM_PLUS -> . PARAM
-    (65) PARAM_PLUS -> . PARAM PARAM_PLUS
-    (63) PARAM -> . EXP
-    (11) EXP -> . bool_
-    (12) EXP -> . number
-    (13) EXP -> . VARIABLE
-    (14) EXP -> . NUM_OP
-    (15) EXP -> . LOGICAL_OP
-    (16) EXP -> . FUN_EXP
-    (17) EXP -> . FUN_CALL
-    (18) EXP -> . IF_EXP
-    (52) VARIABLE -> . id
-    (19) NUM_OP -> . PLUS
-    (20) NUM_OP -> . MINUS
-    (21) NUM_OP -> . MULTIPLY
-    (22) NUM_OP -> . DIVIDE
-    (23) NUM_OP -> . MODULUS
-    (24) NUM_OP -> . GREATER
-    (25) NUM_OP -> . SMALLER
-    (26) NUM_OP -> . EQUAL
-    (41) LOGICAL_OP -> . AND_OP
-    (42) LOGICAL_OP -> . OR_OP
-    (43) LOGICAL_OP -> . NOT_OP
-    (53) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
-    (59) FUN_CALL -> . lpr FUN_EXP rpr
-    (60) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
-    (61) FUN_CALL -> . lpr FUN_NAME rpr
-    (62) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
-    (67) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
-    (27) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
-    (30) MINUS -> . lpr minus EXP EXP rpr
-    (31) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
-    (34) DIVIDE -> . lpr div EXP EXP rpr
-    (35) MODULUS -> . lpr mod EXP EXP rpr
-    (36) GREATER -> . lpr greater EXP EXP rpr
-    (37) SMALLER -> . lpr smaller EXP EXP rpr
-    (38) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
-    (44) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
-    (47) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
-    (50) NOT_OP -> . lpr not EXP rpr
+    (59) FUN_CALL -> lpr FUN_NAME . rpr
+    (60) FUN_CALL -> lpr FUN_NAME . PARAM_PLUS rpr
+    (62) PARAM_PLUS -> . PARAM
+    (63) PARAM_PLUS -> . PARAM PARAM_PLUS
+    (61) PARAM -> . EXP
+    (9) EXP -> . bool_
+    (10) EXP -> . number
+    (11) EXP -> . VARIABLE
+    (12) EXP -> . NUM_OP
+    (13) EXP -> . LOGICAL_OP
+    (14) EXP -> . FUN_EXP
+    (15) EXP -> . FUN_CALL
+    (16) EXP -> . IF_EXP
+    (50) VARIABLE -> . id
+    (17) NUM_OP -> . PLUS
+    (18) NUM_OP -> . MINUS
+    (19) NUM_OP -> . MULTIPLY
+    (20) NUM_OP -> . DIVIDE
+    (21) NUM_OP -> . MODULUS
+    (22) NUM_OP -> . GREATER
+    (23) NUM_OP -> . SMALLER
+    (24) NUM_OP -> . EQUAL
+    (39) LOGICAL_OP -> . AND_OP
+    (40) LOGICAL_OP -> . OR_OP
+    (41) LOGICAL_OP -> . NOT_OP
+    (51) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
+    (57) FUN_CALL -> . lpr FUN_EXP rpr
+    (58) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
+    (59) FUN_CALL -> . lpr FUN_NAME rpr
+    (60) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
+    (65) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
+    (25) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
+    (28) MINUS -> . lpr minus EXP EXP rpr
+    (29) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
+    (32) DIVIDE -> . lpr div EXP EXP rpr
+    (33) MODULUS -> . lpr mod EXP EXP rpr
+    (34) GREATER -> . lpr greater EXP EXP rpr
+    (35) SMALLER -> . lpr smaller EXP EXP rpr
+    (36) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
+    (42) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
+    (45) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
+    (48) NOT_OP -> . lpr not EXP rpr
 
     rpr             shift and go to state 59
     bool_           shift and go to state 7
@@ -942,45 +939,45 @@ state 35
 
 state 36
 
-    (67) IF_EXP -> lpr if_ . TEST_EXP THEN_EXP ELSE_EXP rpr
-    (68) TEST_EXP -> . EXP
-    (11) EXP -> . bool_
-    (12) EXP -> . number
-    (13) EXP -> . VARIABLE
-    (14) EXP -> . NUM_OP
-    (15) EXP -> . LOGICAL_OP
-    (16) EXP -> . FUN_EXP
-    (17) EXP -> . FUN_CALL
-    (18) EXP -> . IF_EXP
-    (52) VARIABLE -> . id
-    (19) NUM_OP -> . PLUS
-    (20) NUM_OP -> . MINUS
-    (21) NUM_OP -> . MULTIPLY
-    (22) NUM_OP -> . DIVIDE
-    (23) NUM_OP -> . MODULUS
-    (24) NUM_OP -> . GREATER
-    (25) NUM_OP -> . SMALLER
-    (26) NUM_OP -> . EQUAL
-    (41) LOGICAL_OP -> . AND_OP
-    (42) LOGICAL_OP -> . OR_OP
-    (43) LOGICAL_OP -> . NOT_OP
-    (53) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
-    (59) FUN_CALL -> . lpr FUN_EXP rpr
-    (60) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
-    (61) FUN_CALL -> . lpr FUN_NAME rpr
-    (62) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
-    (67) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
-    (27) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
-    (30) MINUS -> . lpr minus EXP EXP rpr
-    (31) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
-    (34) DIVIDE -> . lpr div EXP EXP rpr
-    (35) MODULUS -> . lpr mod EXP EXP rpr
-    (36) GREATER -> . lpr greater EXP EXP rpr
-    (37) SMALLER -> . lpr smaller EXP EXP rpr
-    (38) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
-    (44) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
-    (47) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
-    (50) NOT_OP -> . lpr not EXP rpr
+    (65) IF_EXP -> lpr if_ . TEST_EXP THEN_EXP ELSE_EXP rpr
+    (66) TEST_EXP -> . EXP
+    (9) EXP -> . bool_
+    (10) EXP -> . number
+    (11) EXP -> . VARIABLE
+    (12) EXP -> . NUM_OP
+    (13) EXP -> . LOGICAL_OP
+    (14) EXP -> . FUN_EXP
+    (15) EXP -> . FUN_CALL
+    (16) EXP -> . IF_EXP
+    (50) VARIABLE -> . id
+    (17) NUM_OP -> . PLUS
+    (18) NUM_OP -> . MINUS
+    (19) NUM_OP -> . MULTIPLY
+    (20) NUM_OP -> . DIVIDE
+    (21) NUM_OP -> . MODULUS
+    (22) NUM_OP -> . GREATER
+    (23) NUM_OP -> . SMALLER
+    (24) NUM_OP -> . EQUAL
+    (39) LOGICAL_OP -> . AND_OP
+    (40) LOGICAL_OP -> . OR_OP
+    (41) LOGICAL_OP -> . NOT_OP
+    (51) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
+    (57) FUN_CALL -> . lpr FUN_EXP rpr
+    (58) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
+    (59) FUN_CALL -> . lpr FUN_NAME rpr
+    (60) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
+    (65) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
+    (25) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
+    (28) MINUS -> . lpr minus EXP EXP rpr
+    (29) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
+    (32) DIVIDE -> . lpr div EXP EXP rpr
+    (33) MODULUS -> . lpr mod EXP EXP rpr
+    (34) GREATER -> . lpr greater EXP EXP rpr
+    (35) SMALLER -> . lpr smaller EXP EXP rpr
+    (36) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
+    (42) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
+    (45) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
+    (48) NOT_OP -> . lpr not EXP rpr
 
     bool_           shift and go to state 7
     number          shift and go to state 8
@@ -1009,44 +1006,44 @@ state 36
 
 state 37
 
-    (27) PLUS -> lpr plus . EXP PLUS_EXP_PLUS rpr
-    (11) EXP -> . bool_
-    (12) EXP -> . number
-    (13) EXP -> . VARIABLE
-    (14) EXP -> . NUM_OP
-    (15) EXP -> . LOGICAL_OP
-    (16) EXP -> . FUN_EXP
-    (17) EXP -> . FUN_CALL
-    (18) EXP -> . IF_EXP
-    (52) VARIABLE -> . id
-    (19) NUM_OP -> . PLUS
-    (20) NUM_OP -> . MINUS
-    (21) NUM_OP -> . MULTIPLY
-    (22) NUM_OP -> . DIVIDE
-    (23) NUM_OP -> . MODULUS
-    (24) NUM_OP -> . GREATER
-    (25) NUM_OP -> . SMALLER
-    (26) NUM_OP -> . EQUAL
-    (41) LOGICAL_OP -> . AND_OP
-    (42) LOGICAL_OP -> . OR_OP
-    (43) LOGICAL_OP -> . NOT_OP
-    (53) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
-    (59) FUN_CALL -> . lpr FUN_EXP rpr
-    (60) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
-    (61) FUN_CALL -> . lpr FUN_NAME rpr
-    (62) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
-    (67) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
-    (27) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
-    (30) MINUS -> . lpr minus EXP EXP rpr
-    (31) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
-    (34) DIVIDE -> . lpr div EXP EXP rpr
-    (35) MODULUS -> . lpr mod EXP EXP rpr
-    (36) GREATER -> . lpr greater EXP EXP rpr
-    (37) SMALLER -> . lpr smaller EXP EXP rpr
-    (38) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
-    (44) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
-    (47) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
-    (50) NOT_OP -> . lpr not EXP rpr
+    (25) PLUS -> lpr plus . EXP PLUS_EXP_PLUS rpr
+    (9) EXP -> . bool_
+    (10) EXP -> . number
+    (11) EXP -> . VARIABLE
+    (12) EXP -> . NUM_OP
+    (13) EXP -> . LOGICAL_OP
+    (14) EXP -> . FUN_EXP
+    (15) EXP -> . FUN_CALL
+    (16) EXP -> . IF_EXP
+    (50) VARIABLE -> . id
+    (17) NUM_OP -> . PLUS
+    (18) NUM_OP -> . MINUS
+    (19) NUM_OP -> . MULTIPLY
+    (20) NUM_OP -> . DIVIDE
+    (21) NUM_OP -> . MODULUS
+    (22) NUM_OP -> . GREATER
+    (23) NUM_OP -> . SMALLER
+    (24) NUM_OP -> . EQUAL
+    (39) LOGICAL_OP -> . AND_OP
+    (40) LOGICAL_OP -> . OR_OP
+    (41) LOGICAL_OP -> . NOT_OP
+    (51) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
+    (57) FUN_CALL -> . lpr FUN_EXP rpr
+    (58) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
+    (59) FUN_CALL -> . lpr FUN_NAME rpr
+    (60) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
+    (65) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
+    (25) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
+    (28) MINUS -> . lpr minus EXP EXP rpr
+    (29) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
+    (32) DIVIDE -> . lpr div EXP EXP rpr
+    (33) MODULUS -> . lpr mod EXP EXP rpr
+    (34) GREATER -> . lpr greater EXP EXP rpr
+    (35) SMALLER -> . lpr smaller EXP EXP rpr
+    (36) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
+    (42) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
+    (45) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
+    (48) NOT_OP -> . lpr not EXP rpr
 
     bool_           shift and go to state 7
     number          shift and go to state 8
@@ -1074,44 +1071,44 @@ state 37
 
 state 38
 
-    (30) MINUS -> lpr minus . EXP EXP rpr
-    (11) EXP -> . bool_
-    (12) EXP -> . number
-    (13) EXP -> . VARIABLE
-    (14) EXP -> . NUM_OP
-    (15) EXP -> . LOGICAL_OP
-    (16) EXP -> . FUN_EXP
-    (17) EXP -> . FUN_CALL
-    (18) EXP -> . IF_EXP
-    (52) VARIABLE -> . id
-    (19) NUM_OP -> . PLUS
-    (20) NUM_OP -> . MINUS
-    (21) NUM_OP -> . MULTIPLY
-    (22) NUM_OP -> . DIVIDE
-    (23) NUM_OP -> . MODULUS
-    (24) NUM_OP -> . GREATER
-    (25) NUM_OP -> . SMALLER
-    (26) NUM_OP -> . EQUAL
-    (41) LOGICAL_OP -> . AND_OP
-    (42) LOGICAL_OP -> . OR_OP
-    (43) LOGICAL_OP -> . NOT_OP
-    (53) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
-    (59) FUN_CALL -> . lpr FUN_EXP rpr
-    (60) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
-    (61) FUN_CALL -> . lpr FUN_NAME rpr
-    (62) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
-    (67) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
-    (27) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
-    (30) MINUS -> . lpr minus EXP EXP rpr
-    (31) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
-    (34) DIVIDE -> . lpr div EXP EXP rpr
-    (35) MODULUS -> . lpr mod EXP EXP rpr
-    (36) GREATER -> . lpr greater EXP EXP rpr
-    (37) SMALLER -> . lpr smaller EXP EXP rpr
-    (38) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
-    (44) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
-    (47) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
-    (50) NOT_OP -> . lpr not EXP rpr
+    (28) MINUS -> lpr minus . EXP EXP rpr
+    (9) EXP -> . bool_
+    (10) EXP -> . number
+    (11) EXP -> . VARIABLE
+    (12) EXP -> . NUM_OP
+    (13) EXP -> . LOGICAL_OP
+    (14) EXP -> . FUN_EXP
+    (15) EXP -> . FUN_CALL
+    (16) EXP -> . IF_EXP
+    (50) VARIABLE -> . id
+    (17) NUM_OP -> . PLUS
+    (18) NUM_OP -> . MINUS
+    (19) NUM_OP -> . MULTIPLY
+    (20) NUM_OP -> . DIVIDE
+    (21) NUM_OP -> . MODULUS
+    (22) NUM_OP -> . GREATER
+    (23) NUM_OP -> . SMALLER
+    (24) NUM_OP -> . EQUAL
+    (39) LOGICAL_OP -> . AND_OP
+    (40) LOGICAL_OP -> . OR_OP
+    (41) LOGICAL_OP -> . NOT_OP
+    (51) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
+    (57) FUN_CALL -> . lpr FUN_EXP rpr
+    (58) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
+    (59) FUN_CALL -> . lpr FUN_NAME rpr
+    (60) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
+    (65) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
+    (25) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
+    (28) MINUS -> . lpr minus EXP EXP rpr
+    (29) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
+    (32) DIVIDE -> . lpr div EXP EXP rpr
+    (33) MODULUS -> . lpr mod EXP EXP rpr
+    (34) GREATER -> . lpr greater EXP EXP rpr
+    (35) SMALLER -> . lpr smaller EXP EXP rpr
+    (36) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
+    (42) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
+    (45) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
+    (48) NOT_OP -> . lpr not EXP rpr
 
     bool_           shift and go to state 7
     number          shift and go to state 8
@@ -1139,44 +1136,44 @@ state 38
 
 state 39
 
-    (31) MULTIPLY -> lpr mul . EXP MUL_EXP_PLUS rpr
-    (11) EXP -> . bool_
-    (12) EXP -> . number
-    (13) EXP -> . VARIABLE
-    (14) EXP -> . NUM_OP
-    (15) EXP -> . LOGICAL_OP
-    (16) EXP -> . FUN_EXP
-    (17) EXP -> . FUN_CALL
-    (18) EXP -> . IF_EXP
-    (52) VARIABLE -> . id
-    (19) NUM_OP -> . PLUS
-    (20) NUM_OP -> . MINUS
-    (21) NUM_OP -> . MULTIPLY
-    (22) NUM_OP -> . DIVIDE
-    (23) NUM_OP -> . MODULUS
-    (24) NUM_OP -> . GREATER
-    (25) NUM_OP -> . SMALLER
-    (26) NUM_OP -> . EQUAL
-    (41) LOGICAL_OP -> . AND_OP
-    (42) LOGICAL_OP -> . OR_OP
-    (43) LOGICAL_OP -> . NOT_OP
-    (53) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
-    (59) FUN_CALL -> . lpr FUN_EXP rpr
-    (60) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
-    (61) FUN_CALL -> . lpr FUN_NAME rpr
-    (62) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
-    (67) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
-    (27) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
-    (30) MINUS -> . lpr minus EXP EXP rpr
-    (31) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
-    (34) DIVIDE -> . lpr div EXP EXP rpr
-    (35) MODULUS -> . lpr mod EXP EXP rpr
-    (36) GREATER -> . lpr greater EXP EXP rpr
-    (37) SMALLER -> . lpr smaller EXP EXP rpr
-    (38) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
-    (44) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
-    (47) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
-    (50) NOT_OP -> . lpr not EXP rpr
+    (29) MULTIPLY -> lpr mul . EXP MUL_EXP_PLUS rpr
+    (9) EXP -> . bool_
+    (10) EXP -> . number
+    (11) EXP -> . VARIABLE
+    (12) EXP -> . NUM_OP
+    (13) EXP -> . LOGICAL_OP
+    (14) EXP -> . FUN_EXP
+    (15) EXP -> . FUN_CALL
+    (16) EXP -> . IF_EXP
+    (50) VARIABLE -> . id
+    (17) NUM_OP -> . PLUS
+    (18) NUM_OP -> . MINUS
+    (19) NUM_OP -> . MULTIPLY
+    (20) NUM_OP -> . DIVIDE
+    (21) NUM_OP -> . MODULUS
+    (22) NUM_OP -> . GREATER
+    (23) NUM_OP -> . SMALLER
+    (24) NUM_OP -> . EQUAL
+    (39) LOGICAL_OP -> . AND_OP
+    (40) LOGICAL_OP -> . OR_OP
+    (41) LOGICAL_OP -> . NOT_OP
+    (51) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
+    (57) FUN_CALL -> . lpr FUN_EXP rpr
+    (58) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
+    (59) FUN_CALL -> . lpr FUN_NAME rpr
+    (60) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
+    (65) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
+    (25) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
+    (28) MINUS -> . lpr minus EXP EXP rpr
+    (29) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
+    (32) DIVIDE -> . lpr div EXP EXP rpr
+    (33) MODULUS -> . lpr mod EXP EXP rpr
+    (34) GREATER -> . lpr greater EXP EXP rpr
+    (35) SMALLER -> . lpr smaller EXP EXP rpr
+    (36) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
+    (42) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
+    (45) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
+    (48) NOT_OP -> . lpr not EXP rpr
 
     bool_           shift and go to state 7
     number          shift and go to state 8
@@ -1204,44 +1201,44 @@ state 39
 
 state 40
 
-    (34) DIVIDE -> lpr div . EXP EXP rpr
-    (11) EXP -> . bool_
-    (12) EXP -> . number
-    (13) EXP -> . VARIABLE
-    (14) EXP -> . NUM_OP
-    (15) EXP -> . LOGICAL_OP
-    (16) EXP -> . FUN_EXP
-    (17) EXP -> . FUN_CALL
-    (18) EXP -> . IF_EXP
-    (52) VARIABLE -> . id
-    (19) NUM_OP -> . PLUS
-    (20) NUM_OP -> . MINUS
-    (21) NUM_OP -> . MULTIPLY
-    (22) NUM_OP -> . DIVIDE
-    (23) NUM_OP -> . MODULUS
-    (24) NUM_OP -> . GREATER
-    (25) NUM_OP -> . SMALLER
-    (26) NUM_OP -> . EQUAL
-    (41) LOGICAL_OP -> . AND_OP
-    (42) LOGICAL_OP -> . OR_OP
-    (43) LOGICAL_OP -> . NOT_OP
-    (53) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
-    (59) FUN_CALL -> . lpr FUN_EXP rpr
-    (60) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
-    (61) FUN_CALL -> . lpr FUN_NAME rpr
-    (62) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
-    (67) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
-    (27) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
-    (30) MINUS -> . lpr minus EXP EXP rpr
-    (31) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
-    (34) DIVIDE -> . lpr div EXP EXP rpr
-    (35) MODULUS -> . lpr mod EXP EXP rpr
-    (36) GREATER -> . lpr greater EXP EXP rpr
-    (37) SMALLER -> . lpr smaller EXP EXP rpr
-    (38) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
-    (44) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
-    (47) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
-    (50) NOT_OP -> . lpr not EXP rpr
+    (32) DIVIDE -> lpr div . EXP EXP rpr
+    (9) EXP -> . bool_
+    (10) EXP -> . number
+    (11) EXP -> . VARIABLE
+    (12) EXP -> . NUM_OP
+    (13) EXP -> . LOGICAL_OP
+    (14) EXP -> . FUN_EXP
+    (15) EXP -> . FUN_CALL
+    (16) EXP -> . IF_EXP
+    (50) VARIABLE -> . id
+    (17) NUM_OP -> . PLUS
+    (18) NUM_OP -> . MINUS
+    (19) NUM_OP -> . MULTIPLY
+    (20) NUM_OP -> . DIVIDE
+    (21) NUM_OP -> . MODULUS
+    (22) NUM_OP -> . GREATER
+    (23) NUM_OP -> . SMALLER
+    (24) NUM_OP -> . EQUAL
+    (39) LOGICAL_OP -> . AND_OP
+    (40) LOGICAL_OP -> . OR_OP
+    (41) LOGICAL_OP -> . NOT_OP
+    (51) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
+    (57) FUN_CALL -> . lpr FUN_EXP rpr
+    (58) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
+    (59) FUN_CALL -> . lpr FUN_NAME rpr
+    (60) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
+    (65) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
+    (25) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
+    (28) MINUS -> . lpr minus EXP EXP rpr
+    (29) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
+    (32) DIVIDE -> . lpr div EXP EXP rpr
+    (33) MODULUS -> . lpr mod EXP EXP rpr
+    (34) GREATER -> . lpr greater EXP EXP rpr
+    (35) SMALLER -> . lpr smaller EXP EXP rpr
+    (36) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
+    (42) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
+    (45) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
+    (48) NOT_OP -> . lpr not EXP rpr
 
     bool_           shift and go to state 7
     number          shift and go to state 8
@@ -1269,44 +1266,44 @@ state 40
 
 state 41
 
-    (35) MODULUS -> lpr mod . EXP EXP rpr
-    (11) EXP -> . bool_
-    (12) EXP -> . number
-    (13) EXP -> . VARIABLE
-    (14) EXP -> . NUM_OP
-    (15) EXP -> . LOGICAL_OP
-    (16) EXP -> . FUN_EXP
-    (17) EXP -> . FUN_CALL
-    (18) EXP -> . IF_EXP
-    (52) VARIABLE -> . id
-    (19) NUM_OP -> . PLUS
-    (20) NUM_OP -> . MINUS
-    (21) NUM_OP -> . MULTIPLY
-    (22) NUM_OP -> . DIVIDE
-    (23) NUM_OP -> . MODULUS
-    (24) NUM_OP -> . GREATER
-    (25) NUM_OP -> . SMALLER
-    (26) NUM_OP -> . EQUAL
-    (41) LOGICAL_OP -> . AND_OP
-    (42) LOGICAL_OP -> . OR_OP
-    (43) LOGICAL_OP -> . NOT_OP
-    (53) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
-    (59) FUN_CALL -> . lpr FUN_EXP rpr
-    (60) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
-    (61) FUN_CALL -> . lpr FUN_NAME rpr
-    (62) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
-    (67) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
-    (27) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
-    (30) MINUS -> . lpr minus EXP EXP rpr
-    (31) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
-    (34) DIVIDE -> . lpr div EXP EXP rpr
-    (35) MODULUS -> . lpr mod EXP EXP rpr
-    (36) GREATER -> . lpr greater EXP EXP rpr
-    (37) SMALLER -> . lpr smaller EXP EXP rpr
-    (38) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
-    (44) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
-    (47) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
-    (50) NOT_OP -> . lpr not EXP rpr
+    (33) MODULUS -> lpr mod . EXP EXP rpr
+    (9) EXP -> . bool_
+    (10) EXP -> . number
+    (11) EXP -> . VARIABLE
+    (12) EXP -> . NUM_OP
+    (13) EXP -> . LOGICAL_OP
+    (14) EXP -> . FUN_EXP
+    (15) EXP -> . FUN_CALL
+    (16) EXP -> . IF_EXP
+    (50) VARIABLE -> . id
+    (17) NUM_OP -> . PLUS
+    (18) NUM_OP -> . MINUS
+    (19) NUM_OP -> . MULTIPLY
+    (20) NUM_OP -> . DIVIDE
+    (21) NUM_OP -> . MODULUS
+    (22) NUM_OP -> . GREATER
+    (23) NUM_OP -> . SMALLER
+    (24) NUM_OP -> . EQUAL
+    (39) LOGICAL_OP -> . AND_OP
+    (40) LOGICAL_OP -> . OR_OP
+    (41) LOGICAL_OP -> . NOT_OP
+    (51) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
+    (57) FUN_CALL -> . lpr FUN_EXP rpr
+    (58) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
+    (59) FUN_CALL -> . lpr FUN_NAME rpr
+    (60) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
+    (65) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
+    (25) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
+    (28) MINUS -> . lpr minus EXP EXP rpr
+    (29) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
+    (32) DIVIDE -> . lpr div EXP EXP rpr
+    (33) MODULUS -> . lpr mod EXP EXP rpr
+    (34) GREATER -> . lpr greater EXP EXP rpr
+    (35) SMALLER -> . lpr smaller EXP EXP rpr
+    (36) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
+    (42) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
+    (45) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
+    (48) NOT_OP -> . lpr not EXP rpr
 
     bool_           shift and go to state 7
     number          shift and go to state 8
@@ -1334,44 +1331,44 @@ state 41
 
 state 42
 
-    (36) GREATER -> lpr greater . EXP EXP rpr
-    (11) EXP -> . bool_
-    (12) EXP -> . number
-    (13) EXP -> . VARIABLE
-    (14) EXP -> . NUM_OP
-    (15) EXP -> . LOGICAL_OP
-    (16) EXP -> . FUN_EXP
-    (17) EXP -> . FUN_CALL
-    (18) EXP -> . IF_EXP
-    (52) VARIABLE -> . id
-    (19) NUM_OP -> . PLUS
-    (20) NUM_OP -> . MINUS
-    (21) NUM_OP -> . MULTIPLY
-    (22) NUM_OP -> . DIVIDE
-    (23) NUM_OP -> . MODULUS
-    (24) NUM_OP -> . GREATER
-    (25) NUM_OP -> . SMALLER
-    (26) NUM_OP -> . EQUAL
-    (41) LOGICAL_OP -> . AND_OP
-    (42) LOGICAL_OP -> . OR_OP
-    (43) LOGICAL_OP -> . NOT_OP
-    (53) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
-    (59) FUN_CALL -> . lpr FUN_EXP rpr
-    (60) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
-    (61) FUN_CALL -> . lpr FUN_NAME rpr
-    (62) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
-    (67) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
-    (27) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
-    (30) MINUS -> . lpr minus EXP EXP rpr
-    (31) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
-    (34) DIVIDE -> . lpr div EXP EXP rpr
-    (35) MODULUS -> . lpr mod EXP EXP rpr
-    (36) GREATER -> . lpr greater EXP EXP rpr
-    (37) SMALLER -> . lpr smaller EXP EXP rpr
-    (38) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
-    (44) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
-    (47) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
-    (50) NOT_OP -> . lpr not EXP rpr
+    (34) GREATER -> lpr greater . EXP EXP rpr
+    (9) EXP -> . bool_
+    (10) EXP -> . number
+    (11) EXP -> . VARIABLE
+    (12) EXP -> . NUM_OP
+    (13) EXP -> . LOGICAL_OP
+    (14) EXP -> . FUN_EXP
+    (15) EXP -> . FUN_CALL
+    (16) EXP -> . IF_EXP
+    (50) VARIABLE -> . id
+    (17) NUM_OP -> . PLUS
+    (18) NUM_OP -> . MINUS
+    (19) NUM_OP -> . MULTIPLY
+    (20) NUM_OP -> . DIVIDE
+    (21) NUM_OP -> . MODULUS
+    (22) NUM_OP -> . GREATER
+    (23) NUM_OP -> . SMALLER
+    (24) NUM_OP -> . EQUAL
+    (39) LOGICAL_OP -> . AND_OP
+    (40) LOGICAL_OP -> . OR_OP
+    (41) LOGICAL_OP -> . NOT_OP
+    (51) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
+    (57) FUN_CALL -> . lpr FUN_EXP rpr
+    (58) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
+    (59) FUN_CALL -> . lpr FUN_NAME rpr
+    (60) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
+    (65) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
+    (25) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
+    (28) MINUS -> . lpr minus EXP EXP rpr
+    (29) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
+    (32) DIVIDE -> . lpr div EXP EXP rpr
+    (33) MODULUS -> . lpr mod EXP EXP rpr
+    (34) GREATER -> . lpr greater EXP EXP rpr
+    (35) SMALLER -> . lpr smaller EXP EXP rpr
+    (36) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
+    (42) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
+    (45) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
+    (48) NOT_OP -> . lpr not EXP rpr
 
     bool_           shift and go to state 7
     number          shift and go to state 8
@@ -1399,44 +1396,44 @@ state 42
 
 state 43
 
-    (37) SMALLER -> lpr smaller . EXP EXP rpr
-    (11) EXP -> . bool_
-    (12) EXP -> . number
-    (13) EXP -> . VARIABLE
-    (14) EXP -> . NUM_OP
-    (15) EXP -> . LOGICAL_OP
-    (16) EXP -> . FUN_EXP
-    (17) EXP -> . FUN_CALL
-    (18) EXP -> . IF_EXP
-    (52) VARIABLE -> . id
-    (19) NUM_OP -> . PLUS
-    (20) NUM_OP -> . MINUS
-    (21) NUM_OP -> . MULTIPLY
-    (22) NUM_OP -> . DIVIDE
-    (23) NUM_OP -> . MODULUS
-    (24) NUM_OP -> . GREATER
-    (25) NUM_OP -> . SMALLER
-    (26) NUM_OP -> . EQUAL
-    (41) LOGICAL_OP -> . AND_OP
-    (42) LOGICAL_OP -> . OR_OP
-    (43) LOGICAL_OP -> . NOT_OP
-    (53) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
-    (59) FUN_CALL -> . lpr FUN_EXP rpr
-    (60) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
-    (61) FUN_CALL -> . lpr FUN_NAME rpr
-    (62) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
-    (67) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
-    (27) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
-    (30) MINUS -> . lpr minus EXP EXP rpr
-    (31) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
-    (34) DIVIDE -> . lpr div EXP EXP rpr
-    (35) MODULUS -> . lpr mod EXP EXP rpr
-    (36) GREATER -> . lpr greater EXP EXP rpr
-    (37) SMALLER -> . lpr smaller EXP EXP rpr
-    (38) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
-    (44) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
-    (47) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
-    (50) NOT_OP -> . lpr not EXP rpr
+    (35) SMALLER -> lpr smaller . EXP EXP rpr
+    (9) EXP -> . bool_
+    (10) EXP -> . number
+    (11) EXP -> . VARIABLE
+    (12) EXP -> . NUM_OP
+    (13) EXP -> . LOGICAL_OP
+    (14) EXP -> . FUN_EXP
+    (15) EXP -> . FUN_CALL
+    (16) EXP -> . IF_EXP
+    (50) VARIABLE -> . id
+    (17) NUM_OP -> . PLUS
+    (18) NUM_OP -> . MINUS
+    (19) NUM_OP -> . MULTIPLY
+    (20) NUM_OP -> . DIVIDE
+    (21) NUM_OP -> . MODULUS
+    (22) NUM_OP -> . GREATER
+    (23) NUM_OP -> . SMALLER
+    (24) NUM_OP -> . EQUAL
+    (39) LOGICAL_OP -> . AND_OP
+    (40) LOGICAL_OP -> . OR_OP
+    (41) LOGICAL_OP -> . NOT_OP
+    (51) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
+    (57) FUN_CALL -> . lpr FUN_EXP rpr
+    (58) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
+    (59) FUN_CALL -> . lpr FUN_NAME rpr
+    (60) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
+    (65) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
+    (25) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
+    (28) MINUS -> . lpr minus EXP EXP rpr
+    (29) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
+    (32) DIVIDE -> . lpr div EXP EXP rpr
+    (33) MODULUS -> . lpr mod EXP EXP rpr
+    (34) GREATER -> . lpr greater EXP EXP rpr
+    (35) SMALLER -> . lpr smaller EXP EXP rpr
+    (36) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
+    (42) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
+    (45) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
+    (48) NOT_OP -> . lpr not EXP rpr
 
     bool_           shift and go to state 7
     number          shift and go to state 8
@@ -1464,44 +1461,44 @@ state 43
 
 state 44
 
-    (38) EQUAL -> lpr equal . EXP EQUAL_EXP_PLUS rpr
-    (11) EXP -> . bool_
-    (12) EXP -> . number
-    (13) EXP -> . VARIABLE
-    (14) EXP -> . NUM_OP
-    (15) EXP -> . LOGICAL_OP
-    (16) EXP -> . FUN_EXP
-    (17) EXP -> . FUN_CALL
-    (18) EXP -> . IF_EXP
-    (52) VARIABLE -> . id
-    (19) NUM_OP -> . PLUS
-    (20) NUM_OP -> . MINUS
-    (21) NUM_OP -> . MULTIPLY
-    (22) NUM_OP -> . DIVIDE
-    (23) NUM_OP -> . MODULUS
-    (24) NUM_OP -> . GREATER
-    (25) NUM_OP -> . SMALLER
-    (26) NUM_OP -> . EQUAL
-    (41) LOGICAL_OP -> . AND_OP
-    (42) LOGICAL_OP -> . OR_OP
-    (43) LOGICAL_OP -> . NOT_OP
-    (53) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
-    (59) FUN_CALL -> . lpr FUN_EXP rpr
-    (60) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
-    (61) FUN_CALL -> . lpr FUN_NAME rpr
-    (62) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
-    (67) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
-    (27) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
-    (30) MINUS -> . lpr minus EXP EXP rpr
-    (31) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
-    (34) DIVIDE -> . lpr div EXP EXP rpr
-    (35) MODULUS -> . lpr mod EXP EXP rpr
-    (36) GREATER -> . lpr greater EXP EXP rpr
-    (37) SMALLER -> . lpr smaller EXP EXP rpr
-    (38) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
-    (44) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
-    (47) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
-    (50) NOT_OP -> . lpr not EXP rpr
+    (36) EQUAL -> lpr equal . EXP EQUAL_EXP_PLUS rpr
+    (9) EXP -> . bool_
+    (10) EXP -> . number
+    (11) EXP -> . VARIABLE
+    (12) EXP -> . NUM_OP
+    (13) EXP -> . LOGICAL_OP
+    (14) EXP -> . FUN_EXP
+    (15) EXP -> . FUN_CALL
+    (16) EXP -> . IF_EXP
+    (50) VARIABLE -> . id
+    (17) NUM_OP -> . PLUS
+    (18) NUM_OP -> . MINUS
+    (19) NUM_OP -> . MULTIPLY
+    (20) NUM_OP -> . DIVIDE
+    (21) NUM_OP -> . MODULUS
+    (22) NUM_OP -> . GREATER
+    (23) NUM_OP -> . SMALLER
+    (24) NUM_OP -> . EQUAL
+    (39) LOGICAL_OP -> . AND_OP
+    (40) LOGICAL_OP -> . OR_OP
+    (41) LOGICAL_OP -> . NOT_OP
+    (51) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
+    (57) FUN_CALL -> . lpr FUN_EXP rpr
+    (58) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
+    (59) FUN_CALL -> . lpr FUN_NAME rpr
+    (60) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
+    (65) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
+    (25) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
+    (28) MINUS -> . lpr minus EXP EXP rpr
+    (29) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
+    (32) DIVIDE -> . lpr div EXP EXP rpr
+    (33) MODULUS -> . lpr mod EXP EXP rpr
+    (34) GREATER -> . lpr greater EXP EXP rpr
+    (35) SMALLER -> . lpr smaller EXP EXP rpr
+    (36) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
+    (42) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
+    (45) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
+    (48) NOT_OP -> . lpr not EXP rpr
 
     bool_           shift and go to state 7
     number          shift and go to state 8
@@ -1529,44 +1526,44 @@ state 44
 
 state 45
 
-    (44) AND_OP -> lpr and . EXP AND_EXP_PLUS rpr
-    (11) EXP -> . bool_
-    (12) EXP -> . number
-    (13) EXP -> . VARIABLE
-    (14) EXP -> . NUM_OP
-    (15) EXP -> . LOGICAL_OP
-    (16) EXP -> . FUN_EXP
-    (17) EXP -> . FUN_CALL
-    (18) EXP -> . IF_EXP
-    (52) VARIABLE -> . id
-    (19) NUM_OP -> . PLUS
-    (20) NUM_OP -> . MINUS
-    (21) NUM_OP -> . MULTIPLY
-    (22) NUM_OP -> . DIVIDE
-    (23) NUM_OP -> . MODULUS
-    (24) NUM_OP -> . GREATER
-    (25) NUM_OP -> . SMALLER
-    (26) NUM_OP -> . EQUAL
-    (41) LOGICAL_OP -> . AND_OP
-    (42) LOGICAL_OP -> . OR_OP
-    (43) LOGICAL_OP -> . NOT_OP
-    (53) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
-    (59) FUN_CALL -> . lpr FUN_EXP rpr
-    (60) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
-    (61) FUN_CALL -> . lpr FUN_NAME rpr
-    (62) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
-    (67) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
-    (27) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
-    (30) MINUS -> . lpr minus EXP EXP rpr
-    (31) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
-    (34) DIVIDE -> . lpr div EXP EXP rpr
-    (35) MODULUS -> . lpr mod EXP EXP rpr
-    (36) GREATER -> . lpr greater EXP EXP rpr
-    (37) SMALLER -> . lpr smaller EXP EXP rpr
-    (38) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
-    (44) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
-    (47) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
-    (50) NOT_OP -> . lpr not EXP rpr
+    (42) AND_OP -> lpr and . EXP AND_EXP_PLUS rpr
+    (9) EXP -> . bool_
+    (10) EXP -> . number
+    (11) EXP -> . VARIABLE
+    (12) EXP -> . NUM_OP
+    (13) EXP -> . LOGICAL_OP
+    (14) EXP -> . FUN_EXP
+    (15) EXP -> . FUN_CALL
+    (16) EXP -> . IF_EXP
+    (50) VARIABLE -> . id
+    (17) NUM_OP -> . PLUS
+    (18) NUM_OP -> . MINUS
+    (19) NUM_OP -> . MULTIPLY
+    (20) NUM_OP -> . DIVIDE
+    (21) NUM_OP -> . MODULUS
+    (22) NUM_OP -> . GREATER
+    (23) NUM_OP -> . SMALLER
+    (24) NUM_OP -> . EQUAL
+    (39) LOGICAL_OP -> . AND_OP
+    (40) LOGICAL_OP -> . OR_OP
+    (41) LOGICAL_OP -> . NOT_OP
+    (51) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
+    (57) FUN_CALL -> . lpr FUN_EXP rpr
+    (58) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
+    (59) FUN_CALL -> . lpr FUN_NAME rpr
+    (60) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
+    (65) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
+    (25) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
+    (28) MINUS -> . lpr minus EXP EXP rpr
+    (29) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
+    (32) DIVIDE -> . lpr div EXP EXP rpr
+    (33) MODULUS -> . lpr mod EXP EXP rpr
+    (34) GREATER -> . lpr greater EXP EXP rpr
+    (35) SMALLER -> . lpr smaller EXP EXP rpr
+    (36) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
+    (42) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
+    (45) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
+    (48) NOT_OP -> . lpr not EXP rpr
 
     bool_           shift and go to state 7
     number          shift and go to state 8
@@ -1594,44 +1591,44 @@ state 45
 
 state 46
 
-    (47) OR_OP -> lpr or . EXP OR_EXP_PLUS rpr
-    (11) EXP -> . bool_
-    (12) EXP -> . number
-    (13) EXP -> . VARIABLE
-    (14) EXP -> . NUM_OP
-    (15) EXP -> . LOGICAL_OP
-    (16) EXP -> . FUN_EXP
-    (17) EXP -> . FUN_CALL
-    (18) EXP -> . IF_EXP
-    (52) VARIABLE -> . id
-    (19) NUM_OP -> . PLUS
-    (20) NUM_OP -> . MINUS
-    (21) NUM_OP -> . MULTIPLY
-    (22) NUM_OP -> . DIVIDE
-    (23) NUM_OP -> . MODULUS
-    (24) NUM_OP -> . GREATER
-    (25) NUM_OP -> . SMALLER
-    (26) NUM_OP -> . EQUAL
-    (41) LOGICAL_OP -> . AND_OP
-    (42) LOGICAL_OP -> . OR_OP
-    (43) LOGICAL_OP -> . NOT_OP
-    (53) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
-    (59) FUN_CALL -> . lpr FUN_EXP rpr
-    (60) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
-    (61) FUN_CALL -> . lpr FUN_NAME rpr
-    (62) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
-    (67) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
-    (27) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
-    (30) MINUS -> . lpr minus EXP EXP rpr
-    (31) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
-    (34) DIVIDE -> . lpr div EXP EXP rpr
-    (35) MODULUS -> . lpr mod EXP EXP rpr
-    (36) GREATER -> . lpr greater EXP EXP rpr
-    (37) SMALLER -> . lpr smaller EXP EXP rpr
-    (38) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
-    (44) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
-    (47) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
-    (50) NOT_OP -> . lpr not EXP rpr
+    (45) OR_OP -> lpr or . EXP OR_EXP_PLUS rpr
+    (9) EXP -> . bool_
+    (10) EXP -> . number
+    (11) EXP -> . VARIABLE
+    (12) EXP -> . NUM_OP
+    (13) EXP -> . LOGICAL_OP
+    (14) EXP -> . FUN_EXP
+    (15) EXP -> . FUN_CALL
+    (16) EXP -> . IF_EXP
+    (50) VARIABLE -> . id
+    (17) NUM_OP -> . PLUS
+    (18) NUM_OP -> . MINUS
+    (19) NUM_OP -> . MULTIPLY
+    (20) NUM_OP -> . DIVIDE
+    (21) NUM_OP -> . MODULUS
+    (22) NUM_OP -> . GREATER
+    (23) NUM_OP -> . SMALLER
+    (24) NUM_OP -> . EQUAL
+    (39) LOGICAL_OP -> . AND_OP
+    (40) LOGICAL_OP -> . OR_OP
+    (41) LOGICAL_OP -> . NOT_OP
+    (51) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
+    (57) FUN_CALL -> . lpr FUN_EXP rpr
+    (58) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
+    (59) FUN_CALL -> . lpr FUN_NAME rpr
+    (60) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
+    (65) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
+    (25) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
+    (28) MINUS -> . lpr minus EXP EXP rpr
+    (29) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
+    (32) DIVIDE -> . lpr div EXP EXP rpr
+    (33) MODULUS -> . lpr mod EXP EXP rpr
+    (34) GREATER -> . lpr greater EXP EXP rpr
+    (35) SMALLER -> . lpr smaller EXP EXP rpr
+    (36) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
+    (42) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
+    (45) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
+    (48) NOT_OP -> . lpr not EXP rpr
 
     bool_           shift and go to state 7
     number          shift and go to state 8
@@ -1659,44 +1656,44 @@ state 46
 
 state 47
 
-    (50) NOT_OP -> lpr not . EXP rpr
-    (11) EXP -> . bool_
-    (12) EXP -> . number
-    (13) EXP -> . VARIABLE
-    (14) EXP -> . NUM_OP
-    (15) EXP -> . LOGICAL_OP
-    (16) EXP -> . FUN_EXP
-    (17) EXP -> . FUN_CALL
-    (18) EXP -> . IF_EXP
-    (52) VARIABLE -> . id
-    (19) NUM_OP -> . PLUS
-    (20) NUM_OP -> . MINUS
-    (21) NUM_OP -> . MULTIPLY
-    (22) NUM_OP -> . DIVIDE
-    (23) NUM_OP -> . MODULUS
-    (24) NUM_OP -> . GREATER
-    (25) NUM_OP -> . SMALLER
-    (26) NUM_OP -> . EQUAL
-    (41) LOGICAL_OP -> . AND_OP
-    (42) LOGICAL_OP -> . OR_OP
-    (43) LOGICAL_OP -> . NOT_OP
-    (53) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
-    (59) FUN_CALL -> . lpr FUN_EXP rpr
-    (60) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
-    (61) FUN_CALL -> . lpr FUN_NAME rpr
-    (62) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
-    (67) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
-    (27) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
-    (30) MINUS -> . lpr minus EXP EXP rpr
-    (31) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
-    (34) DIVIDE -> . lpr div EXP EXP rpr
-    (35) MODULUS -> . lpr mod EXP EXP rpr
-    (36) GREATER -> . lpr greater EXP EXP rpr
-    (37) SMALLER -> . lpr smaller EXP EXP rpr
-    (38) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
-    (44) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
-    (47) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
-    (50) NOT_OP -> . lpr not EXP rpr
+    (48) NOT_OP -> lpr not . EXP rpr
+    (9) EXP -> . bool_
+    (10) EXP -> . number
+    (11) EXP -> . VARIABLE
+    (12) EXP -> . NUM_OP
+    (13) EXP -> . LOGICAL_OP
+    (14) EXP -> . FUN_EXP
+    (15) EXP -> . FUN_CALL
+    (16) EXP -> . IF_EXP
+    (50) VARIABLE -> . id
+    (17) NUM_OP -> . PLUS
+    (18) NUM_OP -> . MINUS
+    (19) NUM_OP -> . MULTIPLY
+    (20) NUM_OP -> . DIVIDE
+    (21) NUM_OP -> . MODULUS
+    (22) NUM_OP -> . GREATER
+    (23) NUM_OP -> . SMALLER
+    (24) NUM_OP -> . EQUAL
+    (39) LOGICAL_OP -> . AND_OP
+    (40) LOGICAL_OP -> . OR_OP
+    (41) LOGICAL_OP -> . NOT_OP
+    (51) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
+    (57) FUN_CALL -> . lpr FUN_EXP rpr
+    (58) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
+    (59) FUN_CALL -> . lpr FUN_NAME rpr
+    (60) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
+    (65) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
+    (25) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
+    (28) MINUS -> . lpr minus EXP EXP rpr
+    (29) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
+    (32) DIVIDE -> . lpr div EXP EXP rpr
+    (33) MODULUS -> . lpr mod EXP EXP rpr
+    (34) GREATER -> . lpr greater EXP EXP rpr
+    (35) SMALLER -> . lpr smaller EXP EXP rpr
+    (36) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
+    (42) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
+    (45) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
+    (48) NOT_OP -> . lpr not EXP rpr
 
     bool_           shift and go to state 7
     number          shift and go to state 8
@@ -1724,55 +1721,55 @@ state 47
 
 state 48
 
-    (66) FUN_NAME -> id .
+    (64) FUN_NAME -> id .
 
-    rpr             reduce using rule 66 (FUN_NAME -> id .)
-    bool_           reduce using rule 66 (FUN_NAME -> id .)
-    number          reduce using rule 66 (FUN_NAME -> id .)
-    id              reduce using rule 66 (FUN_NAME -> id .)
-    lpr             reduce using rule 66 (FUN_NAME -> id .)
+    rpr             reduce using rule 64 (FUN_NAME -> id .)
+    bool_           reduce using rule 64 (FUN_NAME -> id .)
+    number          reduce using rule 64 (FUN_NAME -> id .)
+    id              reduce using rule 64 (FUN_NAME -> id .)
+    lpr             reduce using rule 64 (FUN_NAME -> id .)
 
 
 state 49
 
-    (51) DEF_STMT -> lpr define VARIABLE . EXP rpr
-    (11) EXP -> . bool_
-    (12) EXP -> . number
-    (13) EXP -> . VARIABLE
-    (14) EXP -> . NUM_OP
-    (15) EXP -> . LOGICAL_OP
-    (16) EXP -> . FUN_EXP
-    (17) EXP -> . FUN_CALL
-    (18) EXP -> . IF_EXP
-    (52) VARIABLE -> . id
-    (19) NUM_OP -> . PLUS
-    (20) NUM_OP -> . MINUS
-    (21) NUM_OP -> . MULTIPLY
-    (22) NUM_OP -> . DIVIDE
-    (23) NUM_OP -> . MODULUS
-    (24) NUM_OP -> . GREATER
-    (25) NUM_OP -> . SMALLER
-    (26) NUM_OP -> . EQUAL
-    (41) LOGICAL_OP -> . AND_OP
-    (42) LOGICAL_OP -> . OR_OP
-    (43) LOGICAL_OP -> . NOT_OP
-    (53) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
-    (59) FUN_CALL -> . lpr FUN_EXP rpr
-    (60) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
-    (61) FUN_CALL -> . lpr FUN_NAME rpr
-    (62) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
-    (67) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
-    (27) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
-    (30) MINUS -> . lpr minus EXP EXP rpr
-    (31) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
-    (34) DIVIDE -> . lpr div EXP EXP rpr
-    (35) MODULUS -> . lpr mod EXP EXP rpr
-    (36) GREATER -> . lpr greater EXP EXP rpr
-    (37) SMALLER -> . lpr smaller EXP EXP rpr
-    (38) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
-    (44) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
-    (47) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
-    (50) NOT_OP -> . lpr not EXP rpr
+    (49) DEF_STMT -> lpr define VARIABLE . EXP rpr
+    (9) EXP -> . bool_
+    (10) EXP -> . number
+    (11) EXP -> . VARIABLE
+    (12) EXP -> . NUM_OP
+    (13) EXP -> . LOGICAL_OP
+    (14) EXP -> . FUN_EXP
+    (15) EXP -> . FUN_CALL
+    (16) EXP -> . IF_EXP
+    (50) VARIABLE -> . id
+    (17) NUM_OP -> . PLUS
+    (18) NUM_OP -> . MINUS
+    (19) NUM_OP -> . MULTIPLY
+    (20) NUM_OP -> . DIVIDE
+    (21) NUM_OP -> . MODULUS
+    (22) NUM_OP -> . GREATER
+    (23) NUM_OP -> . SMALLER
+    (24) NUM_OP -> . EQUAL
+    (39) LOGICAL_OP -> . AND_OP
+    (40) LOGICAL_OP -> . OR_OP
+    (41) LOGICAL_OP -> . NOT_OP
+    (51) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
+    (57) FUN_CALL -> . lpr FUN_EXP rpr
+    (58) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
+    (59) FUN_CALL -> . lpr FUN_NAME rpr
+    (60) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
+    (65) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
+    (25) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
+    (28) MINUS -> . lpr minus EXP EXP rpr
+    (29) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
+    (32) DIVIDE -> . lpr div EXP EXP rpr
+    (33) MODULUS -> . lpr mod EXP EXP rpr
+    (34) GREATER -> . lpr greater EXP EXP rpr
+    (35) SMALLER -> . lpr smaller EXP EXP rpr
+    (36) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
+    (42) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
+    (45) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
+    (48) NOT_OP -> . lpr not EXP rpr
 
     bool_           shift and go to state 7
     number          shift and go to state 8
@@ -1800,25 +1797,25 @@ state 49
 
 state 50
 
-    (53) FUN_EXP -> lpr . fun_ FUN_IDs FUN_BODY rpr
-    (59) FUN_CALL -> lpr . FUN_EXP rpr
-    (60) FUN_CALL -> lpr . FUN_EXP PARAM_PLUS rpr
-    (61) FUN_CALL -> lpr . FUN_NAME rpr
-    (62) FUN_CALL -> lpr . FUN_NAME PARAM_PLUS rpr
-    (67) IF_EXP -> lpr . if_ TEST_EXP THEN_EXP ELSE_EXP rpr
-    (27) PLUS -> lpr . plus EXP PLUS_EXP_PLUS rpr
-    (30) MINUS -> lpr . minus EXP EXP rpr
-    (31) MULTIPLY -> lpr . mul EXP MUL_EXP_PLUS rpr
-    (34) DIVIDE -> lpr . div EXP EXP rpr
-    (35) MODULUS -> lpr . mod EXP EXP rpr
-    (36) GREATER -> lpr . greater EXP EXP rpr
-    (37) SMALLER -> lpr . smaller EXP EXP rpr
-    (38) EQUAL -> lpr . equal EXP EQUAL_EXP_PLUS rpr
-    (44) AND_OP -> lpr . and EXP AND_EXP_PLUS rpr
-    (47) OR_OP -> lpr . or EXP OR_EXP_PLUS rpr
-    (50) NOT_OP -> lpr . not EXP rpr
-    (53) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
-    (66) FUN_NAME -> . id
+    (51) FUN_EXP -> lpr . fun_ FUN_IDs FUN_BODY rpr
+    (57) FUN_CALL -> lpr . FUN_EXP rpr
+    (58) FUN_CALL -> lpr . FUN_EXP PARAM_PLUS rpr
+    (59) FUN_CALL -> lpr . FUN_NAME rpr
+    (60) FUN_CALL -> lpr . FUN_NAME PARAM_PLUS rpr
+    (65) IF_EXP -> lpr . if_ TEST_EXP THEN_EXP ELSE_EXP rpr
+    (25) PLUS -> lpr . plus EXP PLUS_EXP_PLUS rpr
+    (28) MINUS -> lpr . minus EXP EXP rpr
+    (29) MULTIPLY -> lpr . mul EXP MUL_EXP_PLUS rpr
+    (32) DIVIDE -> lpr . div EXP EXP rpr
+    (33) MODULUS -> lpr . mod EXP EXP rpr
+    (34) GREATER -> lpr . greater EXP EXP rpr
+    (35) SMALLER -> lpr . smaller EXP EXP rpr
+    (36) EQUAL -> lpr . equal EXP EQUAL_EXP_PLUS rpr
+    (42) AND_OP -> lpr . and EXP AND_EXP_PLUS rpr
+    (45) OR_OP -> lpr . or EXP OR_EXP_PLUS rpr
+    (48) NOT_OP -> lpr . not EXP rpr
+    (51) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
+    (64) FUN_NAME -> . id
 
     fun_            shift and go to state 33
     if_             shift and go to state 36
@@ -1855,10 +1852,10 @@ state 52
 
 state 53
 
-    (54) FUN_IDs -> lpr . rpr
-    (55) FUN_IDs -> lpr . ID_PLUS rpr
-    (56) ID_PLUS -> . id
-    (57) ID_PLUS -> . id ID_PLUS
+    (52) FUN_IDs -> lpr . rpr
+    (53) FUN_IDs -> lpr . ID_PLUS rpr
+    (54) ID_PLUS -> . id
+    (55) ID_PLUS -> . id ID_PLUS
 
     rpr             shift and go to state 77
     id              shift and go to state 79
@@ -1867,45 +1864,45 @@ state 53
 
 state 54
 
-    (53) FUN_EXP -> lpr fun_ FUN_IDs . FUN_BODY rpr
-    (58) FUN_BODY -> . EXP
-    (11) EXP -> . bool_
-    (12) EXP -> . number
-    (13) EXP -> . VARIABLE
-    (14) EXP -> . NUM_OP
-    (15) EXP -> . LOGICAL_OP
-    (16) EXP -> . FUN_EXP
-    (17) EXP -> . FUN_CALL
-    (18) EXP -> . IF_EXP
-    (52) VARIABLE -> . id
-    (19) NUM_OP -> . PLUS
-    (20) NUM_OP -> . MINUS
-    (21) NUM_OP -> . MULTIPLY
-    (22) NUM_OP -> . DIVIDE
-    (23) NUM_OP -> . MODULUS
-    (24) NUM_OP -> . GREATER
-    (25) NUM_OP -> . SMALLER
-    (26) NUM_OP -> . EQUAL
-    (41) LOGICAL_OP -> . AND_OP
-    (42) LOGICAL_OP -> . OR_OP
-    (43) LOGICAL_OP -> . NOT_OP
-    (53) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
-    (59) FUN_CALL -> . lpr FUN_EXP rpr
-    (60) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
-    (61) FUN_CALL -> . lpr FUN_NAME rpr
-    (62) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
-    (67) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
-    (27) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
-    (30) MINUS -> . lpr minus EXP EXP rpr
-    (31) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
-    (34) DIVIDE -> . lpr div EXP EXP rpr
-    (35) MODULUS -> . lpr mod EXP EXP rpr
-    (36) GREATER -> . lpr greater EXP EXP rpr
-    (37) SMALLER -> . lpr smaller EXP EXP rpr
-    (38) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
-    (44) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
-    (47) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
-    (50) NOT_OP -> . lpr not EXP rpr
+    (51) FUN_EXP -> lpr fun_ FUN_IDs . FUN_BODY rpr
+    (56) FUN_BODY -> . EXP
+    (9) EXP -> . bool_
+    (10) EXP -> . number
+    (11) EXP -> . VARIABLE
+    (12) EXP -> . NUM_OP
+    (13) EXP -> . LOGICAL_OP
+    (14) EXP -> . FUN_EXP
+    (15) EXP -> . FUN_CALL
+    (16) EXP -> . IF_EXP
+    (50) VARIABLE -> . id
+    (17) NUM_OP -> . PLUS
+    (18) NUM_OP -> . MINUS
+    (19) NUM_OP -> . MULTIPLY
+    (20) NUM_OP -> . DIVIDE
+    (21) NUM_OP -> . MODULUS
+    (22) NUM_OP -> . GREATER
+    (23) NUM_OP -> . SMALLER
+    (24) NUM_OP -> . EQUAL
+    (39) LOGICAL_OP -> . AND_OP
+    (40) LOGICAL_OP -> . OR_OP
+    (41) LOGICAL_OP -> . NOT_OP
+    (51) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
+    (57) FUN_CALL -> . lpr FUN_EXP rpr
+    (58) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
+    (59) FUN_CALL -> . lpr FUN_NAME rpr
+    (60) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
+    (65) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
+    (25) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
+    (28) MINUS -> . lpr minus EXP EXP rpr
+    (29) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
+    (32) DIVIDE -> . lpr div EXP EXP rpr
+    (33) MODULUS -> . lpr mod EXP EXP rpr
+    (34) GREATER -> . lpr greater EXP EXP rpr
+    (35) SMALLER -> . lpr smaller EXP EXP rpr
+    (36) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
+    (42) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
+    (45) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
+    (48) NOT_OP -> . lpr not EXP rpr
 
     bool_           shift and go to state 7
     number          shift and go to state 8
@@ -1934,69 +1931,69 @@ state 54
 
 state 55
 
-    (59) FUN_CALL -> lpr FUN_EXP rpr .
+    (57) FUN_CALL -> lpr FUN_EXP rpr .
 
-    bool_           reduce using rule 59 (FUN_CALL -> lpr FUN_EXP rpr .)
-    number          reduce using rule 59 (FUN_CALL -> lpr FUN_EXP rpr .)
-    lpr             reduce using rule 59 (FUN_CALL -> lpr FUN_EXP rpr .)
-    id              reduce using rule 59 (FUN_CALL -> lpr FUN_EXP rpr .)
-    $end            reduce using rule 59 (FUN_CALL -> lpr FUN_EXP rpr .)
-    rpr             reduce using rule 59 (FUN_CALL -> lpr FUN_EXP rpr .)
+    bool_           reduce using rule 57 (FUN_CALL -> lpr FUN_EXP rpr .)
+    number          reduce using rule 57 (FUN_CALL -> lpr FUN_EXP rpr .)
+    lpr             reduce using rule 57 (FUN_CALL -> lpr FUN_EXP rpr .)
+    id              reduce using rule 57 (FUN_CALL -> lpr FUN_EXP rpr .)
+    $end            reduce using rule 57 (FUN_CALL -> lpr FUN_EXP rpr .)
+    rpr             reduce using rule 57 (FUN_CALL -> lpr FUN_EXP rpr .)
 
 
 state 56
 
-    (60) FUN_CALL -> lpr FUN_EXP PARAM_PLUS . rpr
+    (58) FUN_CALL -> lpr FUN_EXP PARAM_PLUS . rpr
 
     rpr             shift and go to state 82
 
 
 state 57
 
-    (64) PARAM_PLUS -> PARAM .
-    (65) PARAM_PLUS -> PARAM . PARAM_PLUS
-    (64) PARAM_PLUS -> . PARAM
-    (65) PARAM_PLUS -> . PARAM PARAM_PLUS
-    (63) PARAM -> . EXP
-    (11) EXP -> . bool_
-    (12) EXP -> . number
-    (13) EXP -> . VARIABLE
-    (14) EXP -> . NUM_OP
-    (15) EXP -> . LOGICAL_OP
-    (16) EXP -> . FUN_EXP
-    (17) EXP -> . FUN_CALL
-    (18) EXP -> . IF_EXP
-    (52) VARIABLE -> . id
-    (19) NUM_OP -> . PLUS
-    (20) NUM_OP -> . MINUS
-    (21) NUM_OP -> . MULTIPLY
-    (22) NUM_OP -> . DIVIDE
-    (23) NUM_OP -> . MODULUS
-    (24) NUM_OP -> . GREATER
-    (25) NUM_OP -> . SMALLER
-    (26) NUM_OP -> . EQUAL
-    (41) LOGICAL_OP -> . AND_OP
-    (42) LOGICAL_OP -> . OR_OP
-    (43) LOGICAL_OP -> . NOT_OP
-    (53) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
-    (59) FUN_CALL -> . lpr FUN_EXP rpr
-    (60) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
-    (61) FUN_CALL -> . lpr FUN_NAME rpr
-    (62) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
-    (67) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
-    (27) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
-    (30) MINUS -> . lpr minus EXP EXP rpr
-    (31) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
-    (34) DIVIDE -> . lpr div EXP EXP rpr
-    (35) MODULUS -> . lpr mod EXP EXP rpr
-    (36) GREATER -> . lpr greater EXP EXP rpr
-    (37) SMALLER -> . lpr smaller EXP EXP rpr
-    (38) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
-    (44) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
-    (47) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
-    (50) NOT_OP -> . lpr not EXP rpr
+    (62) PARAM_PLUS -> PARAM .
+    (63) PARAM_PLUS -> PARAM . PARAM_PLUS
+    (62) PARAM_PLUS -> . PARAM
+    (63) PARAM_PLUS -> . PARAM PARAM_PLUS
+    (61) PARAM -> . EXP
+    (9) EXP -> . bool_
+    (10) EXP -> . number
+    (11) EXP -> . VARIABLE
+    (12) EXP -> . NUM_OP
+    (13) EXP -> . LOGICAL_OP
+    (14) EXP -> . FUN_EXP
+    (15) EXP -> . FUN_CALL
+    (16) EXP -> . IF_EXP
+    (50) VARIABLE -> . id
+    (17) NUM_OP -> . PLUS
+    (18) NUM_OP -> . MINUS
+    (19) NUM_OP -> . MULTIPLY
+    (20) NUM_OP -> . DIVIDE
+    (21) NUM_OP -> . MODULUS
+    (22) NUM_OP -> . GREATER
+    (23) NUM_OP -> . SMALLER
+    (24) NUM_OP -> . EQUAL
+    (39) LOGICAL_OP -> . AND_OP
+    (40) LOGICAL_OP -> . OR_OP
+    (41) LOGICAL_OP -> . NOT_OP
+    (51) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
+    (57) FUN_CALL -> . lpr FUN_EXP rpr
+    (58) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
+    (59) FUN_CALL -> . lpr FUN_NAME rpr
+    (60) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
+    (65) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
+    (25) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
+    (28) MINUS -> . lpr minus EXP EXP rpr
+    (29) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
+    (32) DIVIDE -> . lpr div EXP EXP rpr
+    (33) MODULUS -> . lpr mod EXP EXP rpr
+    (34) GREATER -> . lpr greater EXP EXP rpr
+    (35) SMALLER -> . lpr smaller EXP EXP rpr
+    (36) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
+    (42) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
+    (45) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
+    (48) NOT_OP -> . lpr not EXP rpr
 
-    rpr             reduce using rule 64 (PARAM_PLUS -> PARAM .)
+    rpr             reduce using rule 62 (PARAM_PLUS -> PARAM .)
     bool_           shift and go to state 7
     number          shift and go to state 8
     id              shift and go to state 16
@@ -2025,75 +2022,75 @@ state 57
 
 state 58
 
-    (63) PARAM -> EXP .
+    (61) PARAM -> EXP .
 
-    bool_           reduce using rule 63 (PARAM -> EXP .)
-    number          reduce using rule 63 (PARAM -> EXP .)
-    id              reduce using rule 63 (PARAM -> EXP .)
-    lpr             reduce using rule 63 (PARAM -> EXP .)
-    rpr             reduce using rule 63 (PARAM -> EXP .)
+    bool_           reduce using rule 61 (PARAM -> EXP .)
+    number          reduce using rule 61 (PARAM -> EXP .)
+    id              reduce using rule 61 (PARAM -> EXP .)
+    lpr             reduce using rule 61 (PARAM -> EXP .)
+    rpr             reduce using rule 61 (PARAM -> EXP .)
 
 
 state 59
 
-    (61) FUN_CALL -> lpr FUN_NAME rpr .
+    (59) FUN_CALL -> lpr FUN_NAME rpr .
 
-    bool_           reduce using rule 61 (FUN_CALL -> lpr FUN_NAME rpr .)
-    number          reduce using rule 61 (FUN_CALL -> lpr FUN_NAME rpr .)
-    lpr             reduce using rule 61 (FUN_CALL -> lpr FUN_NAME rpr .)
-    id              reduce using rule 61 (FUN_CALL -> lpr FUN_NAME rpr .)
-    $end            reduce using rule 61 (FUN_CALL -> lpr FUN_NAME rpr .)
-    rpr             reduce using rule 61 (FUN_CALL -> lpr FUN_NAME rpr .)
+    bool_           reduce using rule 59 (FUN_CALL -> lpr FUN_NAME rpr .)
+    number          reduce using rule 59 (FUN_CALL -> lpr FUN_NAME rpr .)
+    lpr             reduce using rule 59 (FUN_CALL -> lpr FUN_NAME rpr .)
+    id              reduce using rule 59 (FUN_CALL -> lpr FUN_NAME rpr .)
+    $end            reduce using rule 59 (FUN_CALL -> lpr FUN_NAME rpr .)
+    rpr             reduce using rule 59 (FUN_CALL -> lpr FUN_NAME rpr .)
 
 
 state 60
 
-    (62) FUN_CALL -> lpr FUN_NAME PARAM_PLUS . rpr
+    (60) FUN_CALL -> lpr FUN_NAME PARAM_PLUS . rpr
 
     rpr             shift and go to state 84
 
 
 state 61
 
-    (67) IF_EXP -> lpr if_ TEST_EXP . THEN_EXP ELSE_EXP rpr
-    (69) THEN_EXP -> . EXP
-    (11) EXP -> . bool_
-    (12) EXP -> . number
-    (13) EXP -> . VARIABLE
-    (14) EXP -> . NUM_OP
-    (15) EXP -> . LOGICAL_OP
-    (16) EXP -> . FUN_EXP
-    (17) EXP -> . FUN_CALL
-    (18) EXP -> . IF_EXP
-    (52) VARIABLE -> . id
-    (19) NUM_OP -> . PLUS
-    (20) NUM_OP -> . MINUS
-    (21) NUM_OP -> . MULTIPLY
-    (22) NUM_OP -> . DIVIDE
-    (23) NUM_OP -> . MODULUS
-    (24) NUM_OP -> . GREATER
-    (25) NUM_OP -> . SMALLER
-    (26) NUM_OP -> . EQUAL
-    (41) LOGICAL_OP -> . AND_OP
-    (42) LOGICAL_OP -> . OR_OP
-    (43) LOGICAL_OP -> . NOT_OP
-    (53) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
-    (59) FUN_CALL -> . lpr FUN_EXP rpr
-    (60) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
-    (61) FUN_CALL -> . lpr FUN_NAME rpr
-    (62) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
-    (67) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
-    (27) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
-    (30) MINUS -> . lpr minus EXP EXP rpr
-    (31) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
-    (34) DIVIDE -> . lpr div EXP EXP rpr
-    (35) MODULUS -> . lpr mod EXP EXP rpr
-    (36) GREATER -> . lpr greater EXP EXP rpr
-    (37) SMALLER -> . lpr smaller EXP EXP rpr
-    (38) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
-    (44) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
-    (47) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
-    (50) NOT_OP -> . lpr not EXP rpr
+    (65) IF_EXP -> lpr if_ TEST_EXP . THEN_EXP ELSE_EXP rpr
+    (67) THEN_EXP -> . EXP
+    (9) EXP -> . bool_
+    (10) EXP -> . number
+    (11) EXP -> . VARIABLE
+    (12) EXP -> . NUM_OP
+    (13) EXP -> . LOGICAL_OP
+    (14) EXP -> . FUN_EXP
+    (15) EXP -> . FUN_CALL
+    (16) EXP -> . IF_EXP
+    (50) VARIABLE -> . id
+    (17) NUM_OP -> . PLUS
+    (18) NUM_OP -> . MINUS
+    (19) NUM_OP -> . MULTIPLY
+    (20) NUM_OP -> . DIVIDE
+    (21) NUM_OP -> . MODULUS
+    (22) NUM_OP -> . GREATER
+    (23) NUM_OP -> . SMALLER
+    (24) NUM_OP -> . EQUAL
+    (39) LOGICAL_OP -> . AND_OP
+    (40) LOGICAL_OP -> . OR_OP
+    (41) LOGICAL_OP -> . NOT_OP
+    (51) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
+    (57) FUN_CALL -> . lpr FUN_EXP rpr
+    (58) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
+    (59) FUN_CALL -> . lpr FUN_NAME rpr
+    (60) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
+    (65) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
+    (25) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
+    (28) MINUS -> . lpr minus EXP EXP rpr
+    (29) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
+    (32) DIVIDE -> . lpr div EXP EXP rpr
+    (33) MODULUS -> . lpr mod EXP EXP rpr
+    (34) GREATER -> . lpr greater EXP EXP rpr
+    (35) SMALLER -> . lpr smaller EXP EXP rpr
+    (36) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
+    (42) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
+    (45) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
+    (48) NOT_OP -> . lpr not EXP rpr
 
     bool_           shift and go to state 7
     number          shift and go to state 8
@@ -2122,56 +2119,56 @@ state 61
 
 state 62
 
-    (68) TEST_EXP -> EXP .
+    (66) TEST_EXP -> EXP .
 
-    bool_           reduce using rule 68 (TEST_EXP -> EXP .)
-    number          reduce using rule 68 (TEST_EXP -> EXP .)
-    id              reduce using rule 68 (TEST_EXP -> EXP .)
-    lpr             reduce using rule 68 (TEST_EXP -> EXP .)
+    bool_           reduce using rule 66 (TEST_EXP -> EXP .)
+    number          reduce using rule 66 (TEST_EXP -> EXP .)
+    id              reduce using rule 66 (TEST_EXP -> EXP .)
+    lpr             reduce using rule 66 (TEST_EXP -> EXP .)
 
 
 state 63
 
-    (27) PLUS -> lpr plus EXP . PLUS_EXP_PLUS rpr
-    (28) PLUS_EXP_PLUS -> . EXP
-    (29) PLUS_EXP_PLUS -> . EXP PLUS_EXP_PLUS
-    (11) EXP -> . bool_
-    (12) EXP -> . number
-    (13) EXP -> . VARIABLE
-    (14) EXP -> . NUM_OP
-    (15) EXP -> . LOGICAL_OP
-    (16) EXP -> . FUN_EXP
-    (17) EXP -> . FUN_CALL
-    (18) EXP -> . IF_EXP
-    (52) VARIABLE -> . id
-    (19) NUM_OP -> . PLUS
-    (20) NUM_OP -> . MINUS
-    (21) NUM_OP -> . MULTIPLY
-    (22) NUM_OP -> . DIVIDE
-    (23) NUM_OP -> . MODULUS
-    (24) NUM_OP -> . GREATER
-    (25) NUM_OP -> . SMALLER
-    (26) NUM_OP -> . EQUAL
-    (41) LOGICAL_OP -> . AND_OP
-    (42) LOGICAL_OP -> . OR_OP
-    (43) LOGICAL_OP -> . NOT_OP
-    (53) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
-    (59) FUN_CALL -> . lpr FUN_EXP rpr
-    (60) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
-    (61) FUN_CALL -> . lpr FUN_NAME rpr
-    (62) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
-    (67) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
-    (27) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
-    (30) MINUS -> . lpr minus EXP EXP rpr
-    (31) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
-    (34) DIVIDE -> . lpr div EXP EXP rpr
-    (35) MODULUS -> . lpr mod EXP EXP rpr
-    (36) GREATER -> . lpr greater EXP EXP rpr
-    (37) SMALLER -> . lpr smaller EXP EXP rpr
-    (38) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
-    (44) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
-    (47) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
-    (50) NOT_OP -> . lpr not EXP rpr
+    (25) PLUS -> lpr plus EXP . PLUS_EXP_PLUS rpr
+    (26) PLUS_EXP_PLUS -> . EXP
+    (27) PLUS_EXP_PLUS -> . EXP PLUS_EXP_PLUS
+    (9) EXP -> . bool_
+    (10) EXP -> . number
+    (11) EXP -> . VARIABLE
+    (12) EXP -> . NUM_OP
+    (13) EXP -> . LOGICAL_OP
+    (14) EXP -> . FUN_EXP
+    (15) EXP -> . FUN_CALL
+    (16) EXP -> . IF_EXP
+    (50) VARIABLE -> . id
+    (17) NUM_OP -> . PLUS
+    (18) NUM_OP -> . MINUS
+    (19) NUM_OP -> . MULTIPLY
+    (20) NUM_OP -> . DIVIDE
+    (21) NUM_OP -> . MODULUS
+    (22) NUM_OP -> . GREATER
+    (23) NUM_OP -> . SMALLER
+    (24) NUM_OP -> . EQUAL
+    (39) LOGICAL_OP -> . AND_OP
+    (40) LOGICAL_OP -> . OR_OP
+    (41) LOGICAL_OP -> . NOT_OP
+    (51) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
+    (57) FUN_CALL -> . lpr FUN_EXP rpr
+    (58) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
+    (59) FUN_CALL -> . lpr FUN_NAME rpr
+    (60) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
+    (65) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
+    (25) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
+    (28) MINUS -> . lpr minus EXP EXP rpr
+    (29) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
+    (32) DIVIDE -> . lpr div EXP EXP rpr
+    (33) MODULUS -> . lpr mod EXP EXP rpr
+    (34) GREATER -> . lpr greater EXP EXP rpr
+    (35) SMALLER -> . lpr smaller EXP EXP rpr
+    (36) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
+    (42) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
+    (45) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
+    (48) NOT_OP -> . lpr not EXP rpr
 
     bool_           shift and go to state 7
     number          shift and go to state 8
@@ -2200,44 +2197,44 @@ state 63
 
 state 64
 
-    (30) MINUS -> lpr minus EXP . EXP rpr
-    (11) EXP -> . bool_
-    (12) EXP -> . number
-    (13) EXP -> . VARIABLE
-    (14) EXP -> . NUM_OP
-    (15) EXP -> . LOGICAL_OP
-    (16) EXP -> . FUN_EXP
-    (17) EXP -> . FUN_CALL
-    (18) EXP -> . IF_EXP
-    (52) VARIABLE -> . id
-    (19) NUM_OP -> . PLUS
-    (20) NUM_OP -> . MINUS
-    (21) NUM_OP -> . MULTIPLY
-    (22) NUM_OP -> . DIVIDE
-    (23) NUM_OP -> . MODULUS
-    (24) NUM_OP -> . GREATER
-    (25) NUM_OP -> . SMALLER
-    (26) NUM_OP -> . EQUAL
-    (41) LOGICAL_OP -> . AND_OP
-    (42) LOGICAL_OP -> . OR_OP
-    (43) LOGICAL_OP -> . NOT_OP
-    (53) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
-    (59) FUN_CALL -> . lpr FUN_EXP rpr
-    (60) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
-    (61) FUN_CALL -> . lpr FUN_NAME rpr
-    (62) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
-    (67) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
-    (27) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
-    (30) MINUS -> . lpr minus EXP EXP rpr
-    (31) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
-    (34) DIVIDE -> . lpr div EXP EXP rpr
-    (35) MODULUS -> . lpr mod EXP EXP rpr
-    (36) GREATER -> . lpr greater EXP EXP rpr
-    (37) SMALLER -> . lpr smaller EXP EXP rpr
-    (38) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
-    (44) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
-    (47) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
-    (50) NOT_OP -> . lpr not EXP rpr
+    (28) MINUS -> lpr minus EXP . EXP rpr
+    (9) EXP -> . bool_
+    (10) EXP -> . number
+    (11) EXP -> . VARIABLE
+    (12) EXP -> . NUM_OP
+    (13) EXP -> . LOGICAL_OP
+    (14) EXP -> . FUN_EXP
+    (15) EXP -> . FUN_CALL
+    (16) EXP -> . IF_EXP
+    (50) VARIABLE -> . id
+    (17) NUM_OP -> . PLUS
+    (18) NUM_OP -> . MINUS
+    (19) NUM_OP -> . MULTIPLY
+    (20) NUM_OP -> . DIVIDE
+    (21) NUM_OP -> . MODULUS
+    (22) NUM_OP -> . GREATER
+    (23) NUM_OP -> . SMALLER
+    (24) NUM_OP -> . EQUAL
+    (39) LOGICAL_OP -> . AND_OP
+    (40) LOGICAL_OP -> . OR_OP
+    (41) LOGICAL_OP -> . NOT_OP
+    (51) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
+    (57) FUN_CALL -> . lpr FUN_EXP rpr
+    (58) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
+    (59) FUN_CALL -> . lpr FUN_NAME rpr
+    (60) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
+    (65) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
+    (25) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
+    (28) MINUS -> . lpr minus EXP EXP rpr
+    (29) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
+    (32) DIVIDE -> . lpr div EXP EXP rpr
+    (33) MODULUS -> . lpr mod EXP EXP rpr
+    (34) GREATER -> . lpr greater EXP EXP rpr
+    (35) SMALLER -> . lpr smaller EXP EXP rpr
+    (36) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
+    (42) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
+    (45) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
+    (48) NOT_OP -> . lpr not EXP rpr
 
     bool_           shift and go to state 7
     number          shift and go to state 8
@@ -2265,46 +2262,46 @@ state 64
 
 state 65
 
-    (31) MULTIPLY -> lpr mul EXP . MUL_EXP_PLUS rpr
-    (32) MUL_EXP_PLUS -> . EXP
-    (33) MUL_EXP_PLUS -> . EXP MUL_EXP_PLUS
-    (11) EXP -> . bool_
-    (12) EXP -> . number
-    (13) EXP -> . VARIABLE
-    (14) EXP -> . NUM_OP
-    (15) EXP -> . LOGICAL_OP
-    (16) EXP -> . FUN_EXP
-    (17) EXP -> . FUN_CALL
-    (18) EXP -> . IF_EXP
-    (52) VARIABLE -> . id
-    (19) NUM_OP -> . PLUS
-    (20) NUM_OP -> . MINUS
-    (21) NUM_OP -> . MULTIPLY
-    (22) NUM_OP -> . DIVIDE
-    (23) NUM_OP -> . MODULUS
-    (24) NUM_OP -> . GREATER
-    (25) NUM_OP -> . SMALLER
-    (26) NUM_OP -> . EQUAL
-    (41) LOGICAL_OP -> . AND_OP
-    (42) LOGICAL_OP -> . OR_OP
-    (43) LOGICAL_OP -> . NOT_OP
-    (53) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
-    (59) FUN_CALL -> . lpr FUN_EXP rpr
-    (60) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
-    (61) FUN_CALL -> . lpr FUN_NAME rpr
-    (62) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
-    (67) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
-    (27) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
-    (30) MINUS -> . lpr minus EXP EXP rpr
-    (31) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
-    (34) DIVIDE -> . lpr div EXP EXP rpr
-    (35) MODULUS -> . lpr mod EXP EXP rpr
-    (36) GREATER -> . lpr greater EXP EXP rpr
-    (37) SMALLER -> . lpr smaller EXP EXP rpr
-    (38) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
-    (44) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
-    (47) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
-    (50) NOT_OP -> . lpr not EXP rpr
+    (29) MULTIPLY -> lpr mul EXP . MUL_EXP_PLUS rpr
+    (30) MUL_EXP_PLUS -> . EXP
+    (31) MUL_EXP_PLUS -> . EXP MUL_EXP_PLUS
+    (9) EXP -> . bool_
+    (10) EXP -> . number
+    (11) EXP -> . VARIABLE
+    (12) EXP -> . NUM_OP
+    (13) EXP -> . LOGICAL_OP
+    (14) EXP -> . FUN_EXP
+    (15) EXP -> . FUN_CALL
+    (16) EXP -> . IF_EXP
+    (50) VARIABLE -> . id
+    (17) NUM_OP -> . PLUS
+    (18) NUM_OP -> . MINUS
+    (19) NUM_OP -> . MULTIPLY
+    (20) NUM_OP -> . DIVIDE
+    (21) NUM_OP -> . MODULUS
+    (22) NUM_OP -> . GREATER
+    (23) NUM_OP -> . SMALLER
+    (24) NUM_OP -> . EQUAL
+    (39) LOGICAL_OP -> . AND_OP
+    (40) LOGICAL_OP -> . OR_OP
+    (41) LOGICAL_OP -> . NOT_OP
+    (51) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
+    (57) FUN_CALL -> . lpr FUN_EXP rpr
+    (58) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
+    (59) FUN_CALL -> . lpr FUN_NAME rpr
+    (60) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
+    (65) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
+    (25) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
+    (28) MINUS -> . lpr minus EXP EXP rpr
+    (29) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
+    (32) DIVIDE -> . lpr div EXP EXP rpr
+    (33) MODULUS -> . lpr mod EXP EXP rpr
+    (34) GREATER -> . lpr greater EXP EXP rpr
+    (35) SMALLER -> . lpr smaller EXP EXP rpr
+    (36) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
+    (42) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
+    (45) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
+    (48) NOT_OP -> . lpr not EXP rpr
 
     bool_           shift and go to state 7
     number          shift and go to state 8
@@ -2333,44 +2330,44 @@ state 65
 
 state 66
 
-    (34) DIVIDE -> lpr div EXP . EXP rpr
-    (11) EXP -> . bool_
-    (12) EXP -> . number
-    (13) EXP -> . VARIABLE
-    (14) EXP -> . NUM_OP
-    (15) EXP -> . LOGICAL_OP
-    (16) EXP -> . FUN_EXP
-    (17) EXP -> . FUN_CALL
-    (18) EXP -> . IF_EXP
-    (52) VARIABLE -> . id
-    (19) NUM_OP -> . PLUS
-    (20) NUM_OP -> . MINUS
-    (21) NUM_OP -> . MULTIPLY
-    (22) NUM_OP -> . DIVIDE
-    (23) NUM_OP -> . MODULUS
-    (24) NUM_OP -> . GREATER
-    (25) NUM_OP -> . SMALLER
-    (26) NUM_OP -> . EQUAL
-    (41) LOGICAL_OP -> . AND_OP
-    (42) LOGICAL_OP -> . OR_OP
-    (43) LOGICAL_OP -> . NOT_OP
-    (53) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
-    (59) FUN_CALL -> . lpr FUN_EXP rpr
-    (60) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
-    (61) FUN_CALL -> . lpr FUN_NAME rpr
-    (62) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
-    (67) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
-    (27) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
-    (30) MINUS -> . lpr minus EXP EXP rpr
-    (31) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
-    (34) DIVIDE -> . lpr div EXP EXP rpr
-    (35) MODULUS -> . lpr mod EXP EXP rpr
-    (36) GREATER -> . lpr greater EXP EXP rpr
-    (37) SMALLER -> . lpr smaller EXP EXP rpr
-    (38) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
-    (44) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
-    (47) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
-    (50) NOT_OP -> . lpr not EXP rpr
+    (32) DIVIDE -> lpr div EXP . EXP rpr
+    (9) EXP -> . bool_
+    (10) EXP -> . number
+    (11) EXP -> . VARIABLE
+    (12) EXP -> . NUM_OP
+    (13) EXP -> . LOGICAL_OP
+    (14) EXP -> . FUN_EXP
+    (15) EXP -> . FUN_CALL
+    (16) EXP -> . IF_EXP
+    (50) VARIABLE -> . id
+    (17) NUM_OP -> . PLUS
+    (18) NUM_OP -> . MINUS
+    (19) NUM_OP -> . MULTIPLY
+    (20) NUM_OP -> . DIVIDE
+    (21) NUM_OP -> . MODULUS
+    (22) NUM_OP -> . GREATER
+    (23) NUM_OP -> . SMALLER
+    (24) NUM_OP -> . EQUAL
+    (39) LOGICAL_OP -> . AND_OP
+    (40) LOGICAL_OP -> . OR_OP
+    (41) LOGICAL_OP -> . NOT_OP
+    (51) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
+    (57) FUN_CALL -> . lpr FUN_EXP rpr
+    (58) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
+    (59) FUN_CALL -> . lpr FUN_NAME rpr
+    (60) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
+    (65) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
+    (25) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
+    (28) MINUS -> . lpr minus EXP EXP rpr
+    (29) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
+    (32) DIVIDE -> . lpr div EXP EXP rpr
+    (33) MODULUS -> . lpr mod EXP EXP rpr
+    (34) GREATER -> . lpr greater EXP EXP rpr
+    (35) SMALLER -> . lpr smaller EXP EXP rpr
+    (36) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
+    (42) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
+    (45) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
+    (48) NOT_OP -> . lpr not EXP rpr
 
     bool_           shift and go to state 7
     number          shift and go to state 8
@@ -2398,44 +2395,44 @@ state 66
 
 state 67
 
-    (35) MODULUS -> lpr mod EXP . EXP rpr
-    (11) EXP -> . bool_
-    (12) EXP -> . number
-    (13) EXP -> . VARIABLE
-    (14) EXP -> . NUM_OP
-    (15) EXP -> . LOGICAL_OP
-    (16) EXP -> . FUN_EXP
-    (17) EXP -> . FUN_CALL
-    (18) EXP -> . IF_EXP
-    (52) VARIABLE -> . id
-    (19) NUM_OP -> . PLUS
-    (20) NUM_OP -> . MINUS
-    (21) NUM_OP -> . MULTIPLY
-    (22) NUM_OP -> . DIVIDE
-    (23) NUM_OP -> . MODULUS
-    (24) NUM_OP -> . GREATER
-    (25) NUM_OP -> . SMALLER
-    (26) NUM_OP -> . EQUAL
-    (41) LOGICAL_OP -> . AND_OP
-    (42) LOGICAL_OP -> . OR_OP
-    (43) LOGICAL_OP -> . NOT_OP
-    (53) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
-    (59) FUN_CALL -> . lpr FUN_EXP rpr
-    (60) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
-    (61) FUN_CALL -> . lpr FUN_NAME rpr
-    (62) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
-    (67) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
-    (27) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
-    (30) MINUS -> . lpr minus EXP EXP rpr
-    (31) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
-    (34) DIVIDE -> . lpr div EXP EXP rpr
-    (35) MODULUS -> . lpr mod EXP EXP rpr
-    (36) GREATER -> . lpr greater EXP EXP rpr
-    (37) SMALLER -> . lpr smaller EXP EXP rpr
-    (38) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
-    (44) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
-    (47) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
-    (50) NOT_OP -> . lpr not EXP rpr
+    (33) MODULUS -> lpr mod EXP . EXP rpr
+    (9) EXP -> . bool_
+    (10) EXP -> . number
+    (11) EXP -> . VARIABLE
+    (12) EXP -> . NUM_OP
+    (13) EXP -> . LOGICAL_OP
+    (14) EXP -> . FUN_EXP
+    (15) EXP -> . FUN_CALL
+    (16) EXP -> . IF_EXP
+    (50) VARIABLE -> . id
+    (17) NUM_OP -> . PLUS
+    (18) NUM_OP -> . MINUS
+    (19) NUM_OP -> . MULTIPLY
+    (20) NUM_OP -> . DIVIDE
+    (21) NUM_OP -> . MODULUS
+    (22) NUM_OP -> . GREATER
+    (23) NUM_OP -> . SMALLER
+    (24) NUM_OP -> . EQUAL
+    (39) LOGICAL_OP -> . AND_OP
+    (40) LOGICAL_OP -> . OR_OP
+    (41) LOGICAL_OP -> . NOT_OP
+    (51) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
+    (57) FUN_CALL -> . lpr FUN_EXP rpr
+    (58) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
+    (59) FUN_CALL -> . lpr FUN_NAME rpr
+    (60) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
+    (65) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
+    (25) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
+    (28) MINUS -> . lpr minus EXP EXP rpr
+    (29) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
+    (32) DIVIDE -> . lpr div EXP EXP rpr
+    (33) MODULUS -> . lpr mod EXP EXP rpr
+    (34) GREATER -> . lpr greater EXP EXP rpr
+    (35) SMALLER -> . lpr smaller EXP EXP rpr
+    (36) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
+    (42) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
+    (45) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
+    (48) NOT_OP -> . lpr not EXP rpr
 
     bool_           shift and go to state 7
     number          shift and go to state 8
@@ -2463,44 +2460,44 @@ state 67
 
 state 68
 
-    (36) GREATER -> lpr greater EXP . EXP rpr
-    (11) EXP -> . bool_
-    (12) EXP -> . number
-    (13) EXP -> . VARIABLE
-    (14) EXP -> . NUM_OP
-    (15) EXP -> . LOGICAL_OP
-    (16) EXP -> . FUN_EXP
-    (17) EXP -> . FUN_CALL
-    (18) EXP -> . IF_EXP
-    (52) VARIABLE -> . id
-    (19) NUM_OP -> . PLUS
-    (20) NUM_OP -> . MINUS
-    (21) NUM_OP -> . MULTIPLY
-    (22) NUM_OP -> . DIVIDE
-    (23) NUM_OP -> . MODULUS
-    (24) NUM_OP -> . GREATER
-    (25) NUM_OP -> . SMALLER
-    (26) NUM_OP -> . EQUAL
-    (41) LOGICAL_OP -> . AND_OP
-    (42) LOGICAL_OP -> . OR_OP
-    (43) LOGICAL_OP -> . NOT_OP
-    (53) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
-    (59) FUN_CALL -> . lpr FUN_EXP rpr
-    (60) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
-    (61) FUN_CALL -> . lpr FUN_NAME rpr
-    (62) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
-    (67) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
-    (27) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
-    (30) MINUS -> . lpr minus EXP EXP rpr
-    (31) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
-    (34) DIVIDE -> . lpr div EXP EXP rpr
-    (35) MODULUS -> . lpr mod EXP EXP rpr
-    (36) GREATER -> . lpr greater EXP EXP rpr
-    (37) SMALLER -> . lpr smaller EXP EXP rpr
-    (38) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
-    (44) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
-    (47) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
-    (50) NOT_OP -> . lpr not EXP rpr
+    (34) GREATER -> lpr greater EXP . EXP rpr
+    (9) EXP -> . bool_
+    (10) EXP -> . number
+    (11) EXP -> . VARIABLE
+    (12) EXP -> . NUM_OP
+    (13) EXP -> . LOGICAL_OP
+    (14) EXP -> . FUN_EXP
+    (15) EXP -> . FUN_CALL
+    (16) EXP -> . IF_EXP
+    (50) VARIABLE -> . id
+    (17) NUM_OP -> . PLUS
+    (18) NUM_OP -> . MINUS
+    (19) NUM_OP -> . MULTIPLY
+    (20) NUM_OP -> . DIVIDE
+    (21) NUM_OP -> . MODULUS
+    (22) NUM_OP -> . GREATER
+    (23) NUM_OP -> . SMALLER
+    (24) NUM_OP -> . EQUAL
+    (39) LOGICAL_OP -> . AND_OP
+    (40) LOGICAL_OP -> . OR_OP
+    (41) LOGICAL_OP -> . NOT_OP
+    (51) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
+    (57) FUN_CALL -> . lpr FUN_EXP rpr
+    (58) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
+    (59) FUN_CALL -> . lpr FUN_NAME rpr
+    (60) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
+    (65) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
+    (25) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
+    (28) MINUS -> . lpr minus EXP EXP rpr
+    (29) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
+    (32) DIVIDE -> . lpr div EXP EXP rpr
+    (33) MODULUS -> . lpr mod EXP EXP rpr
+    (34) GREATER -> . lpr greater EXP EXP rpr
+    (35) SMALLER -> . lpr smaller EXP EXP rpr
+    (36) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
+    (42) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
+    (45) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
+    (48) NOT_OP -> . lpr not EXP rpr
 
     bool_           shift and go to state 7
     number          shift and go to state 8
@@ -2528,44 +2525,44 @@ state 68
 
 state 69
 
-    (37) SMALLER -> lpr smaller EXP . EXP rpr
-    (11) EXP -> . bool_
-    (12) EXP -> . number
-    (13) EXP -> . VARIABLE
-    (14) EXP -> . NUM_OP
-    (15) EXP -> . LOGICAL_OP
-    (16) EXP -> . FUN_EXP
-    (17) EXP -> . FUN_CALL
-    (18) EXP -> . IF_EXP
-    (52) VARIABLE -> . id
-    (19) NUM_OP -> . PLUS
-    (20) NUM_OP -> . MINUS
-    (21) NUM_OP -> . MULTIPLY
-    (22) NUM_OP -> . DIVIDE
-    (23) NUM_OP -> . MODULUS
-    (24) NUM_OP -> . GREATER
-    (25) NUM_OP -> . SMALLER
-    (26) NUM_OP -> . EQUAL
-    (41) LOGICAL_OP -> . AND_OP
-    (42) LOGICAL_OP -> . OR_OP
-    (43) LOGICAL_OP -> . NOT_OP
-    (53) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
-    (59) FUN_CALL -> . lpr FUN_EXP rpr
-    (60) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
-    (61) FUN_CALL -> . lpr FUN_NAME rpr
-    (62) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
-    (67) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
-    (27) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
-    (30) MINUS -> . lpr minus EXP EXP rpr
-    (31) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
-    (34) DIVIDE -> . lpr div EXP EXP rpr
-    (35) MODULUS -> . lpr mod EXP EXP rpr
-    (36) GREATER -> . lpr greater EXP EXP rpr
-    (37) SMALLER -> . lpr smaller EXP EXP rpr
-    (38) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
-    (44) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
-    (47) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
-    (50) NOT_OP -> . lpr not EXP rpr
+    (35) SMALLER -> lpr smaller EXP . EXP rpr
+    (9) EXP -> . bool_
+    (10) EXP -> . number
+    (11) EXP -> . VARIABLE
+    (12) EXP -> . NUM_OP
+    (13) EXP -> . LOGICAL_OP
+    (14) EXP -> . FUN_EXP
+    (15) EXP -> . FUN_CALL
+    (16) EXP -> . IF_EXP
+    (50) VARIABLE -> . id
+    (17) NUM_OP -> . PLUS
+    (18) NUM_OP -> . MINUS
+    (19) NUM_OP -> . MULTIPLY
+    (20) NUM_OP -> . DIVIDE
+    (21) NUM_OP -> . MODULUS
+    (22) NUM_OP -> . GREATER
+    (23) NUM_OP -> . SMALLER
+    (24) NUM_OP -> . EQUAL
+    (39) LOGICAL_OP -> . AND_OP
+    (40) LOGICAL_OP -> . OR_OP
+    (41) LOGICAL_OP -> . NOT_OP
+    (51) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
+    (57) FUN_CALL -> . lpr FUN_EXP rpr
+    (58) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
+    (59) FUN_CALL -> . lpr FUN_NAME rpr
+    (60) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
+    (65) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
+    (25) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
+    (28) MINUS -> . lpr minus EXP EXP rpr
+    (29) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
+    (32) DIVIDE -> . lpr div EXP EXP rpr
+    (33) MODULUS -> . lpr mod EXP EXP rpr
+    (34) GREATER -> . lpr greater EXP EXP rpr
+    (35) SMALLER -> . lpr smaller EXP EXP rpr
+    (36) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
+    (42) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
+    (45) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
+    (48) NOT_OP -> . lpr not EXP rpr
 
     bool_           shift and go to state 7
     number          shift and go to state 8
@@ -2593,46 +2590,46 @@ state 69
 
 state 70
 
-    (38) EQUAL -> lpr equal EXP . EQUAL_EXP_PLUS rpr
-    (39) EQUAL_EXP_PLUS -> . EXP
-    (40) EQUAL_EXP_PLUS -> . EXP EQUAL_EXP_PLUS
-    (11) EXP -> . bool_
-    (12) EXP -> . number
-    (13) EXP -> . VARIABLE
-    (14) EXP -> . NUM_OP
-    (15) EXP -> . LOGICAL_OP
-    (16) EXP -> . FUN_EXP
-    (17) EXP -> . FUN_CALL
-    (18) EXP -> . IF_EXP
-    (52) VARIABLE -> . id
-    (19) NUM_OP -> . PLUS
-    (20) NUM_OP -> . MINUS
-    (21) NUM_OP -> . MULTIPLY
-    (22) NUM_OP -> . DIVIDE
-    (23) NUM_OP -> . MODULUS
-    (24) NUM_OP -> . GREATER
-    (25) NUM_OP -> . SMALLER
-    (26) NUM_OP -> . EQUAL
-    (41) LOGICAL_OP -> . AND_OP
-    (42) LOGICAL_OP -> . OR_OP
-    (43) LOGICAL_OP -> . NOT_OP
-    (53) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
-    (59) FUN_CALL -> . lpr FUN_EXP rpr
-    (60) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
-    (61) FUN_CALL -> . lpr FUN_NAME rpr
-    (62) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
-    (67) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
-    (27) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
-    (30) MINUS -> . lpr minus EXP EXP rpr
-    (31) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
-    (34) DIVIDE -> . lpr div EXP EXP rpr
-    (35) MODULUS -> . lpr mod EXP EXP rpr
-    (36) GREATER -> . lpr greater EXP EXP rpr
-    (37) SMALLER -> . lpr smaller EXP EXP rpr
-    (38) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
-    (44) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
-    (47) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
-    (50) NOT_OP -> . lpr not EXP rpr
+    (36) EQUAL -> lpr equal EXP . EQUAL_EXP_PLUS rpr
+    (37) EQUAL_EXP_PLUS -> . EXP
+    (38) EQUAL_EXP_PLUS -> . EXP EQUAL_EXP_PLUS
+    (9) EXP -> . bool_
+    (10) EXP -> . number
+    (11) EXP -> . VARIABLE
+    (12) EXP -> . NUM_OP
+    (13) EXP -> . LOGICAL_OP
+    (14) EXP -> . FUN_EXP
+    (15) EXP -> . FUN_CALL
+    (16) EXP -> . IF_EXP
+    (50) VARIABLE -> . id
+    (17) NUM_OP -> . PLUS
+    (18) NUM_OP -> . MINUS
+    (19) NUM_OP -> . MULTIPLY
+    (20) NUM_OP -> . DIVIDE
+    (21) NUM_OP -> . MODULUS
+    (22) NUM_OP -> . GREATER
+    (23) NUM_OP -> . SMALLER
+    (24) NUM_OP -> . EQUAL
+    (39) LOGICAL_OP -> . AND_OP
+    (40) LOGICAL_OP -> . OR_OP
+    (41) LOGICAL_OP -> . NOT_OP
+    (51) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
+    (57) FUN_CALL -> . lpr FUN_EXP rpr
+    (58) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
+    (59) FUN_CALL -> . lpr FUN_NAME rpr
+    (60) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
+    (65) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
+    (25) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
+    (28) MINUS -> . lpr minus EXP EXP rpr
+    (29) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
+    (32) DIVIDE -> . lpr div EXP EXP rpr
+    (33) MODULUS -> . lpr mod EXP EXP rpr
+    (34) GREATER -> . lpr greater EXP EXP rpr
+    (35) SMALLER -> . lpr smaller EXP EXP rpr
+    (36) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
+    (42) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
+    (45) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
+    (48) NOT_OP -> . lpr not EXP rpr
 
     bool_           shift and go to state 7
     number          shift and go to state 8
@@ -2661,46 +2658,46 @@ state 70
 
 state 71
 
-    (44) AND_OP -> lpr and EXP . AND_EXP_PLUS rpr
-    (45) AND_EXP_PLUS -> . EXP
-    (46) AND_EXP_PLUS -> . EXP AND_EXP_PLUS
-    (11) EXP -> . bool_
-    (12) EXP -> . number
-    (13) EXP -> . VARIABLE
-    (14) EXP -> . NUM_OP
-    (15) EXP -> . LOGICAL_OP
-    (16) EXP -> . FUN_EXP
-    (17) EXP -> . FUN_CALL
-    (18) EXP -> . IF_EXP
-    (52) VARIABLE -> . id
-    (19) NUM_OP -> . PLUS
-    (20) NUM_OP -> . MINUS
-    (21) NUM_OP -> . MULTIPLY
-    (22) NUM_OP -> . DIVIDE
-    (23) NUM_OP -> . MODULUS
-    (24) NUM_OP -> . GREATER
-    (25) NUM_OP -> . SMALLER
-    (26) NUM_OP -> . EQUAL
-    (41) LOGICAL_OP -> . AND_OP
-    (42) LOGICAL_OP -> . OR_OP
-    (43) LOGICAL_OP -> . NOT_OP
-    (53) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
-    (59) FUN_CALL -> . lpr FUN_EXP rpr
-    (60) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
-    (61) FUN_CALL -> . lpr FUN_NAME rpr
-    (62) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
-    (67) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
-    (27) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
-    (30) MINUS -> . lpr minus EXP EXP rpr
-    (31) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
-    (34) DIVIDE -> . lpr div EXP EXP rpr
-    (35) MODULUS -> . lpr mod EXP EXP rpr
-    (36) GREATER -> . lpr greater EXP EXP rpr
-    (37) SMALLER -> . lpr smaller EXP EXP rpr
-    (38) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
-    (44) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
-    (47) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
-    (50) NOT_OP -> . lpr not EXP rpr
+    (42) AND_OP -> lpr and EXP . AND_EXP_PLUS rpr
+    (43) AND_EXP_PLUS -> . EXP
+    (44) AND_EXP_PLUS -> . EXP AND_EXP_PLUS
+    (9) EXP -> . bool_
+    (10) EXP -> . number
+    (11) EXP -> . VARIABLE
+    (12) EXP -> . NUM_OP
+    (13) EXP -> . LOGICAL_OP
+    (14) EXP -> . FUN_EXP
+    (15) EXP -> . FUN_CALL
+    (16) EXP -> . IF_EXP
+    (50) VARIABLE -> . id
+    (17) NUM_OP -> . PLUS
+    (18) NUM_OP -> . MINUS
+    (19) NUM_OP -> . MULTIPLY
+    (20) NUM_OP -> . DIVIDE
+    (21) NUM_OP -> . MODULUS
+    (22) NUM_OP -> . GREATER
+    (23) NUM_OP -> . SMALLER
+    (24) NUM_OP -> . EQUAL
+    (39) LOGICAL_OP -> . AND_OP
+    (40) LOGICAL_OP -> . OR_OP
+    (41) LOGICAL_OP -> . NOT_OP
+    (51) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
+    (57) FUN_CALL -> . lpr FUN_EXP rpr
+    (58) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
+    (59) FUN_CALL -> . lpr FUN_NAME rpr
+    (60) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
+    (65) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
+    (25) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
+    (28) MINUS -> . lpr minus EXP EXP rpr
+    (29) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
+    (32) DIVIDE -> . lpr div EXP EXP rpr
+    (33) MODULUS -> . lpr mod EXP EXP rpr
+    (34) GREATER -> . lpr greater EXP EXP rpr
+    (35) SMALLER -> . lpr smaller EXP EXP rpr
+    (36) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
+    (42) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
+    (45) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
+    (48) NOT_OP -> . lpr not EXP rpr
 
     bool_           shift and go to state 7
     number          shift and go to state 8
@@ -2729,46 +2726,46 @@ state 71
 
 state 72
 
-    (47) OR_OP -> lpr or EXP . OR_EXP_PLUS rpr
-    (48) OR_EXP_PLUS -> . EXP
-    (49) OR_EXP_PLUS -> . EXP OR_EXP_PLUS
-    (11) EXP -> . bool_
-    (12) EXP -> . number
-    (13) EXP -> . VARIABLE
-    (14) EXP -> . NUM_OP
-    (15) EXP -> . LOGICAL_OP
-    (16) EXP -> . FUN_EXP
-    (17) EXP -> . FUN_CALL
-    (18) EXP -> . IF_EXP
-    (52) VARIABLE -> . id
-    (19) NUM_OP -> . PLUS
-    (20) NUM_OP -> . MINUS
-    (21) NUM_OP -> . MULTIPLY
-    (22) NUM_OP -> . DIVIDE
-    (23) NUM_OP -> . MODULUS
-    (24) NUM_OP -> . GREATER
-    (25) NUM_OP -> . SMALLER
-    (26) NUM_OP -> . EQUAL
-    (41) LOGICAL_OP -> . AND_OP
-    (42) LOGICAL_OP -> . OR_OP
-    (43) LOGICAL_OP -> . NOT_OP
-    (53) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
-    (59) FUN_CALL -> . lpr FUN_EXP rpr
-    (60) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
-    (61) FUN_CALL -> . lpr FUN_NAME rpr
-    (62) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
-    (67) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
-    (27) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
-    (30) MINUS -> . lpr minus EXP EXP rpr
-    (31) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
-    (34) DIVIDE -> . lpr div EXP EXP rpr
-    (35) MODULUS -> . lpr mod EXP EXP rpr
-    (36) GREATER -> . lpr greater EXP EXP rpr
-    (37) SMALLER -> . lpr smaller EXP EXP rpr
-    (38) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
-    (44) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
-    (47) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
-    (50) NOT_OP -> . lpr not EXP rpr
+    (45) OR_OP -> lpr or EXP . OR_EXP_PLUS rpr
+    (46) OR_EXP_PLUS -> . EXP
+    (47) OR_EXP_PLUS -> . EXP OR_EXP_PLUS
+    (9) EXP -> . bool_
+    (10) EXP -> . number
+    (11) EXP -> . VARIABLE
+    (12) EXP -> . NUM_OP
+    (13) EXP -> . LOGICAL_OP
+    (14) EXP -> . FUN_EXP
+    (15) EXP -> . FUN_CALL
+    (16) EXP -> . IF_EXP
+    (50) VARIABLE -> . id
+    (17) NUM_OP -> . PLUS
+    (18) NUM_OP -> . MINUS
+    (19) NUM_OP -> . MULTIPLY
+    (20) NUM_OP -> . DIVIDE
+    (21) NUM_OP -> . MODULUS
+    (22) NUM_OP -> . GREATER
+    (23) NUM_OP -> . SMALLER
+    (24) NUM_OP -> . EQUAL
+    (39) LOGICAL_OP -> . AND_OP
+    (40) LOGICAL_OP -> . OR_OP
+    (41) LOGICAL_OP -> . NOT_OP
+    (51) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
+    (57) FUN_CALL -> . lpr FUN_EXP rpr
+    (58) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
+    (59) FUN_CALL -> . lpr FUN_NAME rpr
+    (60) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
+    (65) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
+    (25) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
+    (28) MINUS -> . lpr minus EXP EXP rpr
+    (29) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
+    (32) DIVIDE -> . lpr div EXP EXP rpr
+    (33) MODULUS -> . lpr mod EXP EXP rpr
+    (34) GREATER -> . lpr greater EXP EXP rpr
+    (35) SMALLER -> . lpr smaller EXP EXP rpr
+    (36) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
+    (42) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
+    (45) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
+    (48) NOT_OP -> . lpr not EXP rpr
 
     bool_           shift and go to state 7
     number          shift and go to state 8
@@ -2797,14 +2794,14 @@ state 72
 
 state 73
 
-    (50) NOT_OP -> lpr not EXP . rpr
+    (48) NOT_OP -> lpr not EXP . rpr
 
     rpr             shift and go to state 102
 
 
 state 74
 
-    (51) DEF_STMT -> lpr define VARIABLE EXP . rpr
+    (49) DEF_STMT -> lpr define VARIABLE EXP . rpr
 
     rpr             shift and go to state 103
 
@@ -2833,119 +2830,119 @@ state 76
 
 state 77
 
-    (54) FUN_IDs -> lpr rpr .
+    (52) FUN_IDs -> lpr rpr .
 
-    bool_           reduce using rule 54 (FUN_IDs -> lpr rpr .)
-    number          reduce using rule 54 (FUN_IDs -> lpr rpr .)
-    id              reduce using rule 54 (FUN_IDs -> lpr rpr .)
-    lpr             reduce using rule 54 (FUN_IDs -> lpr rpr .)
+    bool_           reduce using rule 52 (FUN_IDs -> lpr rpr .)
+    number          reduce using rule 52 (FUN_IDs -> lpr rpr .)
+    id              reduce using rule 52 (FUN_IDs -> lpr rpr .)
+    lpr             reduce using rule 52 (FUN_IDs -> lpr rpr .)
 
 
 state 78
 
-    (55) FUN_IDs -> lpr ID_PLUS . rpr
+    (53) FUN_IDs -> lpr ID_PLUS . rpr
 
     rpr             shift and go to state 104
 
 
 state 79
 
-    (56) ID_PLUS -> id .
-    (57) ID_PLUS -> id . ID_PLUS
-    (56) ID_PLUS -> . id
-    (57) ID_PLUS -> . id ID_PLUS
+    (54) ID_PLUS -> id .
+    (55) ID_PLUS -> id . ID_PLUS
+    (54) ID_PLUS -> . id
+    (55) ID_PLUS -> . id ID_PLUS
 
-    rpr             reduce using rule 56 (ID_PLUS -> id .)
+    rpr             reduce using rule 54 (ID_PLUS -> id .)
     id              shift and go to state 79
 
     ID_PLUS                        shift and go to state 105
 
 state 80
 
-    (53) FUN_EXP -> lpr fun_ FUN_IDs FUN_BODY . rpr
+    (51) FUN_EXP -> lpr fun_ FUN_IDs FUN_BODY . rpr
 
     rpr             shift and go to state 106
 
 
 state 81
 
-    (58) FUN_BODY -> EXP .
+    (56) FUN_BODY -> EXP .
 
-    rpr             reduce using rule 58 (FUN_BODY -> EXP .)
+    rpr             reduce using rule 56 (FUN_BODY -> EXP .)
 
 
 state 82
 
-    (60) FUN_CALL -> lpr FUN_EXP PARAM_PLUS rpr .
+    (58) FUN_CALL -> lpr FUN_EXP PARAM_PLUS rpr .
 
-    bool_           reduce using rule 60 (FUN_CALL -> lpr FUN_EXP PARAM_PLUS rpr .)
-    number          reduce using rule 60 (FUN_CALL -> lpr FUN_EXP PARAM_PLUS rpr .)
-    lpr             reduce using rule 60 (FUN_CALL -> lpr FUN_EXP PARAM_PLUS rpr .)
-    id              reduce using rule 60 (FUN_CALL -> lpr FUN_EXP PARAM_PLUS rpr .)
-    $end            reduce using rule 60 (FUN_CALL -> lpr FUN_EXP PARAM_PLUS rpr .)
-    rpr             reduce using rule 60 (FUN_CALL -> lpr FUN_EXP PARAM_PLUS rpr .)
+    bool_           reduce using rule 58 (FUN_CALL -> lpr FUN_EXP PARAM_PLUS rpr .)
+    number          reduce using rule 58 (FUN_CALL -> lpr FUN_EXP PARAM_PLUS rpr .)
+    lpr             reduce using rule 58 (FUN_CALL -> lpr FUN_EXP PARAM_PLUS rpr .)
+    id              reduce using rule 58 (FUN_CALL -> lpr FUN_EXP PARAM_PLUS rpr .)
+    $end            reduce using rule 58 (FUN_CALL -> lpr FUN_EXP PARAM_PLUS rpr .)
+    rpr             reduce using rule 58 (FUN_CALL -> lpr FUN_EXP PARAM_PLUS rpr .)
 
 
 state 83
 
-    (65) PARAM_PLUS -> PARAM PARAM_PLUS .
+    (63) PARAM_PLUS -> PARAM PARAM_PLUS .
 
-    rpr             reduce using rule 65 (PARAM_PLUS -> PARAM PARAM_PLUS .)
+    rpr             reduce using rule 63 (PARAM_PLUS -> PARAM PARAM_PLUS .)
 
 
 state 84
 
-    (62) FUN_CALL -> lpr FUN_NAME PARAM_PLUS rpr .
+    (60) FUN_CALL -> lpr FUN_NAME PARAM_PLUS rpr .
 
-    bool_           reduce using rule 62 (FUN_CALL -> lpr FUN_NAME PARAM_PLUS rpr .)
-    number          reduce using rule 62 (FUN_CALL -> lpr FUN_NAME PARAM_PLUS rpr .)
-    lpr             reduce using rule 62 (FUN_CALL -> lpr FUN_NAME PARAM_PLUS rpr .)
-    id              reduce using rule 62 (FUN_CALL -> lpr FUN_NAME PARAM_PLUS rpr .)
-    $end            reduce using rule 62 (FUN_CALL -> lpr FUN_NAME PARAM_PLUS rpr .)
-    rpr             reduce using rule 62 (FUN_CALL -> lpr FUN_NAME PARAM_PLUS rpr .)
+    bool_           reduce using rule 60 (FUN_CALL -> lpr FUN_NAME PARAM_PLUS rpr .)
+    number          reduce using rule 60 (FUN_CALL -> lpr FUN_NAME PARAM_PLUS rpr .)
+    lpr             reduce using rule 60 (FUN_CALL -> lpr FUN_NAME PARAM_PLUS rpr .)
+    id              reduce using rule 60 (FUN_CALL -> lpr FUN_NAME PARAM_PLUS rpr .)
+    $end            reduce using rule 60 (FUN_CALL -> lpr FUN_NAME PARAM_PLUS rpr .)
+    rpr             reduce using rule 60 (FUN_CALL -> lpr FUN_NAME PARAM_PLUS rpr .)
 
 
 state 85
 
-    (67) IF_EXP -> lpr if_ TEST_EXP THEN_EXP . ELSE_EXP rpr
-    (70) ELSE_EXP -> . EXP
-    (11) EXP -> . bool_
-    (12) EXP -> . number
-    (13) EXP -> . VARIABLE
-    (14) EXP -> . NUM_OP
-    (15) EXP -> . LOGICAL_OP
-    (16) EXP -> . FUN_EXP
-    (17) EXP -> . FUN_CALL
-    (18) EXP -> . IF_EXP
-    (52) VARIABLE -> . id
-    (19) NUM_OP -> . PLUS
-    (20) NUM_OP -> . MINUS
-    (21) NUM_OP -> . MULTIPLY
-    (22) NUM_OP -> . DIVIDE
-    (23) NUM_OP -> . MODULUS
-    (24) NUM_OP -> . GREATER
-    (25) NUM_OP -> . SMALLER
-    (26) NUM_OP -> . EQUAL
-    (41) LOGICAL_OP -> . AND_OP
-    (42) LOGICAL_OP -> . OR_OP
-    (43) LOGICAL_OP -> . NOT_OP
-    (53) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
-    (59) FUN_CALL -> . lpr FUN_EXP rpr
-    (60) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
-    (61) FUN_CALL -> . lpr FUN_NAME rpr
-    (62) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
-    (67) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
-    (27) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
-    (30) MINUS -> . lpr minus EXP EXP rpr
-    (31) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
-    (34) DIVIDE -> . lpr div EXP EXP rpr
-    (35) MODULUS -> . lpr mod EXP EXP rpr
-    (36) GREATER -> . lpr greater EXP EXP rpr
-    (37) SMALLER -> . lpr smaller EXP EXP rpr
-    (38) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
-    (44) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
-    (47) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
-    (50) NOT_OP -> . lpr not EXP rpr
+    (65) IF_EXP -> lpr if_ TEST_EXP THEN_EXP . ELSE_EXP rpr
+    (68) ELSE_EXP -> . EXP
+    (9) EXP -> . bool_
+    (10) EXP -> . number
+    (11) EXP -> . VARIABLE
+    (12) EXP -> . NUM_OP
+    (13) EXP -> . LOGICAL_OP
+    (14) EXP -> . FUN_EXP
+    (15) EXP -> . FUN_CALL
+    (16) EXP -> . IF_EXP
+    (50) VARIABLE -> . id
+    (17) NUM_OP -> . PLUS
+    (18) NUM_OP -> . MINUS
+    (19) NUM_OP -> . MULTIPLY
+    (20) NUM_OP -> . DIVIDE
+    (21) NUM_OP -> . MODULUS
+    (22) NUM_OP -> . GREATER
+    (23) NUM_OP -> . SMALLER
+    (24) NUM_OP -> . EQUAL
+    (39) LOGICAL_OP -> . AND_OP
+    (40) LOGICAL_OP -> . OR_OP
+    (41) LOGICAL_OP -> . NOT_OP
+    (51) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
+    (57) FUN_CALL -> . lpr FUN_EXP rpr
+    (58) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
+    (59) FUN_CALL -> . lpr FUN_NAME rpr
+    (60) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
+    (65) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
+    (25) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
+    (28) MINUS -> . lpr minus EXP EXP rpr
+    (29) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
+    (32) DIVIDE -> . lpr div EXP EXP rpr
+    (33) MODULUS -> . lpr mod EXP EXP rpr
+    (34) GREATER -> . lpr greater EXP EXP rpr
+    (35) SMALLER -> . lpr smaller EXP EXP rpr
+    (36) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
+    (42) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
+    (45) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
+    (48) NOT_OP -> . lpr not EXP rpr
 
     bool_           shift and go to state 7
     number          shift and go to state 8
@@ -2974,59 +2971,59 @@ state 85
 
 state 86
 
-    (69) THEN_EXP -> EXP .
+    (67) THEN_EXP -> EXP .
 
-    bool_           reduce using rule 69 (THEN_EXP -> EXP .)
-    number          reduce using rule 69 (THEN_EXP -> EXP .)
-    id              reduce using rule 69 (THEN_EXP -> EXP .)
-    lpr             reduce using rule 69 (THEN_EXP -> EXP .)
+    bool_           reduce using rule 67 (THEN_EXP -> EXP .)
+    number          reduce using rule 67 (THEN_EXP -> EXP .)
+    id              reduce using rule 67 (THEN_EXP -> EXP .)
+    lpr             reduce using rule 67 (THEN_EXP -> EXP .)
 
 
 state 87
 
-    (28) PLUS_EXP_PLUS -> EXP .
-    (29) PLUS_EXP_PLUS -> EXP . PLUS_EXP_PLUS
-    (28) PLUS_EXP_PLUS -> . EXP
-    (29) PLUS_EXP_PLUS -> . EXP PLUS_EXP_PLUS
-    (11) EXP -> . bool_
-    (12) EXP -> . number
-    (13) EXP -> . VARIABLE
-    (14) EXP -> . NUM_OP
-    (15) EXP -> . LOGICAL_OP
-    (16) EXP -> . FUN_EXP
-    (17) EXP -> . FUN_CALL
-    (18) EXP -> . IF_EXP
-    (52) VARIABLE -> . id
-    (19) NUM_OP -> . PLUS
-    (20) NUM_OP -> . MINUS
-    (21) NUM_OP -> . MULTIPLY
-    (22) NUM_OP -> . DIVIDE
-    (23) NUM_OP -> . MODULUS
-    (24) NUM_OP -> . GREATER
-    (25) NUM_OP -> . SMALLER
-    (26) NUM_OP -> . EQUAL
-    (41) LOGICAL_OP -> . AND_OP
-    (42) LOGICAL_OP -> . OR_OP
-    (43) LOGICAL_OP -> . NOT_OP
-    (53) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
-    (59) FUN_CALL -> . lpr FUN_EXP rpr
-    (60) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
-    (61) FUN_CALL -> . lpr FUN_NAME rpr
-    (62) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
-    (67) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
-    (27) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
-    (30) MINUS -> . lpr minus EXP EXP rpr
-    (31) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
-    (34) DIVIDE -> . lpr div EXP EXP rpr
-    (35) MODULUS -> . lpr mod EXP EXP rpr
-    (36) GREATER -> . lpr greater EXP EXP rpr
-    (37) SMALLER -> . lpr smaller EXP EXP rpr
-    (38) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
-    (44) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
-    (47) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
-    (50) NOT_OP -> . lpr not EXP rpr
+    (26) PLUS_EXP_PLUS -> EXP .
+    (27) PLUS_EXP_PLUS -> EXP . PLUS_EXP_PLUS
+    (26) PLUS_EXP_PLUS -> . EXP
+    (27) PLUS_EXP_PLUS -> . EXP PLUS_EXP_PLUS
+    (9) EXP -> . bool_
+    (10) EXP -> . number
+    (11) EXP -> . VARIABLE
+    (12) EXP -> . NUM_OP
+    (13) EXP -> . LOGICAL_OP
+    (14) EXP -> . FUN_EXP
+    (15) EXP -> . FUN_CALL
+    (16) EXP -> . IF_EXP
+    (50) VARIABLE -> . id
+    (17) NUM_OP -> . PLUS
+    (18) NUM_OP -> . MINUS
+    (19) NUM_OP -> . MULTIPLY
+    (20) NUM_OP -> . DIVIDE
+    (21) NUM_OP -> . MODULUS
+    (22) NUM_OP -> . GREATER
+    (23) NUM_OP -> . SMALLER
+    (24) NUM_OP -> . EQUAL
+    (39) LOGICAL_OP -> . AND_OP
+    (40) LOGICAL_OP -> . OR_OP
+    (41) LOGICAL_OP -> . NOT_OP
+    (51) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
+    (57) FUN_CALL -> . lpr FUN_EXP rpr
+    (58) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
+    (59) FUN_CALL -> . lpr FUN_NAME rpr
+    (60) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
+    (65) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
+    (25) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
+    (28) MINUS -> . lpr minus EXP EXP rpr
+    (29) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
+    (32) DIVIDE -> . lpr div EXP EXP rpr
+    (33) MODULUS -> . lpr mod EXP EXP rpr
+    (34) GREATER -> . lpr greater EXP EXP rpr
+    (35) SMALLER -> . lpr smaller EXP EXP rpr
+    (36) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
+    (42) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
+    (45) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
+    (48) NOT_OP -> . lpr not EXP rpr
 
-    rpr             reduce using rule 28 (PLUS_EXP_PLUS -> EXP .)
+    rpr             reduce using rule 26 (PLUS_EXP_PLUS -> EXP .)
     bool_           shift and go to state 7
     number          shift and go to state 8
     id              shift and go to state 16
@@ -3054,63 +3051,63 @@ state 87
 
 state 88
 
-    (27) PLUS -> lpr plus EXP PLUS_EXP_PLUS . rpr
+    (25) PLUS -> lpr plus EXP PLUS_EXP_PLUS . rpr
 
     rpr             shift and go to state 110
 
 
 state 89
 
-    (30) MINUS -> lpr minus EXP EXP . rpr
+    (28) MINUS -> lpr minus EXP EXP . rpr
 
     rpr             shift and go to state 111
 
 
 state 90
 
-    (32) MUL_EXP_PLUS -> EXP .
-    (33) MUL_EXP_PLUS -> EXP . MUL_EXP_PLUS
-    (32) MUL_EXP_PLUS -> . EXP
-    (33) MUL_EXP_PLUS -> . EXP MUL_EXP_PLUS
-    (11) EXP -> . bool_
-    (12) EXP -> . number
-    (13) EXP -> . VARIABLE
-    (14) EXP -> . NUM_OP
-    (15) EXP -> . LOGICAL_OP
-    (16) EXP -> . FUN_EXP
-    (17) EXP -> . FUN_CALL
-    (18) EXP -> . IF_EXP
-    (52) VARIABLE -> . id
-    (19) NUM_OP -> . PLUS
-    (20) NUM_OP -> . MINUS
-    (21) NUM_OP -> . MULTIPLY
-    (22) NUM_OP -> . DIVIDE
-    (23) NUM_OP -> . MODULUS
-    (24) NUM_OP -> . GREATER
-    (25) NUM_OP -> . SMALLER
-    (26) NUM_OP -> . EQUAL
-    (41) LOGICAL_OP -> . AND_OP
-    (42) LOGICAL_OP -> . OR_OP
-    (43) LOGICAL_OP -> . NOT_OP
-    (53) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
-    (59) FUN_CALL -> . lpr FUN_EXP rpr
-    (60) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
-    (61) FUN_CALL -> . lpr FUN_NAME rpr
-    (62) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
-    (67) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
-    (27) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
-    (30) MINUS -> . lpr minus EXP EXP rpr
-    (31) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
-    (34) DIVIDE -> . lpr div EXP EXP rpr
-    (35) MODULUS -> . lpr mod EXP EXP rpr
-    (36) GREATER -> . lpr greater EXP EXP rpr
-    (37) SMALLER -> . lpr smaller EXP EXP rpr
-    (38) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
-    (44) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
-    (47) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
-    (50) NOT_OP -> . lpr not EXP rpr
+    (30) MUL_EXP_PLUS -> EXP .
+    (31) MUL_EXP_PLUS -> EXP . MUL_EXP_PLUS
+    (30) MUL_EXP_PLUS -> . EXP
+    (31) MUL_EXP_PLUS -> . EXP MUL_EXP_PLUS
+    (9) EXP -> . bool_
+    (10) EXP -> . number
+    (11) EXP -> . VARIABLE
+    (12) EXP -> . NUM_OP
+    (13) EXP -> . LOGICAL_OP
+    (14) EXP -> . FUN_EXP
+    (15) EXP -> . FUN_CALL
+    (16) EXP -> . IF_EXP
+    (50) VARIABLE -> . id
+    (17) NUM_OP -> . PLUS
+    (18) NUM_OP -> . MINUS
+    (19) NUM_OP -> . MULTIPLY
+    (20) NUM_OP -> . DIVIDE
+    (21) NUM_OP -> . MODULUS
+    (22) NUM_OP -> . GREATER
+    (23) NUM_OP -> . SMALLER
+    (24) NUM_OP -> . EQUAL
+    (39) LOGICAL_OP -> . AND_OP
+    (40) LOGICAL_OP -> . OR_OP
+    (41) LOGICAL_OP -> . NOT_OP
+    (51) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
+    (57) FUN_CALL -> . lpr FUN_EXP rpr
+    (58) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
+    (59) FUN_CALL -> . lpr FUN_NAME rpr
+    (60) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
+    (65) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
+    (25) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
+    (28) MINUS -> . lpr minus EXP EXP rpr
+    (29) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
+    (32) DIVIDE -> . lpr div EXP EXP rpr
+    (33) MODULUS -> . lpr mod EXP EXP rpr
+    (34) GREATER -> . lpr greater EXP EXP rpr
+    (35) SMALLER -> . lpr smaller EXP EXP rpr
+    (36) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
+    (42) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
+    (45) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
+    (48) NOT_OP -> . lpr not EXP rpr
 
-    rpr             reduce using rule 32 (MUL_EXP_PLUS -> EXP .)
+    rpr             reduce using rule 30 (MUL_EXP_PLUS -> EXP .)
     bool_           shift and go to state 7
     number          shift and go to state 8
     id              shift and go to state 16
@@ -3138,84 +3135,84 @@ state 90
 
 state 91
 
-    (31) MULTIPLY -> lpr mul EXP MUL_EXP_PLUS . rpr
+    (29) MULTIPLY -> lpr mul EXP MUL_EXP_PLUS . rpr
 
     rpr             shift and go to state 113
 
 
 state 92
 
-    (34) DIVIDE -> lpr div EXP EXP . rpr
+    (32) DIVIDE -> lpr div EXP EXP . rpr
 
     rpr             shift and go to state 114
 
 
 state 93
 
-    (35) MODULUS -> lpr mod EXP EXP . rpr
+    (33) MODULUS -> lpr mod EXP EXP . rpr
 
     rpr             shift and go to state 115
 
 
 state 94
 
-    (36) GREATER -> lpr greater EXP EXP . rpr
+    (34) GREATER -> lpr greater EXP EXP . rpr
 
     rpr             shift and go to state 116
 
 
 state 95
 
-    (37) SMALLER -> lpr smaller EXP EXP . rpr
+    (35) SMALLER -> lpr smaller EXP EXP . rpr
 
     rpr             shift and go to state 117
 
 
 state 96
 
-    (39) EQUAL_EXP_PLUS -> EXP .
-    (40) EQUAL_EXP_PLUS -> EXP . EQUAL_EXP_PLUS
-    (39) EQUAL_EXP_PLUS -> . EXP
-    (40) EQUAL_EXP_PLUS -> . EXP EQUAL_EXP_PLUS
-    (11) EXP -> . bool_
-    (12) EXP -> . number
-    (13) EXP -> . VARIABLE
-    (14) EXP -> . NUM_OP
-    (15) EXP -> . LOGICAL_OP
-    (16) EXP -> . FUN_EXP
-    (17) EXP -> . FUN_CALL
-    (18) EXP -> . IF_EXP
-    (52) VARIABLE -> . id
-    (19) NUM_OP -> . PLUS
-    (20) NUM_OP -> . MINUS
-    (21) NUM_OP -> . MULTIPLY
-    (22) NUM_OP -> . DIVIDE
-    (23) NUM_OP -> . MODULUS
-    (24) NUM_OP -> . GREATER
-    (25) NUM_OP -> . SMALLER
-    (26) NUM_OP -> . EQUAL
-    (41) LOGICAL_OP -> . AND_OP
-    (42) LOGICAL_OP -> . OR_OP
-    (43) LOGICAL_OP -> . NOT_OP
-    (53) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
-    (59) FUN_CALL -> . lpr FUN_EXP rpr
-    (60) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
-    (61) FUN_CALL -> . lpr FUN_NAME rpr
-    (62) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
-    (67) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
-    (27) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
-    (30) MINUS -> . lpr minus EXP EXP rpr
-    (31) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
-    (34) DIVIDE -> . lpr div EXP EXP rpr
-    (35) MODULUS -> . lpr mod EXP EXP rpr
-    (36) GREATER -> . lpr greater EXP EXP rpr
-    (37) SMALLER -> . lpr smaller EXP EXP rpr
-    (38) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
-    (44) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
-    (47) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
-    (50) NOT_OP -> . lpr not EXP rpr
+    (37) EQUAL_EXP_PLUS -> EXP .
+    (38) EQUAL_EXP_PLUS -> EXP . EQUAL_EXP_PLUS
+    (37) EQUAL_EXP_PLUS -> . EXP
+    (38) EQUAL_EXP_PLUS -> . EXP EQUAL_EXP_PLUS
+    (9) EXP -> . bool_
+    (10) EXP -> . number
+    (11) EXP -> . VARIABLE
+    (12) EXP -> . NUM_OP
+    (13) EXP -> . LOGICAL_OP
+    (14) EXP -> . FUN_EXP
+    (15) EXP -> . FUN_CALL
+    (16) EXP -> . IF_EXP
+    (50) VARIABLE -> . id
+    (17) NUM_OP -> . PLUS
+    (18) NUM_OP -> . MINUS
+    (19) NUM_OP -> . MULTIPLY
+    (20) NUM_OP -> . DIVIDE
+    (21) NUM_OP -> . MODULUS
+    (22) NUM_OP -> . GREATER
+    (23) NUM_OP -> . SMALLER
+    (24) NUM_OP -> . EQUAL
+    (39) LOGICAL_OP -> . AND_OP
+    (40) LOGICAL_OP -> . OR_OP
+    (41) LOGICAL_OP -> . NOT_OP
+    (51) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
+    (57) FUN_CALL -> . lpr FUN_EXP rpr
+    (58) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
+    (59) FUN_CALL -> . lpr FUN_NAME rpr
+    (60) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
+    (65) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
+    (25) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
+    (28) MINUS -> . lpr minus EXP EXP rpr
+    (29) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
+    (32) DIVIDE -> . lpr div EXP EXP rpr
+    (33) MODULUS -> . lpr mod EXP EXP rpr
+    (34) GREATER -> . lpr greater EXP EXP rpr
+    (35) SMALLER -> . lpr smaller EXP EXP rpr
+    (36) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
+    (42) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
+    (45) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
+    (48) NOT_OP -> . lpr not EXP rpr
 
-    rpr             reduce using rule 39 (EQUAL_EXP_PLUS -> EXP .)
+    rpr             reduce using rule 37 (EQUAL_EXP_PLUS -> EXP .)
     bool_           shift and go to state 7
     number          shift and go to state 8
     id              shift and go to state 16
@@ -3243,56 +3240,56 @@ state 96
 
 state 97
 
-    (38) EQUAL -> lpr equal EXP EQUAL_EXP_PLUS . rpr
+    (36) EQUAL -> lpr equal EXP EQUAL_EXP_PLUS . rpr
 
     rpr             shift and go to state 119
 
 
 state 98
 
-    (45) AND_EXP_PLUS -> EXP .
-    (46) AND_EXP_PLUS -> EXP . AND_EXP_PLUS
-    (45) AND_EXP_PLUS -> . EXP
-    (46) AND_EXP_PLUS -> . EXP AND_EXP_PLUS
-    (11) EXP -> . bool_
-    (12) EXP -> . number
-    (13) EXP -> . VARIABLE
-    (14) EXP -> . NUM_OP
-    (15) EXP -> . LOGICAL_OP
-    (16) EXP -> . FUN_EXP
-    (17) EXP -> . FUN_CALL
-    (18) EXP -> . IF_EXP
-    (52) VARIABLE -> . id
-    (19) NUM_OP -> . PLUS
-    (20) NUM_OP -> . MINUS
-    (21) NUM_OP -> . MULTIPLY
-    (22) NUM_OP -> . DIVIDE
-    (23) NUM_OP -> . MODULUS
-    (24) NUM_OP -> . GREATER
-    (25) NUM_OP -> . SMALLER
-    (26) NUM_OP -> . EQUAL
-    (41) LOGICAL_OP -> . AND_OP
-    (42) LOGICAL_OP -> . OR_OP
-    (43) LOGICAL_OP -> . NOT_OP
-    (53) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
-    (59) FUN_CALL -> . lpr FUN_EXP rpr
-    (60) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
-    (61) FUN_CALL -> . lpr FUN_NAME rpr
-    (62) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
-    (67) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
-    (27) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
-    (30) MINUS -> . lpr minus EXP EXP rpr
-    (31) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
-    (34) DIVIDE -> . lpr div EXP EXP rpr
-    (35) MODULUS -> . lpr mod EXP EXP rpr
-    (36) GREATER -> . lpr greater EXP EXP rpr
-    (37) SMALLER -> . lpr smaller EXP EXP rpr
-    (38) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
-    (44) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
-    (47) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
-    (50) NOT_OP -> . lpr not EXP rpr
+    (43) AND_EXP_PLUS -> EXP .
+    (44) AND_EXP_PLUS -> EXP . AND_EXP_PLUS
+    (43) AND_EXP_PLUS -> . EXP
+    (44) AND_EXP_PLUS -> . EXP AND_EXP_PLUS
+    (9) EXP -> . bool_
+    (10) EXP -> . number
+    (11) EXP -> . VARIABLE
+    (12) EXP -> . NUM_OP
+    (13) EXP -> . LOGICAL_OP
+    (14) EXP -> . FUN_EXP
+    (15) EXP -> . FUN_CALL
+    (16) EXP -> . IF_EXP
+    (50) VARIABLE -> . id
+    (17) NUM_OP -> . PLUS
+    (18) NUM_OP -> . MINUS
+    (19) NUM_OP -> . MULTIPLY
+    (20) NUM_OP -> . DIVIDE
+    (21) NUM_OP -> . MODULUS
+    (22) NUM_OP -> . GREATER
+    (23) NUM_OP -> . SMALLER
+    (24) NUM_OP -> . EQUAL
+    (39) LOGICAL_OP -> . AND_OP
+    (40) LOGICAL_OP -> . OR_OP
+    (41) LOGICAL_OP -> . NOT_OP
+    (51) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
+    (57) FUN_CALL -> . lpr FUN_EXP rpr
+    (58) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
+    (59) FUN_CALL -> . lpr FUN_NAME rpr
+    (60) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
+    (65) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
+    (25) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
+    (28) MINUS -> . lpr minus EXP EXP rpr
+    (29) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
+    (32) DIVIDE -> . lpr div EXP EXP rpr
+    (33) MODULUS -> . lpr mod EXP EXP rpr
+    (34) GREATER -> . lpr greater EXP EXP rpr
+    (35) SMALLER -> . lpr smaller EXP EXP rpr
+    (36) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
+    (42) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
+    (45) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
+    (48) NOT_OP -> . lpr not EXP rpr
 
-    rpr             reduce using rule 45 (AND_EXP_PLUS -> EXP .)
+    rpr             reduce using rule 43 (AND_EXP_PLUS -> EXP .)
     bool_           shift and go to state 7
     number          shift and go to state 8
     id              shift and go to state 16
@@ -3320,56 +3317,56 @@ state 98
 
 state 99
 
-    (44) AND_OP -> lpr and EXP AND_EXP_PLUS . rpr
+    (42) AND_OP -> lpr and EXP AND_EXP_PLUS . rpr
 
     rpr             shift and go to state 121
 
 
 state 100
 
-    (48) OR_EXP_PLUS -> EXP .
-    (49) OR_EXP_PLUS -> EXP . OR_EXP_PLUS
-    (48) OR_EXP_PLUS -> . EXP
-    (49) OR_EXP_PLUS -> . EXP OR_EXP_PLUS
-    (11) EXP -> . bool_
-    (12) EXP -> . number
-    (13) EXP -> . VARIABLE
-    (14) EXP -> . NUM_OP
-    (15) EXP -> . LOGICAL_OP
-    (16) EXP -> . FUN_EXP
-    (17) EXP -> . FUN_CALL
-    (18) EXP -> . IF_EXP
-    (52) VARIABLE -> . id
-    (19) NUM_OP -> . PLUS
-    (20) NUM_OP -> . MINUS
-    (21) NUM_OP -> . MULTIPLY
-    (22) NUM_OP -> . DIVIDE
-    (23) NUM_OP -> . MODULUS
-    (24) NUM_OP -> . GREATER
-    (25) NUM_OP -> . SMALLER
-    (26) NUM_OP -> . EQUAL
-    (41) LOGICAL_OP -> . AND_OP
-    (42) LOGICAL_OP -> . OR_OP
-    (43) LOGICAL_OP -> . NOT_OP
-    (53) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
-    (59) FUN_CALL -> . lpr FUN_EXP rpr
-    (60) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
-    (61) FUN_CALL -> . lpr FUN_NAME rpr
-    (62) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
-    (67) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
-    (27) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
-    (30) MINUS -> . lpr minus EXP EXP rpr
-    (31) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
-    (34) DIVIDE -> . lpr div EXP EXP rpr
-    (35) MODULUS -> . lpr mod EXP EXP rpr
-    (36) GREATER -> . lpr greater EXP EXP rpr
-    (37) SMALLER -> . lpr smaller EXP EXP rpr
-    (38) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
-    (44) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
-    (47) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
-    (50) NOT_OP -> . lpr not EXP rpr
+    (46) OR_EXP_PLUS -> EXP .
+    (47) OR_EXP_PLUS -> EXP . OR_EXP_PLUS
+    (46) OR_EXP_PLUS -> . EXP
+    (47) OR_EXP_PLUS -> . EXP OR_EXP_PLUS
+    (9) EXP -> . bool_
+    (10) EXP -> . number
+    (11) EXP -> . VARIABLE
+    (12) EXP -> . NUM_OP
+    (13) EXP -> . LOGICAL_OP
+    (14) EXP -> . FUN_EXP
+    (15) EXP -> . FUN_CALL
+    (16) EXP -> . IF_EXP
+    (50) VARIABLE -> . id
+    (17) NUM_OP -> . PLUS
+    (18) NUM_OP -> . MINUS
+    (19) NUM_OP -> . MULTIPLY
+    (20) NUM_OP -> . DIVIDE
+    (21) NUM_OP -> . MODULUS
+    (22) NUM_OP -> . GREATER
+    (23) NUM_OP -> . SMALLER
+    (24) NUM_OP -> . EQUAL
+    (39) LOGICAL_OP -> . AND_OP
+    (40) LOGICAL_OP -> . OR_OP
+    (41) LOGICAL_OP -> . NOT_OP
+    (51) FUN_EXP -> . lpr fun_ FUN_IDs FUN_BODY rpr
+    (57) FUN_CALL -> . lpr FUN_EXP rpr
+    (58) FUN_CALL -> . lpr FUN_EXP PARAM_PLUS rpr
+    (59) FUN_CALL -> . lpr FUN_NAME rpr
+    (60) FUN_CALL -> . lpr FUN_NAME PARAM_PLUS rpr
+    (65) IF_EXP -> . lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr
+    (25) PLUS -> . lpr plus EXP PLUS_EXP_PLUS rpr
+    (28) MINUS -> . lpr minus EXP EXP rpr
+    (29) MULTIPLY -> . lpr mul EXP MUL_EXP_PLUS rpr
+    (32) DIVIDE -> . lpr div EXP EXP rpr
+    (33) MODULUS -> . lpr mod EXP EXP rpr
+    (34) GREATER -> . lpr greater EXP EXP rpr
+    (35) SMALLER -> . lpr smaller EXP EXP rpr
+    (36) EQUAL -> . lpr equal EXP EQUAL_EXP_PLUS rpr
+    (42) AND_OP -> . lpr and EXP AND_EXP_PLUS rpr
+    (45) OR_OP -> . lpr or EXP OR_EXP_PLUS rpr
+    (48) NOT_OP -> . lpr not EXP rpr
 
-    rpr             reduce using rule 48 (OR_EXP_PLUS -> EXP .)
+    rpr             reduce using rule 46 (OR_EXP_PLUS -> EXP .)
     bool_           shift and go to state 7
     number          shift and go to state 8
     id              shift and go to state 16
@@ -3397,240 +3394,240 @@ state 100
 
 state 101
 
-    (47) OR_OP -> lpr or EXP OR_EXP_PLUS . rpr
+    (45) OR_OP -> lpr or EXP OR_EXP_PLUS . rpr
 
     rpr             shift and go to state 123
 
 
 state 102
 
-    (50) NOT_OP -> lpr not EXP rpr .
+    (48) NOT_OP -> lpr not EXP rpr .
 
-    bool_           reduce using rule 50 (NOT_OP -> lpr not EXP rpr .)
-    number          reduce using rule 50 (NOT_OP -> lpr not EXP rpr .)
-    lpr             reduce using rule 50 (NOT_OP -> lpr not EXP rpr .)
-    id              reduce using rule 50 (NOT_OP -> lpr not EXP rpr .)
-    $end            reduce using rule 50 (NOT_OP -> lpr not EXP rpr .)
-    rpr             reduce using rule 50 (NOT_OP -> lpr not EXP rpr .)
+    bool_           reduce using rule 48 (NOT_OP -> lpr not EXP rpr .)
+    number          reduce using rule 48 (NOT_OP -> lpr not EXP rpr .)
+    lpr             reduce using rule 48 (NOT_OP -> lpr not EXP rpr .)
+    id              reduce using rule 48 (NOT_OP -> lpr not EXP rpr .)
+    $end            reduce using rule 48 (NOT_OP -> lpr not EXP rpr .)
+    rpr             reduce using rule 48 (NOT_OP -> lpr not EXP rpr .)
 
 
 state 103
 
-    (51) DEF_STMT -> lpr define VARIABLE EXP rpr .
+    (49) DEF_STMT -> lpr define VARIABLE EXP rpr .
 
-    bool_           reduce using rule 51 (DEF_STMT -> lpr define VARIABLE EXP rpr .)
-    number          reduce using rule 51 (DEF_STMT -> lpr define VARIABLE EXP rpr .)
-    lpr             reduce using rule 51 (DEF_STMT -> lpr define VARIABLE EXP rpr .)
-    id              reduce using rule 51 (DEF_STMT -> lpr define VARIABLE EXP rpr .)
-    $end            reduce using rule 51 (DEF_STMT -> lpr define VARIABLE EXP rpr .)
+    bool_           reduce using rule 49 (DEF_STMT -> lpr define VARIABLE EXP rpr .)
+    number          reduce using rule 49 (DEF_STMT -> lpr define VARIABLE EXP rpr .)
+    lpr             reduce using rule 49 (DEF_STMT -> lpr define VARIABLE EXP rpr .)
+    id              reduce using rule 49 (DEF_STMT -> lpr define VARIABLE EXP rpr .)
+    $end            reduce using rule 49 (DEF_STMT -> lpr define VARIABLE EXP rpr .)
 
 
 state 104
 
-    (55) FUN_IDs -> lpr ID_PLUS rpr .
+    (53) FUN_IDs -> lpr ID_PLUS rpr .
 
-    bool_           reduce using rule 55 (FUN_IDs -> lpr ID_PLUS rpr .)
-    number          reduce using rule 55 (FUN_IDs -> lpr ID_PLUS rpr .)
-    id              reduce using rule 55 (FUN_IDs -> lpr ID_PLUS rpr .)
-    lpr             reduce using rule 55 (FUN_IDs -> lpr ID_PLUS rpr .)
+    bool_           reduce using rule 53 (FUN_IDs -> lpr ID_PLUS rpr .)
+    number          reduce using rule 53 (FUN_IDs -> lpr ID_PLUS rpr .)
+    id              reduce using rule 53 (FUN_IDs -> lpr ID_PLUS rpr .)
+    lpr             reduce using rule 53 (FUN_IDs -> lpr ID_PLUS rpr .)
 
 
 state 105
 
-    (57) ID_PLUS -> id ID_PLUS .
+    (55) ID_PLUS -> id ID_PLUS .
 
-    rpr             reduce using rule 57 (ID_PLUS -> id ID_PLUS .)
+    rpr             reduce using rule 55 (ID_PLUS -> id ID_PLUS .)
 
 
 state 106
 
-    (53) FUN_EXP -> lpr fun_ FUN_IDs FUN_BODY rpr .
+    (51) FUN_EXP -> lpr fun_ FUN_IDs FUN_BODY rpr .
 
-    bool_           reduce using rule 53 (FUN_EXP -> lpr fun_ FUN_IDs FUN_BODY rpr .)
-    number          reduce using rule 53 (FUN_EXP -> lpr fun_ FUN_IDs FUN_BODY rpr .)
-    lpr             reduce using rule 53 (FUN_EXP -> lpr fun_ FUN_IDs FUN_BODY rpr .)
-    id              reduce using rule 53 (FUN_EXP -> lpr fun_ FUN_IDs FUN_BODY rpr .)
-    $end            reduce using rule 53 (FUN_EXP -> lpr fun_ FUN_IDs FUN_BODY rpr .)
-    rpr             reduce using rule 53 (FUN_EXP -> lpr fun_ FUN_IDs FUN_BODY rpr .)
+    bool_           reduce using rule 51 (FUN_EXP -> lpr fun_ FUN_IDs FUN_BODY rpr .)
+    number          reduce using rule 51 (FUN_EXP -> lpr fun_ FUN_IDs FUN_BODY rpr .)
+    lpr             reduce using rule 51 (FUN_EXP -> lpr fun_ FUN_IDs FUN_BODY rpr .)
+    id              reduce using rule 51 (FUN_EXP -> lpr fun_ FUN_IDs FUN_BODY rpr .)
+    $end            reduce using rule 51 (FUN_EXP -> lpr fun_ FUN_IDs FUN_BODY rpr .)
+    rpr             reduce using rule 51 (FUN_EXP -> lpr fun_ FUN_IDs FUN_BODY rpr .)
 
 
 state 107
 
-    (67) IF_EXP -> lpr if_ TEST_EXP THEN_EXP ELSE_EXP . rpr
+    (65) IF_EXP -> lpr if_ TEST_EXP THEN_EXP ELSE_EXP . rpr
 
     rpr             shift and go to state 124
 
 
 state 108
 
-    (70) ELSE_EXP -> EXP .
+    (68) ELSE_EXP -> EXP .
 
-    rpr             reduce using rule 70 (ELSE_EXP -> EXP .)
+    rpr             reduce using rule 68 (ELSE_EXP -> EXP .)
 
 
 state 109
 
-    (29) PLUS_EXP_PLUS -> EXP PLUS_EXP_PLUS .
+    (27) PLUS_EXP_PLUS -> EXP PLUS_EXP_PLUS .
 
-    rpr             reduce using rule 29 (PLUS_EXP_PLUS -> EXP PLUS_EXP_PLUS .)
+    rpr             reduce using rule 27 (PLUS_EXP_PLUS -> EXP PLUS_EXP_PLUS .)
 
 
 state 110
 
-    (27) PLUS -> lpr plus EXP PLUS_EXP_PLUS rpr .
+    (25) PLUS -> lpr plus EXP PLUS_EXP_PLUS rpr .
 
-    bool_           reduce using rule 27 (PLUS -> lpr plus EXP PLUS_EXP_PLUS rpr .)
-    number          reduce using rule 27 (PLUS -> lpr plus EXP PLUS_EXP_PLUS rpr .)
-    lpr             reduce using rule 27 (PLUS -> lpr plus EXP PLUS_EXP_PLUS rpr .)
-    id              reduce using rule 27 (PLUS -> lpr plus EXP PLUS_EXP_PLUS rpr .)
-    $end            reduce using rule 27 (PLUS -> lpr plus EXP PLUS_EXP_PLUS rpr .)
-    rpr             reduce using rule 27 (PLUS -> lpr plus EXP PLUS_EXP_PLUS rpr .)
+    bool_           reduce using rule 25 (PLUS -> lpr plus EXP PLUS_EXP_PLUS rpr .)
+    number          reduce using rule 25 (PLUS -> lpr plus EXP PLUS_EXP_PLUS rpr .)
+    lpr             reduce using rule 25 (PLUS -> lpr plus EXP PLUS_EXP_PLUS rpr .)
+    id              reduce using rule 25 (PLUS -> lpr plus EXP PLUS_EXP_PLUS rpr .)
+    $end            reduce using rule 25 (PLUS -> lpr plus EXP PLUS_EXP_PLUS rpr .)
+    rpr             reduce using rule 25 (PLUS -> lpr plus EXP PLUS_EXP_PLUS rpr .)
 
 
 state 111
 
-    (30) MINUS -> lpr minus EXP EXP rpr .
+    (28) MINUS -> lpr minus EXP EXP rpr .
 
-    bool_           reduce using rule 30 (MINUS -> lpr minus EXP EXP rpr .)
-    number          reduce using rule 30 (MINUS -> lpr minus EXP EXP rpr .)
-    lpr             reduce using rule 30 (MINUS -> lpr minus EXP EXP rpr .)
-    id              reduce using rule 30 (MINUS -> lpr minus EXP EXP rpr .)
-    $end            reduce using rule 30 (MINUS -> lpr minus EXP EXP rpr .)
-    rpr             reduce using rule 30 (MINUS -> lpr minus EXP EXP rpr .)
+    bool_           reduce using rule 28 (MINUS -> lpr minus EXP EXP rpr .)
+    number          reduce using rule 28 (MINUS -> lpr minus EXP EXP rpr .)
+    lpr             reduce using rule 28 (MINUS -> lpr minus EXP EXP rpr .)
+    id              reduce using rule 28 (MINUS -> lpr minus EXP EXP rpr .)
+    $end            reduce using rule 28 (MINUS -> lpr minus EXP EXP rpr .)
+    rpr             reduce using rule 28 (MINUS -> lpr minus EXP EXP rpr .)
 
 
 state 112
 
-    (33) MUL_EXP_PLUS -> EXP MUL_EXP_PLUS .
+    (31) MUL_EXP_PLUS -> EXP MUL_EXP_PLUS .
 
-    rpr             reduce using rule 33 (MUL_EXP_PLUS -> EXP MUL_EXP_PLUS .)
+    rpr             reduce using rule 31 (MUL_EXP_PLUS -> EXP MUL_EXP_PLUS .)
 
 
 state 113
 
-    (31) MULTIPLY -> lpr mul EXP MUL_EXP_PLUS rpr .
+    (29) MULTIPLY -> lpr mul EXP MUL_EXP_PLUS rpr .
 
-    bool_           reduce using rule 31 (MULTIPLY -> lpr mul EXP MUL_EXP_PLUS rpr .)
-    number          reduce using rule 31 (MULTIPLY -> lpr mul EXP MUL_EXP_PLUS rpr .)
-    lpr             reduce using rule 31 (MULTIPLY -> lpr mul EXP MUL_EXP_PLUS rpr .)
-    id              reduce using rule 31 (MULTIPLY -> lpr mul EXP MUL_EXP_PLUS rpr .)
-    $end            reduce using rule 31 (MULTIPLY -> lpr mul EXP MUL_EXP_PLUS rpr .)
-    rpr             reduce using rule 31 (MULTIPLY -> lpr mul EXP MUL_EXP_PLUS rpr .)
+    bool_           reduce using rule 29 (MULTIPLY -> lpr mul EXP MUL_EXP_PLUS rpr .)
+    number          reduce using rule 29 (MULTIPLY -> lpr mul EXP MUL_EXP_PLUS rpr .)
+    lpr             reduce using rule 29 (MULTIPLY -> lpr mul EXP MUL_EXP_PLUS rpr .)
+    id              reduce using rule 29 (MULTIPLY -> lpr mul EXP MUL_EXP_PLUS rpr .)
+    $end            reduce using rule 29 (MULTIPLY -> lpr mul EXP MUL_EXP_PLUS rpr .)
+    rpr             reduce using rule 29 (MULTIPLY -> lpr mul EXP MUL_EXP_PLUS rpr .)
 
 
 state 114
 
-    (34) DIVIDE -> lpr div EXP EXP rpr .
+    (32) DIVIDE -> lpr div EXP EXP rpr .
 
-    bool_           reduce using rule 34 (DIVIDE -> lpr div EXP EXP rpr .)
-    number          reduce using rule 34 (DIVIDE -> lpr div EXP EXP rpr .)
-    lpr             reduce using rule 34 (DIVIDE -> lpr div EXP EXP rpr .)
-    id              reduce using rule 34 (DIVIDE -> lpr div EXP EXP rpr .)
-    $end            reduce using rule 34 (DIVIDE -> lpr div EXP EXP rpr .)
-    rpr             reduce using rule 34 (DIVIDE -> lpr div EXP EXP rpr .)
+    bool_           reduce using rule 32 (DIVIDE -> lpr div EXP EXP rpr .)
+    number          reduce using rule 32 (DIVIDE -> lpr div EXP EXP rpr .)
+    lpr             reduce using rule 32 (DIVIDE -> lpr div EXP EXP rpr .)
+    id              reduce using rule 32 (DIVIDE -> lpr div EXP EXP rpr .)
+    $end            reduce using rule 32 (DIVIDE -> lpr div EXP EXP rpr .)
+    rpr             reduce using rule 32 (DIVIDE -> lpr div EXP EXP rpr .)
 
 
 state 115
 
-    (35) MODULUS -> lpr mod EXP EXP rpr .
+    (33) MODULUS -> lpr mod EXP EXP rpr .
 
-    bool_           reduce using rule 35 (MODULUS -> lpr mod EXP EXP rpr .)
-    number          reduce using rule 35 (MODULUS -> lpr mod EXP EXP rpr .)
-    lpr             reduce using rule 35 (MODULUS -> lpr mod EXP EXP rpr .)
-    id              reduce using rule 35 (MODULUS -> lpr mod EXP EXP rpr .)
-    $end            reduce using rule 35 (MODULUS -> lpr mod EXP EXP rpr .)
-    rpr             reduce using rule 35 (MODULUS -> lpr mod EXP EXP rpr .)
+    bool_           reduce using rule 33 (MODULUS -> lpr mod EXP EXP rpr .)
+    number          reduce using rule 33 (MODULUS -> lpr mod EXP EXP rpr .)
+    lpr             reduce using rule 33 (MODULUS -> lpr mod EXP EXP rpr .)
+    id              reduce using rule 33 (MODULUS -> lpr mod EXP EXP rpr .)
+    $end            reduce using rule 33 (MODULUS -> lpr mod EXP EXP rpr .)
+    rpr             reduce using rule 33 (MODULUS -> lpr mod EXP EXP rpr .)
 
 
 state 116
 
-    (36) GREATER -> lpr greater EXP EXP rpr .
+    (34) GREATER -> lpr greater EXP EXP rpr .
 
-    bool_           reduce using rule 36 (GREATER -> lpr greater EXP EXP rpr .)
-    number          reduce using rule 36 (GREATER -> lpr greater EXP EXP rpr .)
-    lpr             reduce using rule 36 (GREATER -> lpr greater EXP EXP rpr .)
-    id              reduce using rule 36 (GREATER -> lpr greater EXP EXP rpr .)
-    $end            reduce using rule 36 (GREATER -> lpr greater EXP EXP rpr .)
-    rpr             reduce using rule 36 (GREATER -> lpr greater EXP EXP rpr .)
+    bool_           reduce using rule 34 (GREATER -> lpr greater EXP EXP rpr .)
+    number          reduce using rule 34 (GREATER -> lpr greater EXP EXP rpr .)
+    lpr             reduce using rule 34 (GREATER -> lpr greater EXP EXP rpr .)
+    id              reduce using rule 34 (GREATER -> lpr greater EXP EXP rpr .)
+    $end            reduce using rule 34 (GREATER -> lpr greater EXP EXP rpr .)
+    rpr             reduce using rule 34 (GREATER -> lpr greater EXP EXP rpr .)
 
 
 state 117
 
-    (37) SMALLER -> lpr smaller EXP EXP rpr .
+    (35) SMALLER -> lpr smaller EXP EXP rpr .
 
-    bool_           reduce using rule 37 (SMALLER -> lpr smaller EXP EXP rpr .)
-    number          reduce using rule 37 (SMALLER -> lpr smaller EXP EXP rpr .)
-    lpr             reduce using rule 37 (SMALLER -> lpr smaller EXP EXP rpr .)
-    id              reduce using rule 37 (SMALLER -> lpr smaller EXP EXP rpr .)
-    $end            reduce using rule 37 (SMALLER -> lpr smaller EXP EXP rpr .)
-    rpr             reduce using rule 37 (SMALLER -> lpr smaller EXP EXP rpr .)
+    bool_           reduce using rule 35 (SMALLER -> lpr smaller EXP EXP rpr .)
+    number          reduce using rule 35 (SMALLER -> lpr smaller EXP EXP rpr .)
+    lpr             reduce using rule 35 (SMALLER -> lpr smaller EXP EXP rpr .)
+    id              reduce using rule 35 (SMALLER -> lpr smaller EXP EXP rpr .)
+    $end            reduce using rule 35 (SMALLER -> lpr smaller EXP EXP rpr .)
+    rpr             reduce using rule 35 (SMALLER -> lpr smaller EXP EXP rpr .)
 
 
 state 118
 
-    (40) EQUAL_EXP_PLUS -> EXP EQUAL_EXP_PLUS .
+    (38) EQUAL_EXP_PLUS -> EXP EQUAL_EXP_PLUS .
 
-    rpr             reduce using rule 40 (EQUAL_EXP_PLUS -> EXP EQUAL_EXP_PLUS .)
+    rpr             reduce using rule 38 (EQUAL_EXP_PLUS -> EXP EQUAL_EXP_PLUS .)
 
 
 state 119
 
-    (38) EQUAL -> lpr equal EXP EQUAL_EXP_PLUS rpr .
+    (36) EQUAL -> lpr equal EXP EQUAL_EXP_PLUS rpr .
 
-    bool_           reduce using rule 38 (EQUAL -> lpr equal EXP EQUAL_EXP_PLUS rpr .)
-    number          reduce using rule 38 (EQUAL -> lpr equal EXP EQUAL_EXP_PLUS rpr .)
-    lpr             reduce using rule 38 (EQUAL -> lpr equal EXP EQUAL_EXP_PLUS rpr .)
-    id              reduce using rule 38 (EQUAL -> lpr equal EXP EQUAL_EXP_PLUS rpr .)
-    $end            reduce using rule 38 (EQUAL -> lpr equal EXP EQUAL_EXP_PLUS rpr .)
-    rpr             reduce using rule 38 (EQUAL -> lpr equal EXP EQUAL_EXP_PLUS rpr .)
+    bool_           reduce using rule 36 (EQUAL -> lpr equal EXP EQUAL_EXP_PLUS rpr .)
+    number          reduce using rule 36 (EQUAL -> lpr equal EXP EQUAL_EXP_PLUS rpr .)
+    lpr             reduce using rule 36 (EQUAL -> lpr equal EXP EQUAL_EXP_PLUS rpr .)
+    id              reduce using rule 36 (EQUAL -> lpr equal EXP EQUAL_EXP_PLUS rpr .)
+    $end            reduce using rule 36 (EQUAL -> lpr equal EXP EQUAL_EXP_PLUS rpr .)
+    rpr             reduce using rule 36 (EQUAL -> lpr equal EXP EQUAL_EXP_PLUS rpr .)
 
 
 state 120
 
-    (46) AND_EXP_PLUS -> EXP AND_EXP_PLUS .
+    (44) AND_EXP_PLUS -> EXP AND_EXP_PLUS .
 
-    rpr             reduce using rule 46 (AND_EXP_PLUS -> EXP AND_EXP_PLUS .)
+    rpr             reduce using rule 44 (AND_EXP_PLUS -> EXP AND_EXP_PLUS .)
 
 
 state 121
 
-    (44) AND_OP -> lpr and EXP AND_EXP_PLUS rpr .
+    (42) AND_OP -> lpr and EXP AND_EXP_PLUS rpr .
 
-    bool_           reduce using rule 44 (AND_OP -> lpr and EXP AND_EXP_PLUS rpr .)
-    number          reduce using rule 44 (AND_OP -> lpr and EXP AND_EXP_PLUS rpr .)
-    lpr             reduce using rule 44 (AND_OP -> lpr and EXP AND_EXP_PLUS rpr .)
-    id              reduce using rule 44 (AND_OP -> lpr and EXP AND_EXP_PLUS rpr .)
-    $end            reduce using rule 44 (AND_OP -> lpr and EXP AND_EXP_PLUS rpr .)
-    rpr             reduce using rule 44 (AND_OP -> lpr and EXP AND_EXP_PLUS rpr .)
+    bool_           reduce using rule 42 (AND_OP -> lpr and EXP AND_EXP_PLUS rpr .)
+    number          reduce using rule 42 (AND_OP -> lpr and EXP AND_EXP_PLUS rpr .)
+    lpr             reduce using rule 42 (AND_OP -> lpr and EXP AND_EXP_PLUS rpr .)
+    id              reduce using rule 42 (AND_OP -> lpr and EXP AND_EXP_PLUS rpr .)
+    $end            reduce using rule 42 (AND_OP -> lpr and EXP AND_EXP_PLUS rpr .)
+    rpr             reduce using rule 42 (AND_OP -> lpr and EXP AND_EXP_PLUS rpr .)
 
 
 state 122
 
-    (49) OR_EXP_PLUS -> EXP OR_EXP_PLUS .
+    (47) OR_EXP_PLUS -> EXP OR_EXP_PLUS .
 
-    rpr             reduce using rule 49 (OR_EXP_PLUS -> EXP OR_EXP_PLUS .)
+    rpr             reduce using rule 47 (OR_EXP_PLUS -> EXP OR_EXP_PLUS .)
 
 
 state 123
 
-    (47) OR_OP -> lpr or EXP OR_EXP_PLUS rpr .
+    (45) OR_OP -> lpr or EXP OR_EXP_PLUS rpr .
 
-    bool_           reduce using rule 47 (OR_OP -> lpr or EXP OR_EXP_PLUS rpr .)
-    number          reduce using rule 47 (OR_OP -> lpr or EXP OR_EXP_PLUS rpr .)
-    lpr             reduce using rule 47 (OR_OP -> lpr or EXP OR_EXP_PLUS rpr .)
-    id              reduce using rule 47 (OR_OP -> lpr or EXP OR_EXP_PLUS rpr .)
-    $end            reduce using rule 47 (OR_OP -> lpr or EXP OR_EXP_PLUS rpr .)
-    rpr             reduce using rule 47 (OR_OP -> lpr or EXP OR_EXP_PLUS rpr .)
+    bool_           reduce using rule 45 (OR_OP -> lpr or EXP OR_EXP_PLUS rpr .)
+    number          reduce using rule 45 (OR_OP -> lpr or EXP OR_EXP_PLUS rpr .)
+    lpr             reduce using rule 45 (OR_OP -> lpr or EXP OR_EXP_PLUS rpr .)
+    id              reduce using rule 45 (OR_OP -> lpr or EXP OR_EXP_PLUS rpr .)
+    $end            reduce using rule 45 (OR_OP -> lpr or EXP OR_EXP_PLUS rpr .)
+    rpr             reduce using rule 45 (OR_OP -> lpr or EXP OR_EXP_PLUS rpr .)
 
 
 state 124
 
-    (67) IF_EXP -> lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr .
+    (65) IF_EXP -> lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr .
 
-    bool_           reduce using rule 67 (IF_EXP -> lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr .)
-    number          reduce using rule 67 (IF_EXP -> lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr .)
-    lpr             reduce using rule 67 (IF_EXP -> lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr .)
-    id              reduce using rule 67 (IF_EXP -> lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr .)
-    $end            reduce using rule 67 (IF_EXP -> lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr .)
-    rpr             reduce using rule 67 (IF_EXP -> lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr .)
+    bool_           reduce using rule 65 (IF_EXP -> lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr .)
+    number          reduce using rule 65 (IF_EXP -> lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr .)
+    lpr             reduce using rule 65 (IF_EXP -> lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr .)
+    id              reduce using rule 65 (IF_EXP -> lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr .)
+    $end            reduce using rule 65 (IF_EXP -> lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr .)
+    rpr             reduce using rule 65 (IF_EXP -> lpr if_ TEST_EXP THEN_EXP ELSE_EXP rpr .)
 

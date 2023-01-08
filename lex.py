@@ -34,7 +34,9 @@ t_smaller = r'<'
  
 def t_id(t):
     r'[a-z]([a-z]|[0-9]|\-)*'
+    # print('before: '+str(t))
     t.type = reserved.get(t.value, 'id')    # Check for reserved words
+    # print('after: '+str(t))
     return t
 
 def t_number(t):
