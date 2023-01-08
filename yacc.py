@@ -368,43 +368,126 @@ def p_error(p):
     print("Syntax error in input: ", p)                           # TODO: change
     # print("syntax error")
 
+# Reversing a tuple using slicing technique
+# New tuple is created
+def Reverse(tuples):
+    new_tup = tuples[::-1]
+    return new_tup
+
 # Build the parser
 import sys
 parser = yacc.yacc()
-
 with open(sys.argv[1]) as f:
     s = f.read()
 # lexer = lex.lexer
 # lexer.input(s)
+debug = False
 parser.parse(s)
+main_tree.root.children = Reverse(main_tree.root.children)
+# if debug:
+#     print_tree(main_tree.root)
 print_tree(main_tree.root)
 
+def calculate(node):
+    if debug:
+        print('calculating: ')
+        print_tree(node)
+    if node.type == "print_num":
+        print(int(calculate(node.children[0])))
+    if node.type == "print_bool":
+        if calculate(node.children[0]) == True:
+            print("#t")
+        else:
+            print("#f")
+    if node.type == "number":
+        if debug:
+            print('returning: ' + str(node.value))
+        return node.value
+    if node.type == "bool":
+        if debug:
+            print('returning: ' + str(node.value))
+        return node.value
+    if node.type == "+":
+        res = 0
+        for node in node.children:
+            res += calculate(node)
+        if debug:
+            print('returning: ' + str(res))
+        return res
+    if node.type == "-":
+        res = calculate(node.children[0]) - calculate(node.children[1])
+        if debug:
+            print('returning: ' + str(res))
+        return res
+    if node.type == "*":
+        res = 1
+        for node in node.children:
+            res *= calculate(node)
+        if debug:
+            print('returning: ' + str(res))
+        return res
+    if node.type == "//":
+        res = calculate(node.children[0]) // calculate(node.children[1])
+        if debug:
+            print('returning: ' + str(res))
+        return res
+    if node.type == "%":
+        res = calculate(node.children[0]) % calculate(node.children[1])
+        if debug:
+            print('returning: ' + str(res))
+        return res
+    if node.type == ">":
+        res = calculate(node.children[0]) > calculate(node.children[1])
+        if debug:
+            print('returning: ' + str(res))
+        return res
+    if node.type == "<":
+        res = calculate(node.children[0]) < calculate(node.children[1])
+        if debug:
+            print('returning: ' + str(res))
+        return res
+    if node.type == "=":
+        res = True
+        for node in node.children:
+            res = (calculate(node) == res)
+        if debug:
+            print('returning: ' + str(res))
+        return res
+    if node.type == "and":
+        res = True
+        for node in node.children:
+            res = (calculate(node) and res)
+        if debug:
+            print('returning: ' + str(res))
+        return res
+    if node.type == "or":
+        res = False
+        for node in node.children:
+            res = (calculate(node) or res)
+        if debug:
+            print('returning: ' + str(res))
+        return res
+    if node.type == "not":
+        res = not calculate(node.children[0])
+        if debug:
+            print('returning: ' + str(res))
+        return res
+    if node.type == "if_branch":
+        res = None
+        if calculate(node.children[0]):
+            res = calculate(node.children[1].children[0])
+        else:
+            res = calculate(node.children[1].children[1])
+        if debug:
+            print('returning:'+ str(res))
+        return res
 
+def define_(node):
+    print('defining: ')
+    print_tree(node)
 
-
-
-
-
-
-
-
-
-
-# while True:
-#     try:
-#         # s = input()
-#         with open(sys.argv[1]) as f:
-#             s = f.read()
-#         # s = sys.stdin.readline()
-#     except EOFError:
-#         break
-#     if not s: continue
-#     lexer = lex.lexer
-#     lexer.input(s)
-#     # while True:
-#     #     tok = lexer.token()
-#     #     if not tok: 
-#     #         break      # No more input
-#     #     print(tok)
-#     result = parser.parse(s)
-# #    print(result)
+for line_node in main_tree.root.children:
+    if line_node.type == "stmt":
+        calculate(line_node.children[0])
+    elif line_node.type == "define":
+        define_(line_node)
