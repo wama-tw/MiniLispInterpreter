@@ -321,14 +321,6 @@ import sys, copy
 parser = yacc.yacc()
 with open(sys.argv[1]) as f:
     s = f.read()
-# s = '(define f\
-#   (fun (x) (if (= x 1)\
-#               1 (* x (f (- x 1)))\
-#             )\
-#   )\
-# )\
-# \
-# (print-num (f 4))'
 debug = False
 parser.parse(s)
 main_tree.root.children = Reverse(main_tree.root.children)
@@ -360,71 +352,126 @@ def calculate(node, runner=main_tree):
     if node.type == "+":
         res = 0
         for node in node.children:
-            res += calculate(node, runner)
+            value = calculate(node, runner)
+            if type(value) is not int:
+                print("Type error!")
+                sys.exit()
+            res += value
         if debug:
             print('returning: ' + str(res))
         return res
     if node.type == "-":
-        res = calculate(node.children[0], runner) - calculate(node.children[1], runner)
+        first = calculate(node.children[0], runner)
+        second = calculate(node.children[1], runner)
+        if (type(first) is not int) or (type(second) is not int):
+            print("Type error!")
+            sys.exit()
+        res = first - second
         if debug:
             print('returning: ' + str(res))
         return res
     if node.type == "*":
         res = 1
         for node in node.children:
-            res *= calculate(node, runner)
+            value = calculate(node, runner)
+            if type(value) is not int:
+                print("Type error!")
+                sys.exit()
+            res *= value
         if debug:
             print('returning: ' + str(res))
         return res
     if node.type == "//":
-        res = calculate(node.children[0]) // calculate(node.children[1])
+        first = calculate(node.children[0], runner)
+        second = calculate(node.children[1], runner)
+        if (type(first) is not int) or (type(second) is not int):
+            print("Type error!")
+            sys.exit()
+        res = first // second
         if debug:
             print('returning: ' + str(res))
         return res
     if node.type == "%":
-        res = calculate(node.children[0], runner) % calculate(node.children[1], runner)
+        first = calculate(node.children[0], runner)
+        second = calculate(node.children[1], runner)
+        if (type(first) is not int) or (type(second) is not int):
+            print("Type error!")
+            sys.exit()
+        res = first % second
         if debug:
             print('returning: ' + str(res))
         return res
     if node.type == ">":
-        res = calculate(node.children[0], runner) > calculate(node.children[1], runner)
+        first = calculate(node.children[0], runner)
+        second = calculate(node.children[1], runner)
+        if (type(first) is not int) or (type(second) is not int):
+            print("Type error!")
+            sys.exit()
+        res = (first > second)
         if debug:
             print('returning: ' + str(res))
         return res
     if node.type == "<":
-        res = calculate(node.children[0], runner) < calculate(node.children[1], runner)
+        first = calculate(node.children[0], runner)
+        second = calculate(node.children[1], runner)
+        if (type(first) is not int) or (type(second) is not int):
+            print("Type error!")
+            sys.exit()
+        res = (first < second)
         if debug:
             print('returning: ' + str(res))
         return res
     if node.type == "=":
         res = True
+        value = calculate(node.children[0], runner)
         for node in node.children:
-            res = (calculate(node, runner) == res)
+            next_value = calculate(node, runner)
+            if type(next_value) is not int:
+                print("Type error!")
+                sys.exit()
+            res = (res and (next_value == value))
+            value = next_value
         if debug:
             print('returning: ' + str(res))
         return res
     if node.type == "and":
         res = True
         for node in node.children:
-            res = (calculate(node, runner) and res)
+            value = calculate(node, runner)
+            if type(value) is not bool:
+                print("Type error!")
+                sys.exit()
+            res = (value and res)
         if debug:
             print('returning: ' + str(res))
         return res
     if node.type == "or":
         res = False
         for node in node.children:
-            res = (calculate(node, runner) or res)
+            value = calculate(node, runner)
+            if type(value) is not bool:
+                print("Type error!")
+                sys.exit()
+            res = (value or res)
         if debug:
             print('returning: ' + str(res))
         return res
     if node.type == "not":
-        res = not calculate(node.children[0], runner)
+        value = calculate(node.children[0], runner)
+        if type(value) is not bool:
+            print("Type error!")
+            sys.exit()
+        res = not value
         if debug:
             print('returning: ' + str(res))
         return res
     if node.type == "if_branch":
         res = None
-        if calculate(node.children[0], runner):
+        test_value = calculate(node.children[0], runner)
+        if type(test_value) is not bool:
+            print('Type error!')
+            sys.exit()
+        if test_value:
             res = calculate(node.children[1].children[0], runner)
         else:
             res = calculate(node.children[1].children[1], runner)
@@ -529,7 +576,7 @@ def define_(node, runner=main_tree):
     if node.children[1].type != 'fun':  # define value
         if node.children[0].value in runner.def_var:
             print('Redefining is not allowed.')
-            sys.exit(1)
+            sys.exit(0)
         runner.def_var[node.children[0].value] = node.children[1]
     else:                               # define function
         runner.fun_trees[node.children[0].value] = Tree(node.children[1], runner)
