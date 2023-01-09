@@ -4,11 +4,11 @@ from lex import tokens # lex -> filename
 from anytree import NodeMixin, RenderTree
 
 class Tree(object):
-    def __init__(self, root, caller=None):
+    def __init__(self, root, definer=None):
         self.root = root
         self.def_var = {}
-        if caller:
-            self.caller = caller
+        self.fun_trees = {}
+        self.definer = definer
 
 class AstNodeClass(NodeMixin):  # Add Node feature
     def __init__(self, type, value=None, parent=None, children=None):
@@ -20,7 +20,6 @@ class AstNodeClass(NodeMixin):  # Add Node feature
             self.children = children
 
 main_tree = Tree(AstNodeClass('root'))
-fun_trees = []
 
 def print_tree(tree):
     for pre, _, node in RenderTree(tree):
@@ -365,8 +364,8 @@ def p_ELSE_EXP(p):
 
 # Error rule for syntax errors
 def p_error(p):
-    print("Syntax error in input: ", p)                           # TODO: change
-    # print("syntax error")
+    # print("Syntax error in input: ", p)                           # TODO: change
+    print("syntax error")
 
 # Reversing a tuple using slicing technique
 # New tuple is created
@@ -375,7 +374,7 @@ def Reverse(tuples):
     return new_tup
 
 # Build the parser
-import sys
+import sys, copy
 parser = yacc.yacc()
 with open(sys.argv[1]) as f:
     s = f.read()
@@ -384,18 +383,18 @@ with open(sys.argv[1]) as f:
 debug = False
 parser.parse(s)
 main_tree.root.children = Reverse(main_tree.root.children)
-# if debug:
-#     print_tree(main_tree.root)
-print_tree(main_tree.root)
+if debug:
+    print_tree(main_tree.root)
+# print_tree(main_tree.root)
 
-def calculate(node):
+def calculate(node, runner=main_tree):
     if debug:
         print('calculating: ')
         print_tree(node)
     if node.type == "print_num":
-        print(int(calculate(node.children[0])))
+        print(int(calculate(node.children[0], runner)))
     if node.type == "print_bool":
-        if calculate(node.children[0]) == True:
+        if calculate(node.children[0], runner) == True:
             print("#t")
         else:
             print("#f")
@@ -410,19 +409,19 @@ def calculate(node):
     if node.type == "+":
         res = 0
         for node in node.children:
-            res += calculate(node)
+            res += calculate(node, runner)
         if debug:
             print('returning: ' + str(res))
         return res
     if node.type == "-":
-        res = calculate(node.children[0]) - calculate(node.children[1])
+        res = calculate(node.children[0], runner) - calculate(node.children[1], runner)
         if debug:
             print('returning: ' + str(res))
         return res
     if node.type == "*":
         res = 1
         for node in node.children:
-            res *= calculate(node)
+            res *= calculate(node, runner)
         if debug:
             print('returning: ' + str(res))
         return res
@@ -432,59 +431,152 @@ def calculate(node):
             print('returning: ' + str(res))
         return res
     if node.type == "%":
-        res = calculate(node.children[0]) % calculate(node.children[1])
+        res = calculate(node.children[0], runner) % calculate(node.children[1], runner)
         if debug:
             print('returning: ' + str(res))
         return res
     if node.type == ">":
-        res = calculate(node.children[0]) > calculate(node.children[1])
+        res = calculate(node.children[0], runner) > calculate(node.children[1], runner)
         if debug:
             print('returning: ' + str(res))
         return res
     if node.type == "<":
-        res = calculate(node.children[0]) < calculate(node.children[1])
+        res = calculate(node.children[0], runner) < calculate(node.children[1], runner)
         if debug:
             print('returning: ' + str(res))
         return res
     if node.type == "=":
         res = True
         for node in node.children:
-            res = (calculate(node) == res)
+            res = (calculate(node, runner) == res)
         if debug:
             print('returning: ' + str(res))
         return res
     if node.type == "and":
         res = True
         for node in node.children:
-            res = (calculate(node) and res)
+            res = (calculate(node, runner) and res)
         if debug:
             print('returning: ' + str(res))
         return res
     if node.type == "or":
         res = False
         for node in node.children:
-            res = (calculate(node) or res)
+            res = (calculate(node, runner) or res)
         if debug:
             print('returning: ' + str(res))
         return res
     if node.type == "not":
-        res = not calculate(node.children[0])
+        res = not calculate(node.children[0], runner)
         if debug:
             print('returning: ' + str(res))
         return res
     if node.type == "if_branch":
         res = None
-        if calculate(node.children[0]):
-            res = calculate(node.children[1].children[0])
+        if calculate(node.children[0], runner):
+            res = calculate(node.children[1].children[0], runner)
         else:
-            res = calculate(node.children[1].children[1])
+            res = calculate(node.children[1].children[1], runner)
         if debug:
             print('returning:'+ str(res))
         return res
+    if node.type == "variable":
+        if debug:
+            print(runner.def_var)
+            print(runner.fun_trees)
+            print_tree(node)
+            print(runner.def_var)
+        if node.value in runner.def_var:
+            if debug:
+                print_tree(runner.def_var[node.value])
+            return calculate(runner.def_var[node.value], runner)
+        elif runner.definer != None:
+            definer = runner.definer
+            while definer != None:
+                if node.value in definer.def_var:
+                    if debug:
+                        print_tree(definer.def_var[node.value])
+                    return calculate(definer.def_var[node.value], definer)
+                definer = definer.definer
+    if node.type == 'call_exp_no_param':
+        return calculate(node.children[0].children[1], runner)
+    if node.type == 'call_exp_params':
+        if debug:
+            print('variables: ' + str(runner.def_var))
+            print('functions: ' + str(runner.fun_trees))
+            print('definer: ' + str(runner.definer))
+        tmp_tree = Tree(node.children[0].children[1], runner)
+        params_index = 0
+        for id in node.children[0].children[0].value:
+            tmp_tree.def_var[id] = node.children[1].children[params_index]
+            if debug:
+                print_tree(tmp_tree.def_var[id])
+            params_index += 1
+        if debug:
+            print(tmp_tree.def_var)
+        return calculate(tmp_tree.root, tmp_tree)
+    if node.type == 'call_name_no_param':
+        if debug:
+            print('variables: ' + str(runner.def_var))
+            print('functions: ' + str(runner.fun_trees))
+            print('definer: ' + str(runner.definer))
+        fun_name = node.children[0].value
+        if fun_name in runner.fun_trees:
+            fun_tree = runner.fun_trees[fun_name]
+            if debug:
+                print_tree(fun_tree.root)
+            return calculate(fun_tree.root.children[1], fun_tree)
+        elif runner.definer != None:
+            definer = runner.definer
+            while definer != None:
+                if fun_name in definer.fun_trees:
+                    fun_tree = definer.fun_trees[fun_name]
+                    if debug:
+                        print_tree(fun_tree.root)
+                    return calculate(fun_tree.root.children[1], fun_tree)
+                definer = definer.definer
+    if node.type == 'call_name_params':
+        if debug:
+            print('variables: ' + str(runner.def_var))
+            print('functions: ' + str(runner.fun_trees))
+            print('definer: ' + str(runner.definer))
+        fun_name = node.children[0].value
+        if fun_name in runner.fun_trees:
+            fun_tree = runner.fun_trees[fun_name]
+            params_index = 0
+            for id in fun_tree.root.children[0].value:
+                fun_tree.def_var[id] = node.children[1].children[params_index]
+                if debug:
+                    print_tree(fun_tree.def_var[id])
+                params_index += 1
+            return calculate(fun_tree.root.children[1], fun_tree)
+        elif runner.definer != None:
+            definer = runner.definer
+            while definer != None:
+                if fun_name in definer.fun_trees:
+                    fun_tree = definer.fun_trees[fun_name]
+                    params_index = 0
+                    for id in fun_tree.root.children[0].value:
+                        fun_tree.def_var[id] = node.children[1].children[params_index]
+                        if debug:
+                            print_tree(tmp_tree.def_var[id])
+                        params_index += 1
+                    return calculate(fun_tree.root.children[1], fun_tree)
+                definer = definer.definer
 
-def define_(node):
-    print('defining: ')
-    print_tree(node)
+def define_(node, runner=main_tree):
+    if debug:
+        print('defining: ')
+        print_tree(node)
+    # if node.children[1].type != 'fun' or \
+    #    node.children[1].type != 'call_exp_no_param' or \
+    #    node.children[1].type != 'call_exp_params' or \
+    #    node.children[1].type != 'call_name_no_param' or \
+    #    node.children[1].type != 'call_name_params':
+    if node.children[1].type != 'fun':  # define value
+        runner.def_var[node.children[0].value] = node.children[1]
+    else:                               # define function
+        runner.fun_trees[node.children[0].value] = Tree(node.children[1], runner)
 
 for line_node in main_tree.root.children:
     if line_node.type == "stmt":
