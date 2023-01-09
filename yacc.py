@@ -508,6 +508,9 @@ def define_(node, runner=main_tree):
         print('defining: ')
         print_tree(node)
     if node.children[1].type != 'fun':  # define value
+        if node.children[0].value in runner.def_var:
+            print('Redefining is not allowed.')
+            sys.exit(1)
         runner.def_var[node.children[0].value] = node.children[1]
     else:                               # define function
         runner.fun_trees[node.children[0].value] = Tree(node.children[1], runner)
