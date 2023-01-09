@@ -308,6 +308,7 @@ def p_ELSE_EXP(p):
 def p_error(p):
     # print("Syntax error in input: ", p)       # for debugging
     print("syntax error")
+    sys.exit(1)
 
 # Reversing a tuple using slicing technique
 # New tuple is created
@@ -320,6 +321,14 @@ import sys, copy
 parser = yacc.yacc()
 with open(sys.argv[1]) as f:
     s = f.read()
+# s = '(define f\
+#   (fun (x) (if (= x 1)\
+#               1 (* x (f (- x 1)))\
+#             )\
+#   )\
+# )\
+# \
+# (print-num (f 4))'
 debug = False
 parser.parse(s)
 main_tree.root.children = Reverse(main_tree.root.children)
@@ -327,6 +336,9 @@ if debug:
     print_tree(main_tree.root)
 
 def calculate(node, runner=main_tree):
+    if not hasattr(node, 'type'):
+        print('Warning: ' + str(node) + ' is not a node')
+        return node
     if debug:
         print('calculating: ')
         print_tree(node)
@@ -427,7 +439,10 @@ def calculate(node, runner=main_tree):
             print(runner.def_var)
         if node.value in runner.def_var:
             if debug:
-                print_tree(runner.def_var[node.value])
+                if hasattr(runner.def_var[node.value], 'type'):
+                    print_tree(runner.def_var[node.value])
+                else:
+                    print(runner.def_var[node.value])
             return calculate(runner.def_var[node.value], runner)
         elif runner.definer != None:
             definer = runner.definer
@@ -493,12 +508,16 @@ def calculate(node, runner=main_tree):
             definer = runner.definer
             while definer != None:
                 if fun_name in definer.fun_trees:
-                    fun_tree = definer.fun_trees[fun_name]
+                    fun_tree = copy.deepcopy(definer.fun_trees[fun_name])
                     params_index = 0
                     for id in fun_tree.root.children[0].value:
-                        fun_tree.def_var[id] = node.children[1].children[params_index]
+                        param_node = AstNodeClass("number", value=calculate(node.children[1].children[params_index], runner))
+                        fun_tree.def_var[id] = param_node
                         if debug:
-                            print_tree(tmp_tree.def_var[id])
+                            if hasattr(fun_tree.def_var[id], 'type'):
+                                print_tree(fun_tree.def_var[id])
+                            else:
+                                print(fun_tree.def_var[id])
                         params_index += 1
                     return calculate(fun_tree.root.children[1], fun_tree)
                 definer = definer.definer
