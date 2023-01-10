@@ -240,9 +240,35 @@ def p_ID_PLUS_more(p):
     '''ID_PLUS  : id ID_PLUS'''
     p[0] = p[2] + [p[1]]
 
-def p_FUN_BODY(p):
+def p_FUN_BODY_no_def(p):
     '''FUN_BODY  : EXP'''
     p[0] = p[1]
+def p_FUN_BODY_def_one(p):
+    '''FUN_BODY  : DEF_STMT EXP'''
+    p[0] = AstNodeClass("define_in_fun")
+    p[2].parent = p[0]
+    p[1].parent = p[0]
+def p_FUN_BODY_def_two(p):
+    '''FUN_BODY  : DEF_STMT DEF_STMT EXP'''
+    p[0] = AstNodeClass("define_in_fun")
+    p[3].parent = p[0]
+    p[1].parent = p[0]
+    p[2].parent = p[0]
+def p_FUN_BODY_def_three(p):
+    '''FUN_BODY  : DEF_STMT DEF_STMT DEF_STMT EXP'''
+    p[0] = AstNodeClass("define_in_fun")
+    p[4].parent = p[0]
+    p[1].parent = p[0]
+    p[2].parent = p[0]
+    p[3].parent = p[0]
+def p_FUN_BODY_def_four(p):
+    '''FUN_BODY  : DEF_STMT DEF_STMT DEF_STMT DEF_STMT EXP'''
+    p[0] = AstNodeClass("define_in_fun")
+    p[4].parent = p[0]
+    p[1].parent = p[0]
+    p[2].parent = p[0]
+    p[3].parent = p[0]
+    p[4].parent = p[0]
 
 def p_FUN_CALL_exp_no_param(p):
     '''FUN_CALL : lpr FUN_EXP rpr'''
@@ -321,11 +347,22 @@ import sys, copy
 parser = yacc.yacc()
 with open(sys.argv[1]) as f:
     s = f.read()
+# s = '''(define dist-square
+#   (fun (x y)
+#     (define square (fun (x) (* x x)))
+#     (define hii (fun (x) (* x x)))
+#     (define hi2 (fun () 0))
+#     (+ (square x) (hii y) (hi2))
+#   )
+# )
+# (print-num (dist-square 3 4))
+# '''
 debug = False
 parser.parse(s)
 main_tree.root.children = Reverse(main_tree.root.children)
 if debug:
     print_tree(main_tree.root)
+# print_tree(main_tree.root)                                # TODO: remove this
 
 def calculate(node, runner=main_tree):
     if not hasattr(node, 'type'):
@@ -543,10 +580,15 @@ def calculate(node, runner=main_tree):
             print('definer: ' + str(runner.definer))
         fun_name = node.children[0].value
         if fun_name in runner.fun_trees:
-            fun_tree = runner.fun_trees[fun_name]
+            fun_tree = copy.deepcopy(runner.fun_trees[fun_name])
             params_index = 0
             for id in fun_tree.root.children[0].value:
-                fun_tree.def_var[id] = node.children[1].children[params_index]
+                id_value = calculate(node.children[1].children[params_index], runner)
+                if type(id_value) is int:
+                    id_node = AstNodeClass("number", value=id_value)
+                elif type(id_value) is bool:
+                    id_node = AstNodeClass("bool", value=id_value)
+                fun_tree.def_var[id] = id_node
                 if debug:
                     print_tree(fun_tree.def_var[id])
                 params_index += 1
@@ -569,17 +611,29 @@ def calculate(node, runner=main_tree):
                     return calculate(fun_tree.root.children[1], fun_tree)
                 definer = definer.definer
 
-def define_(node, runner=main_tree):
+def define_(node, definer=main_tree):
     if debug:
         print('defining: ')
         print_tree(node)
     if node.children[1].type != 'fun':  # define value
-        if node.children[0].value in runner.def_var:
+        if node.children[0].value in definer.def_var:
             print('Redefining is not allowed.')
             sys.exit(0)
-        runner.def_var[node.children[0].value] = node.children[1]
-    else:                               # define function
-        runner.fun_trees[node.children[0].value] = Tree(node.children[1], runner)
+        definer.def_var[node.children[0].value] = node.children[1]
+    elif node.children[1].children[1].type != 'define_in_fun':                               # define function
+        definer.fun_trees[node.children[0].value] = Tree(node.children[1], definer)
+    else:
+        new_fun_tree_root = AstNodeClass("fun")
+        new_fun_ids = copy.deepcopy(node.children[1].children[0])
+        new_fun_body = copy.deepcopy(node.children[1].children[1].children[0])
+        new_fun_ids.parent = new_fun_tree_root
+        new_fun_body.parent = new_fun_tree_root
+        if debug:
+            print_tree(new_fun_tree_root)
+        new_fun_tree = definer.fun_trees[node.children[0].value] = Tree(new_fun_tree_root, definer)
+        for i in range(1, len(node.children[1].children[1].children)):
+            sub_fun_define = node.children[1].children[1].children[i]
+            define_(sub_fun_define, new_fun_tree)
 
 for line_node in main_tree.root.children:
     if line_node.type == "stmt":
