@@ -160,7 +160,11 @@ def p_EQUAL(p):
     '''EQUAL : lpr equal EXP EQUAL_EXP_PLUS rpr'''
     p[0] = AstNodeClass("=")
     p[3].parent = p[0]
-    p[4].parent = p[0]
+    if p[4].type == "=":
+        for node in p[4].children:
+            node.parent = p[0]
+    else:
+        p[4].parent = p[0]
 def p_EQUAL_EXP_PLUS_one(p):
     '''EQUAL_EXP_PLUS   : EXP'''
     p[0] = p[1]
@@ -168,7 +172,11 @@ def p_EQUAL_EXP_PLUS_more(p):
     '''EQUAL_EXP_PLUS   : EXP EQUAL_EXP_PLUS'''
     p[0] = AstNodeClass("=")
     p[1].parent = p[0]
-    p[2].parent = p[0]
+    if p[2].type == "=":
+        for node in p[2].children:
+            node.parent = p[0]
+    else:
+        p[2].parent = p[0]
 
 def p_LOGICAL_OP(p):
     '''LOGICAL_OP : AND_OP
@@ -467,7 +475,6 @@ def calculate(node, runner=main_tree):
                 print("Type error!")
                 sys.exit()
             res = (res and (next_value == value))
-            value = next_value
         if debug:
             print('returning: ' + str(res))
         return res
