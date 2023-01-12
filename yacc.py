@@ -527,7 +527,6 @@ def calculate(node, runner=main_tree):
             print(runner.def_var)
             print(runner.fun_trees)
             print_tree(node)
-            print(runner.def_var)
         if node.value in runner.def_var:
             if debug:
                 if hasattr(runner.def_var[node.value], 'type'):
@@ -543,6 +542,8 @@ def calculate(node, runner=main_tree):
                         print_tree(definer.def_var[node.value])
                     return calculate(definer.def_var[node.value], definer)
                 definer = definer.definer
+        print('variable ' + str(node.value) + ' not defined')
+        sys.exit()
     if node.type == 'call_exp_no_param':
         return calculate(node.children[0].children[1], runner)
     if node.type == 'call_exp_params':
@@ -580,6 +581,8 @@ def calculate(node, runner=main_tree):
                         print_tree(fun_tree.root)
                     return calculate(fun_tree.root.children[1], fun_tree)
                 definer = definer.definer
+        print('function ' + str(fun_name) + ' not defined')
+        sys.exit()
     if node.type == 'call_name_params':
         if debug:
             print('variables: ' + str(runner.def_var))
@@ -617,6 +620,8 @@ def calculate(node, runner=main_tree):
                         params_index += 1
                     return calculate(fun_tree.root.children[1], fun_tree)
                 definer = definer.definer
+        print('function ' + str(fun_name) + ' not defined')
+        sys.exit()
 
 def define_(node, definer=main_tree):
     if debug:
