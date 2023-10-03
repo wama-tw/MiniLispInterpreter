@@ -1,5 +1,10 @@
 # Compiler Final Project
 Using python `ply` to prase grammar.
+
+## Features
+![](https://imgur.com/92TXoX5.png)
+![](https://imgur.com/rdMysmr.png)
+
 ## How to run
 under the python folder
 ```shell
